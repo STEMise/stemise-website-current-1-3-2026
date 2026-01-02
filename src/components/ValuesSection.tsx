@@ -39,7 +39,7 @@ const ValuesSection = () => {
     if (cardsRef.current) observer.observe(cardsRef.current);
     return () => observer.disconnect();
   }, []);
-  return <section className="py-24 relative overflow-hidden bg-[#0c0c18]">
+  return <section className="relative overflow-hidden bg-[#0c0c18] py-[110px]">
       <div className="container mx-auto px-6">
         <div ref={headerRef} className={`text-center mb-20 ${headerVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
           

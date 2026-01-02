@@ -45,7 +45,7 @@ const ProgramsSection = () => {
     if (cardsRef.current) observer.observe(cardsRef.current);
     return () => observer.disconnect();
   }, []);
-  return <section id="programs" className="py-24 bg-background scroll-mt-24 relative overflow-hidden">
+  return <section id="programs" className="bg-background scroll-mt-24 relative overflow-hidden py-[60px]">
       <div className="container mx-auto px-6">
         <div ref={headerRef} className={`text-center mb-20 ${headerVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
           <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4 text-secondary bg-primary-foreground">

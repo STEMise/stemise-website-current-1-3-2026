@@ -4,39 +4,28 @@ import { Link } from "react-router-dom";
 import AppHashLink from "@/components/AppHashLink";
 import heroImage from "@/assets/hero-stem.jpg";
 import heroBanner from "@/assets/hero-banner.png";
-
 const HeroSection = () => {
-  return (
-    <section 
-      className="relative bg-card py-20 md:py-32 overflow-hidden"
-    >
+  return <section className="relative bg-card py-20 md:py-32 overflow-hidden">
       {/* Background Image with subtle zoom animation */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-[zoomIn_20s_ease-in-out_infinite_alternate]"
-        style={{ 
-          backgroundImage: `url(${heroImage})`,
-          transformOrigin: 'center center',
-        }}
-      />
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-[zoomIn_20s_ease-in-out_infinite_alternate]" style={{
+      backgroundImage: `url(${heroImage})`,
+      transformOrigin: 'center center'
+    }} />
       {/* Animated gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80" />
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          <img src={heroBanner} alt="STEMise Banner" className="h-24 md:h-32 w-auto mx-auto mb-8" />
+          <img alt="STEMise Banner" src="/lovable-uploads/0bf0f453-e9ad-4ad9-a3e8-7be7ebcbfe3b.png" className="h-40 md:h-20 w-auto mx-auto mb-2" />
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground leading-tight animate-fade-in-up">
             Redefining STEM Education Worldwide
           </h1>
 
-          <p
-            className="mt-6 text-lg md:text-xl text-foreground/80 leading-relaxed animate-fade-in-up stagger-2"
-          >
+          <p className="mt-6 text-lg md:text-xl text-foreground/80 leading-relaxed animate-fade-in-up stagger-2">
             An international, youth-led organization committed to transforming abstract classroom concepts into engaging, meaningful learning experiences through hands-on STEM kits and technology curricula.
           </p>
 
-          <div
-            className="mt-10 flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up stagger-3"
-          >
+          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up stagger-3">
             <Button size="lg" asChild className="hover-lift animate-glow">
               <Link to="/courses" className="gap-2 inline-flex items-center">
                 Explore our programs
@@ -52,8 +41,6 @@ const HeroSection = () => {
 
       {/* Decorative animated elements */}
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent" />
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;

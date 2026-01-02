@@ -230,7 +230,7 @@ const MembershipSection = () => {
           ref={headerRef}
           className={`text-center mb-20 ${headerVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-blue-500/20 text-blue-400 text-sm font-medium mb-4">
             Join Our Community
           </span>
           <h2 className="text-3xl md:text-5xl font-semibold text-foreground">

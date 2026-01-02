@@ -76,7 +76,7 @@ const FlipCard = ({
       <div className="flip-card absolute inset-0 group">
         <div className="flip-card-inner relative w-full h-full group-hover:min-h-max">
           {/* Front of card */}
-          <div className="flip-card-front absolute inset-0 bg-gradient-to-br from-card to-secondary/50 border border-border/50 rounded-2xl flex flex-col items-center justify-center p-6">
+          <div className="flip-card-front absolute inset-0 bg-card border border-border/50 rounded-2xl flex flex-col items-center justify-center p-6">
             <div className={`w-16 h-16 ${category.iconBg} rounded-2xl flex items-center justify-center mb-4`}>
               <Icon className="h-8 w-8 text-foreground" />
             </div>
@@ -151,6 +151,11 @@ const MembershipSection = () => {
     targetOpacitiesRef.current = contributorCategories.map((_, i) => i === index ? 1 : 0);
   }, []);
   return <section id="contributors" className="py-24 scroll-mt-24 relative overflow-hidden min-h-[900px]">
+      {/* Top gradient transition */}
+      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-background to-transparent z-20" />
+      {/* Bottom gradient transition */}
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent z-20" />
+      
       {/* Gradient backgrounds with smooth opacity transitions */}
       {contributorCategories.map((category, index) => <div key={category.title} className={`absolute inset-0 bg-gradient-to-br ${category.gradient}`} style={{
       opacity: gradientOpacities[index]

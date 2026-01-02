@@ -41,8 +41,8 @@ const HeroSection = () => {
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
-            <Button variant="outline" size="lg" asChild className="hover-lift">
-              <AppHashLink toId="join">Become a member</AppHashLink>
+            <Button variant="outline" size="lg" asChild className="hover-lift bg-foreground text-background border-foreground hover:bg-foreground/90 hover:text-background">
+              <AppHashLink toId="join">Get Involved</AppHashLink>
             </Button>
           </div>
         </div>

@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import AppHashLink from "@/components/AppHashLink";
 import heroImage from "@/assets/hero-stem.jpg";
+import heroBanner from "@/assets/hero-banner.png";
 
 const HeroSection = () => {
   return (
@@ -22,6 +23,7 @@ const HeroSection = () => {
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
+          <img src={heroBanner} alt="STEMise Banner" className="h-24 md:h-32 w-auto mx-auto mb-8" />
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground leading-tight animate-fade-in-up">
             Redefining STEM Education Worldwide
           </h1>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AppHashLink from "@/components/AppHashLink";
+import stemiseLogo from "@/assets/stemise-logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,7 +24,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <span className="text-xl font-semibold text-foreground">STEMise</span>
+            <img src={stemiseLogo} alt="STEMise" className="h-10 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}

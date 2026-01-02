@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import AppHashLink from "@/components/AppHashLink";
+import stemiseLogo from "@/assets/stemise-logo.png";
 const LinkedInIcon = ({
   className
 }: {
@@ -53,8 +54,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="md:col-span-1">
-            <Link to="/" className="text-xl font-semibold text-foreground">
-              STEMise
+            <Link to="/" className="inline-block">
+              <img src={stemiseLogo} alt="STEMise" className="h-10 w-auto" />
             </Link>
             <p className="mt-4 text-sm text-foreground/80">
               Redefining STEM education through hands-on learning worldwide.

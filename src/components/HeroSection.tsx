@@ -1,0 +1,57 @@
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import AppHashLink from "@/components/AppHashLink";
+import heroImage from "@/assets/hero-stem.jpg";
+
+const HeroSection = () => {
+  return (
+    <section 
+      className="relative bg-card py-20 md:py-32 overflow-hidden"
+    >
+      {/* Background Image with subtle zoom animation */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-[zoomIn_20s_ease-in-out_infinite_alternate]"
+        style={{ 
+          backgroundImage: `url(${heroImage})`,
+          transformOrigin: 'center center',
+        }}
+      />
+      {/* Animated gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80" />
+      
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-3xl mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground leading-tight animate-fade-in-up">
+            Redefining STEM Education Worldwide
+          </h1>
+
+          <p
+            className="mt-6 text-lg md:text-xl text-foreground/80 leading-relaxed animate-fade-in-up stagger-2"
+          >
+            An international, youth-led organization committed to transforming abstract classroom concepts into engaging, meaningful learning experiences through hands-on STEM kits and technology curricula.
+          </p>
+
+          <div
+            className="mt-10 flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up stagger-3"
+          >
+            <Button size="lg" asChild className="hover-lift animate-glow">
+              <Link to="/courses" className="gap-2 inline-flex items-center">
+                Explore our programs
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
+            <Button variant="outline" size="lg" asChild className="hover-lift">
+              <AppHashLink toId="join">Become a member</AppHashLink>
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      {/* Decorative animated elements */}
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent" />
+    </section>
+  );
+};
+
+export default HeroSection;

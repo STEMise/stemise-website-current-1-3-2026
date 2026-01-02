@@ -1,0 +1,268 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* STEMise Design System - Locked Color Palette */
+
+@layer base {
+  :root {
+    /* Core Brand Colors - Dark Theme with #0b0b17 base */
+    --primary: 217 67% 50%;           /* Brighter blue for dark bg */
+    --primary-foreground: 0 0% 100%;  /* #ffffff */
+
+    --background: 240 35% 7%;         /* #0b0b17 - dark blue-black */
+    --foreground: 0 0% 100%;          /* #ffffff */
+
+    --card: 240 30% 12%;              /* Slightly lighter than bg */
+    --card-foreground: 0 0% 100%;     /* #ffffff */
+
+    --popover: 240 30% 12%;
+    --popover-foreground: 0 0% 100%;
+
+    --secondary: 240 25% 18%;         /* Muted dark blue */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 25% 15%;
+    --muted-foreground: 220 20% 70%;
+
+    --accent: 217 67% 45%;            /* Blue accent */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 25% 20%;
+    --input: 240 25% 18%;
+    --ring: 217 67% 50%;
+
+    --radius: 0.375rem;
+
+    /* Sidebar tokens */
+    --sidebar-background: 240 30% 10%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 217 67% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 25% 18%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 240 25% 20%;
+    --sidebar-ring: 217 67% 50%;
+  }
+
+  .dark {
+    --primary: 217 67% 38%;
+    --primary-foreground: 0 0% 100%;
+
+    --background: 240 5% 4%;
+    --foreground: 0 0% 100%;
+
+    --card: 240 5% 8%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 240 5% 8%;
+    --popover-foreground: 0 0% 100%;
+
+    --secondary: 240 5% 12%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 5% 12%;
+    --muted-foreground: 220 20% 70%;
+
+    --accent: 240 5% 12%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 5% 15%;
+    --input: 240 5% 15%;
+    --ring: 217 67% 50%;
+
+    --sidebar-background: 240 5% 6%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 217 67% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 5% 12%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 240 5% 15%;
+    --sidebar-ring: 217 67% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-vietnam antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-vietnam;
+  }
+
+  /* Editorial content styling */
+  .editorial {
+    @apply font-serif;
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animation utilities */
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-in-left {
+    animation: fadeInLeft 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-in-right {
+    animation: fadeInRight 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulseSlow 3s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  /* Flip card styles */
+  .flip-card {
+    perspective: 1000px;
+  }
+
+  .flip-card-inner {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+  }
+
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .flip-card-back {
+    transform: rotateY(180deg);
+  }
+
+  /* Hover lift effect */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+  }
+
+  /* Stagger animation delays */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulseSlow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.2);
+  }
+  to {
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.4);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}

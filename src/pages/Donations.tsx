@@ -5,47 +5,39 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Heart, ShieldCheck, Target, TrendingUp } from "lucide-react";
-
 const Donations = () => {
-  const causes = [
-    {
-      icon: Target,
-      title: "STEM Kits",
-      description: "Providing physical learning materials to students in underserved communities.",
-      gradient: "from-blue-500/20 to-cyan-500/20",
-      iconBg: "bg-blue-500/20",
-    },
-    {
-      icon: TrendingUp,
-      title: "Scholarships",
-      description: "Funding higher education for promising students in STEM fields.",
-      gradient: "from-purple-500/20 to-pink-500/20",
-      iconBg: "bg-purple-500/20",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Safe Spaces",
-      description: "Creating secure environments for learning and experimentation.",
-      gradient: "from-emerald-500/20 to-teal-500/20",
-      iconBg: "bg-emerald-500/20",
-    },
-    {
-      icon: Heart,
-      title: "Community Outreach",
-      description: "Building local awareness and engagement for STEM education.",
-      gradient: "from-rose-500/20 to-pink-500/20",
-      iconBg: "bg-rose-500/20",
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-background">
+  const causes = [{
+    icon: Target,
+    title: "STEM Kits",
+    description: "Providing physical learning materials to students in underserved communities.",
+    gradient: "from-blue-500/20 to-cyan-500/20",
+    iconBg: "bg-blue-500/20"
+  }, {
+    icon: TrendingUp,
+    title: "Scholarships",
+    description: "Funding higher education for promising students in STEM fields.",
+    gradient: "from-purple-500/20 to-pink-500/20",
+    iconBg: "bg-purple-500/20"
+  }, {
+    icon: ShieldCheck,
+    title: "Safe Spaces",
+    description: "Creating secure environments for learning and experimentation.",
+    gradient: "from-emerald-500/20 to-teal-500/20",
+    iconBg: "bg-emerald-500/20"
+  }, {
+    icon: Heart,
+    title: "Community Outreach",
+    description: "Building local awareness and engagement for STEM education.",
+    gradient: "from-rose-500/20 to-pink-500/20",
+    iconBg: "bg-rose-500/20"
+  }];
+  return <div className="min-h-screen bg-background">
       <Header />
       <main className="py-24">
         <div className="container mx-auto px-6">
           {/* Hero Section */}
           <div className="text-center mb-20">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4 bg-primary-foreground text-secondary">
               Make an Impact
             </span>
             <h1 className="text-3xl md:text-5xl font-semibold text-foreground">
@@ -62,20 +54,15 @@ const Donations = () => {
               <h2 className="text-3xl md:text-5xl font-semibold text-foreground">Where Your Money Goes</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {causes.map((cause, index) => {
-                  const Icon = cause.icon;
-                  return (
-                    <div 
-                      key={index} 
-                      className={`group p-6 bg-gradient-to-br ${cause.gradient} rounded-2xl border border-border/50 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/10 transition-all duration-300`}
-                    >
+                const Icon = cause.icon;
+                return <div key={index} className={`group p-6 bg-gradient-to-br ${cause.gradient} rounded-2xl border border-border/50 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/10 transition-all duration-300`}>
                       <div className={`w-12 h-12 ${cause.iconBg} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
                         <Icon className="h-6 w-6 text-foreground" />
                       </div>
                       <h3 className="text-xl font-semibold mb-2">{cause.title}</h3>
                       <p className="text-foreground/70 text-sm leading-relaxed">{cause.description}</p>
-                    </div>
-                  );
-                })}
+                    </div>;
+              })}
               </div>
               
               <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl border border-border/50 p-8">
@@ -93,15 +80,13 @@ const Donations = () => {
                 <CardDescription className="text-foreground/70">Support our mission with a one-time or recurring gift.</CardDescription>
               </CardHeader>
               <CardContent>
-                <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+                <form className="space-y-8" onSubmit={e => e.preventDefault()}>
                   <div className="space-y-4">
                     <Label>Select Amount</Label>
                     <div className="grid grid-cols-3 gap-3">
-                      {["$10", "$50", "$100", "$250", "$500", "Custom"].map((amount) => (
-                        <Button key={amount} variant="outline" type="button" className="w-full hover:bg-primary/10 hover:border-primary/50">
+                      {["$10", "$50", "$100", "$250", "$500", "Custom"].map(amount => <Button key={amount} variant="outline" type="button" className="w-full hover:bg-primary/10 hover:border-primary/50">
                           {amount}
-                        </Button>
-                      ))}
+                        </Button>)}
                     </div>
                   </div>
 
@@ -130,8 +115,6 @@ const Donations = () => {
         </div>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Donations;

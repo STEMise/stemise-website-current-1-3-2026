@@ -2,12 +2,41 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Mail } from "lucide-react";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Mail, Package, Plus, Minus, Trash2, Send } from "lucide-react";
 import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
+
+interface KitItem {
+  id: string;
+  name: string;
+  description: string;
+  quantity: number;
+}
+
+const stemKits = [
+  { id: "robotics-basic", name: "Robotics Starter Kit", description: "Arduino-based robotics kit for beginners" },
+  { id: "electronics-lab", name: "Electronics Lab Kit", description: "Breadboards, components, and sensors" },
+  { id: "chemistry-set", name: "Chemistry Experiment Set", description: "Safe chemistry experiments for students" },
+  { id: "physics-toolkit", name: "Physics Toolkit", description: "Mechanics, optics, and electricity demos" },
+  { id: "coding-bundle", name: "Coding Education Bundle", description: "Micro:bit and Raspberry Pi materials" },
+  { id: "biology-microscope", name: "Biology Microscope Kit", description: "Microscopes and prepared slides" },
+  { id: "math-manipulatives", name: "Math Manipulatives Set", description: "Hands-on geometry and algebra tools" },
+  { id: "renewable-energy", name: "Renewable Energy Kit", description: "Solar, wind, and hydro experiments" },
+];
+
 const Courses = () => {
   const [email, setEmail] = useState("");
+  const [selectedKits, setSelectedKits] = useState<KitItem[]>([]);
+  const [message, setMessage] = useState("");
+  const [requesterName, setRequesterName] = useState("");
+  const [requesterEmail, setRequesterEmail] = useState("");
+  const [organization, setOrganization] = useState("");
+  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+
   const handleWaitlistSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
@@ -18,8 +47,97 @@ const Courses = () => {
       setEmail("");
     }
   };
+
+  const addKit = (kit: typeof stemKits[0]) => {
+    const existing = selectedKits.find(k => k.id === kit.id);
+    if (existing) {
+      setSelectedKits(selectedKits.map(k => 
+        k.id === kit.id ? { ...k, quantity: k.quantity + 1 } : k
+      ));
+    } else {
+      setSelectedKits([...selectedKits, { ...kit, quantity: 1 }]);
+    }
+    toast({
+      title: "Kit added",
+      description: `${kit.name} added to your request list.`
+    });
+  };
+
+  const updateQuantity = (id: string, delta: number) => {
+    setSelectedKits(selectedKits.map(k => {
+      if (k.id === id) {
+        const newQty = Math.max(1, k.quantity + delta);
+        return { ...k, quantity: newQty };
+      }
+      return k;
+    }));
+  };
+
+  const removeKit = (id: string) => {
+    setSelectedKits(selectedKits.filter(k => k.id !== id));
+  };
+
+  const handleSubmitRequest = () => {
+    if (selectedKits.length === 0) {
+      toast({
+        title: "No kits selected",
+        description: "Please add at least one STEM kit to your request.",
+        variant: "destructive"
+      });
+      return;
+    }
+    if (!requesterName || !requesterEmail) {
+      toast({
+        title: "Missing information",
+        description: "Please fill in your name and email.",
+        variant: "destructive"
+      });
+      return;
+    }
+    setShowConfirmDialog(true);
+  };
+
+  const sendRequest = async () => {
+    setIsSending(true);
+    
+    // Placeholder for email sending - replace with your backend service
+    const requestData = {
+      to: "officialstemise@gmail.com",
+      from: requesterEmail,
+      name: requesterName,
+      organization,
+      message,
+      kits: selectedKits.map(k => ({ name: k.name, quantity: k.quantity })),
+    };
+    
+    console.log("Request data to send:", requestData);
+    
+    // Simulate sending delay
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    // TODO: Replace this with actual email API call
+    // Example: await fetch('/api/send-kit-request', { method: 'POST', body: JSON.stringify(requestData) });
+    
+    setIsSending(false);
+    setShowConfirmDialog(false);
+    
+    toast({
+      title: "Request submitted!",
+      description: "We'll review your request and get back to you soon."
+    });
+    
+    // Reset form
+    setSelectedKits([]);
+    setMessage("");
+    setRequesterName("");
+    setRequesterEmail("");
+    setOrganization("");
+  };
+
   const courses = ['Quantum Physics', 'Robotics Level 1', 'AI & Ethics', 'Sustainable Tech'];
-  return <div className="min-h-screen bg-background">
+
+  return (
+    <div className="min-h-screen bg-background">
       <Header />
       <main className="py-24">
         <div className="container mx-auto px-6">
@@ -35,7 +153,174 @@ const Courses = () => {
             </p>
           </div>
 
-          <Card className="max-w-md mx-auto border border-border/50 bg-gradient-to-br from-card to-secondary/30 rounded-2xl">
+          {/* STEM Kit Request Section */}
+          <div className="mb-24">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-4">Request STEM Kits</h2>
+              <p className="text-foreground/70 max-w-2xl mx-auto">
+                Select the kits you need for your school, community center, or educational program. 
+                We distribute STEM resources to educators worldwide.
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-3 gap-8">
+              {/* Available Kits */}
+              <div className="lg:col-span-2">
+                <h3 className="text-xl font-semibold mb-4">Available Kits</h3>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {stemKits.map((kit) => (
+                    <Card key={kit.id} className="border border-border/50 bg-gradient-to-br from-card to-secondary/30">
+                      <CardHeader className="pb-2">
+                        <div className="flex items-start justify-between">
+                          <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
+                            <Package className="h-5 w-5 text-primary" />
+                          </div>
+                          <Button 
+                            size="sm" 
+                            onClick={() => addKit(kit)}
+                            className="h-8"
+                          >
+                            <Plus className="h-4 w-4 mr-1" /> Add
+                          </Button>
+                        </div>
+                        <CardTitle className="text-lg mt-2">{kit.name}</CardTitle>
+                        <CardDescription>{kit.description}</CardDescription>
+                      </CardHeader>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+
+              {/* Request Summary */}
+              <div>
+                <h3 className="text-xl font-semibold mb-4">Your Request</h3>
+                <Card className="border border-border/50 bg-gradient-to-br from-card to-secondary/30 sticky top-24">
+                  <CardContent className="pt-6">
+                    {selectedKits.length === 0 ? (
+                      <p className="text-foreground/50 text-center py-8">
+                        No kits selected yet. Click "Add" on any kit to include it in your request.
+                      </p>
+                    ) : (
+                      <div className="space-y-3 mb-6">
+                        {selectedKits.map((kit) => (
+                          <div key={kit.id} className="flex items-center justify-between p-3 bg-background/50 rounded-lg">
+                            <div className="flex-1 min-w-0">
+                              <p className="font-medium text-sm truncate">{kit.name}</p>
+                            </div>
+                            <div className="flex items-center gap-2 ml-2">
+                              <Button 
+                                size="icon" 
+                                variant="outline" 
+                                className="h-7 w-7"
+                                onClick={() => updateQuantity(kit.id, -1)}
+                              >
+                                <Minus className="h-3 w-3" />
+                              </Button>
+                              <span className="w-8 text-center font-medium">{kit.quantity}</span>
+                              <Button 
+                                size="icon" 
+                                variant="outline" 
+                                className="h-7 w-7"
+                                onClick={() => updateQuantity(kit.id, 1)}
+                              >
+                                <Plus className="h-3 w-3" />
+                              </Button>
+                              <Button 
+                                size="icon" 
+                                variant="ghost" 
+                                className="h-7 w-7 text-destructive"
+                                onClick={() => removeKit(kit.id)}
+                              >
+                                <Trash2 className="h-3 w-3" />
+                              </Button>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    <div className="space-y-4">
+                      <Input 
+                        placeholder="Your name *" 
+                        value={requesterName}
+                        onChange={(e) => setRequesterName(e.target.value)}
+                        className="bg-background/50"
+                      />
+                      <Input 
+                        type="email"
+                        placeholder="Your email *" 
+                        value={requesterEmail}
+                        onChange={(e) => setRequesterEmail(e.target.value)}
+                        className="bg-background/50"
+                      />
+                      <Input 
+                        placeholder="Organization (optional)" 
+                        value={organization}
+                        onChange={(e) => setOrganization(e.target.value)}
+                        className="bg-background/50"
+                      />
+                      <Textarea 
+                        placeholder="Additional message (e.g., intended use, target audience, location...)"
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        className="bg-background/50 min-h-[100px]"
+                      />
+                      <Button 
+                        className="w-full" 
+                        onClick={handleSubmitRequest}
+                        disabled={selectedKits.length === 0}
+                      >
+                        <Send className="h-4 w-4 mr-2" /> Submit Request
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+
+          {/* Confirmation Dialog */}
+          <Dialog open={showConfirmDialog} onOpenChange={setShowConfirmDialog}>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Confirm Your Request</DialogTitle>
+                <DialogDescription>
+                  Please review your STEM kit request before submitting.
+                </DialogDescription>
+              </DialogHeader>
+              <div className="space-y-4 py-4">
+                <div>
+                  <p className="text-sm text-foreground/70 mb-2">Requested kits:</p>
+                  <ul className="space-y-1">
+                    {selectedKits.map((kit) => (
+                      <li key={kit.id} className="text-sm">
+                        • {kit.name} × {kit.quantity}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="text-sm">
+                  <p><strong>From:</strong> {requesterName} ({requesterEmail})</p>
+                  {organization && <p><strong>Organization:</strong> {organization}</p>}
+                  {message && <p className="mt-2"><strong>Message:</strong> {message}</p>}
+                </div>
+                <p className="text-sm text-foreground/70">
+                  This request will be sent to officialstemise@gmail.com
+                </p>
+              </div>
+              <DialogFooter>
+                <Button variant="outline" onClick={() => setShowConfirmDialog(false)}>
+                  Cancel
+                </Button>
+                <Button onClick={sendRequest} disabled={isSending}>
+                  {isSending ? "Sending..." : "Confirm & Send"}
+                </Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
+
+          {/* Waitlist Card */}
+          <Card className="max-w-md mx-auto border border-border/50 bg-gradient-to-br from-card to-secondary/30 rounded-2xl mb-24">
             <CardHeader className="text-center">
               <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Mail className="h-7 w-7 text-primary" />
@@ -58,25 +343,28 @@ const Courses = () => {
             </CardContent>
           </Card>
 
-          <div className="mt-24">
+          <div>
             <div className="text-center mb-12">
-              
               <h2 className="text-3xl md:text-5xl font-semibold text-foreground">Upcoming Modules</h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {courses.map((course, index) => <div key={course} className="group p-4 bg-gradient-to-br from-card to-secondary/50 rounded-2xl border border-border/50 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 cursor-default">
+              {courses.map((course) => (
+                <div key={course} className="group p-4 bg-gradient-to-br from-card to-secondary/50 rounded-2xl border border-border/50 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 cursor-default">
                   <div className="h-40 bg-muted/30 rounded-xl mb-4 relative overflow-hidden">
                     <div className="absolute inset-0 flex items-center justify-center bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity">
                       <span className="text-sm font-semibold uppercase">Coming Soon</span>
                     </div>
                   </div>
                   <h3 className="text-xl font-semibold text-center">{course}</h3>
-                </div>)}
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </main>
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default Courses;

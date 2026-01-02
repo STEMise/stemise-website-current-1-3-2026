@@ -11,14 +11,6 @@ const Header = () => {
     toId: "about",
     label: "About"
   }, {
-    kind: "hash" as const,
-    toId: "programs",
-    label: "Programs"
-  }, {
-    kind: "hash" as const,
-    toId: "contributors",
-    label: "Contributors"
-  }, {
     kind: "route" as const,
     to: "/partners",
     label: "Partners"
@@ -33,7 +25,7 @@ const Header = () => {
   }, {
     kind: "route" as const,
     to: "/courses",
-    label: "Portal"
+    label: "Programs"
   }];
   return <header className="sticky top-0 z-50 bg-background border-b border-border">
       <div className="container mx-auto px-6">

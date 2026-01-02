@@ -7,7 +7,7 @@ import Index from "./pages/Index";
 import Team from "./pages/Team";
 import Partners from "./pages/Partners";
 import Donations from "./pages/Donations";
-import Signup from "./pages/Signup";
+
 import Courses from "./pages/Courses";
 import NotFound from "./pages/NotFound";
 import ScrollToHash from "@/components/ScrollToHash";
@@ -26,7 +26,7 @@ const App = () => (
           <Route path="/team" element={<Team />} />
           <Route path="/partners" element={<Partners />} />
           <Route path="/donations" element={<Donations />} />
-          <Route path="/signup" element={<Signup />} />
+          
           <Route path="/courses" element={<Courses />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

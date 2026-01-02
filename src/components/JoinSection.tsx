@@ -40,6 +40,9 @@ const JoinSection = () => {
       
       <div ref={sectionRef} className="container mx-auto px-6 relative z-10">
         <div className="max-w-2xl mx-auto text-center">
+          <span className={`inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+            Take Action
+          </span>
           <h2 className={`text-3xl md:text-5xl font-semibold text-foreground ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.1s' }}>
             Join STEMise Today
           </h2>
@@ -49,7 +52,7 @@ const JoinSection = () => {
           </p>
 
           <div className={`mt-10 flex flex-col sm:flex-row gap-4 justify-center ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.3s' }}>
-            <Button size="lg" className="gap-2 hover-lift">
+            <Button size="lg" className="gap-2 hover-lift animate-glow">
               Get involved
               <ArrowRight className="h-4 w-4" />
             </Button>

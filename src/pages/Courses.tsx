@@ -21,27 +21,38 @@ const Courses = () => {
     }
   };
 
+  const courses = ['Quantum Physics', 'Robotics Level 1', 'AI & Ethics', 'Sustainable Tech'];
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="py-20">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+      <main className="py-24 relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-1/3 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/3 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl" />
+        </div>
+        
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center mb-20">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+              Coming Soon
+            </span>
+            <h1 className="text-3xl md:text-5xl font-semibold text-foreground">
               STEMise Learning Portal
             </h1>
-            <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
+            <p className="mt-6 text-lg text-foreground/70 max-w-2xl mx-auto leading-relaxed">
               Access world-class STEM curriculum, track your progress, and connect with global educators.
             </p>
           </div>
 
-          <Card className="max-w-md mx-auto border border-border">
+          <Card className="max-w-md mx-auto border border-border/50 bg-gradient-to-br from-card to-secondary/30 rounded-2xl">
             <CardHeader className="text-center">
-              <div className="w-12 h-12 flex items-center justify-center mx-auto mb-4">
-                <Mail className="h-6 w-6 text-foreground" />
+              <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Mail className="h-7 w-7 text-primary" />
               </div>
-              <CardTitle>Join the Waitlist</CardTitle>
-              <CardDescription>
+              <CardTitle className="text-xl font-semibold">Join the Waitlist</CardTitle>
+              <CardDescription className="text-foreground/70">
                 Be the first to know when our learning portal goes live.
               </CardDescription>
             </CardHeader>
@@ -53,28 +64,37 @@ const Courses = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
+                  className="bg-background/50"
                 />
                 <Button type="submit" className="w-full">
                   Notify Me
                 </Button>
               </form>
-              <p className="text-xs text-center text-foreground/50 mt-4">
+              <p className="text-sm text-center text-foreground/50 mt-4">
                 We'll never share your email with anyone else.
               </p>
             </CardContent>
           </Card>
 
-          <div className="mt-20 py-12 border-t border-border">
-            <h3 className="text-2xl font-bold mb-8 text-center uppercase tracking-tighter">Upcoming Modules</h3>
+          <div className="mt-24">
+            <div className="text-center mb-12">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+                Preview
+              </span>
+              <h2 className="text-3xl md:text-5xl font-semibold text-foreground">Upcoming Modules</h2>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {['Quantum Physics', 'Robotics Level 1', 'AI & Ethics', 'Sustainable Tech'].map((course) => (
-                <div key={course} className="p-4 bg-card border border-border hover:border-primary/50 transition-all cursor-default group">
-                   <div className="h-40 bg-muted mb-4 relative overflow-hidden">
-                      <div className="absolute inset-0 flex items-center justify-center bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity">
-                         <span className="text-xs font-bold uppercase">Coming Soon</span>
-                      </div>
-                   </div>
-                   <h4 className="font-semibold text-center">{course}</h4>
+              {courses.map((course, index) => (
+                <div 
+                  key={course} 
+                  className="group p-4 bg-gradient-to-br from-card to-secondary/50 rounded-2xl border border-border/50 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 cursor-default"
+                >
+                  <div className="h-40 bg-muted/30 rounded-xl mb-4 relative overflow-hidden">
+                    <div className="absolute inset-0 flex items-center justify-center bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="text-sm font-semibold uppercase">Coming Soon</span>
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-semibold text-center">{course}</h3>
                 </div>
               ))}
             </div>

@@ -14,6 +14,7 @@ const contributorCategories = [
     ],
     gradient: "from-blue-600/40 via-blue-500/20 to-transparent",
     cardBack: "bg-blue-950/90 border-blue-800/50",
+    iconBg: "bg-blue-500/20",
   },
   {
     icon: Award,
@@ -27,6 +28,7 @@ const contributorCategories = [
     ],
     gradient: "from-purple-600/40 via-purple-500/20 to-transparent",
     cardBack: "bg-purple-950/90 border-purple-800/50",
+    iconBg: "bg-purple-500/20",
   },
   {
     icon: Heart,
@@ -40,6 +42,7 @@ const contributorCategories = [
     ],
     gradient: "from-rose-600/40 via-rose-500/20 to-transparent",
     cardBack: "bg-rose-950/90 border-rose-800/50",
+    iconBg: "bg-rose-500/20",
   },
   {
     icon: Handshake,
@@ -53,6 +56,7 @@ const contributorCategories = [
     ],
     gradient: "from-emerald-600/40 via-emerald-500/20 to-transparent",
     cardBack: "bg-emerald-950/90 border-emerald-800/50",
+    iconBg: "bg-emerald-500/20",
   },
   {
     icon: Gift,
@@ -66,6 +70,7 @@ const contributorCategories = [
     ],
     gradient: "from-amber-600/40 via-amber-500/20 to-transparent",
     cardBack: "bg-amber-950/90 border-amber-800/50",
+    iconBg: "bg-amber-500/20",
   },
 ];
 
@@ -115,18 +120,18 @@ const FlipCard = ({
       <div className="flip-card absolute inset-0 group">
         <div className="flip-card-inner relative w-full h-full group-hover:min-h-max">
           {/* Front of card */}
-          <div className="flip-card-front absolute inset-0 bg-card border border-border flex flex-col items-center justify-center p-6">
-            <div className="w-16 h-16 flex items-center justify-center mb-4 animate-float">
+          <div className="flip-card-front absolute inset-0 bg-gradient-to-br from-card to-secondary/50 border border-border/50 rounded-2xl flex flex-col items-center justify-center p-6">
+            <div className={`w-16 h-16 ${category.iconBg} rounded-2xl flex items-center justify-center mb-4`}>
               <Icon className="h-8 w-8 text-foreground" />
             </div>
-            <h3 className="text-lg font-semibold text-foreground text-center">
+            <h3 className="text-xl font-semibold text-foreground text-center">
               {category.title}
             </h3>
           </div>
 
           {/* Back of card */}
-          <div className={`flip-card-back absolute top-0 left-0 right-0 min-h-full border flex flex-col items-center justify-start p-6 z-10 ${category.cardBack}`}>
-            <h3 className="text-lg font-semibold text-foreground mb-3 text-center">
+          <div className={`flip-card-back absolute top-0 left-0 right-0 min-h-full border rounded-2xl flex flex-col items-center justify-start p-6 z-10 ${category.cardBack}`}>
+            <h3 className="text-xl font-semibold text-foreground mb-3 text-center">
               {category.title}
             </h3>
             <p className="text-foreground/80 text-sm text-center mb-4">
@@ -136,9 +141,9 @@ const FlipCard = ({
               {category.benefits.map((benefit) => (
                 <li
                   key={benefit}
-                  className="text-xs text-foreground/70 flex items-center gap-2"
+                  className="text-sm text-foreground/70 flex items-center gap-2"
                 >
-                  <span className="w-1 h-1 bg-foreground rounded-full flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0" />
                   {benefit}
                 </li>
               ))}
@@ -208,7 +213,7 @@ const MembershipSection = () => {
   }, []);
 
   return (
-    <section id="contributors" className="py-32 scroll-mt-24 relative overflow-hidden min-h-[700px]">
+    <section id="contributors" className="py-24 scroll-mt-24 relative overflow-hidden min-h-[700px]">
       {/* Gradient backgrounds with smooth opacity transitions */}
       {contributorCategories.map((category, index) => (
         <div
@@ -225,10 +230,13 @@ const MembershipSection = () => {
           ref={headerRef}
           className={`text-center mb-20 ${headerVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
         >
-          <h2 className="text-3xl md:text-4xl font-semibold text-foreground">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+            Join Our Community
+          </span>
+          <h2 className="text-3xl md:text-5xl font-semibold text-foreground">
             Get Involved
           </h2>
-          <p className="mt-4 text-foreground/80 max-w-2xl mx-auto">
+          <p className="mt-6 text-foreground/70 max-w-2xl mx-auto text-lg leading-relaxed">
             Join our growing community of contributors, partners, and supporters making STEM education accessible worldwide.
           </p>
         </div>

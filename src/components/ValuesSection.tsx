@@ -55,12 +55,7 @@ const ValuesSection = () => {
 
   return (
     <section className="py-24 bg-card relative overflow-hidden">
-      {/* Decorative background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
-      </div>
-      
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-6">
         <div
           ref={headerRef}
           className={`text-center mb-20 ${headerVisible ? 'animate-fade-in-up' : 'opacity-0'}`}

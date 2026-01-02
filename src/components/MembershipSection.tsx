@@ -213,7 +213,7 @@ const MembershipSection = () => {
   }, []);
 
   return (
-    <section id="contributors" className="py-24 scroll-mt-24 relative overflow-hidden min-h-[700px]">
+    <section id="contributors" className="py-24 scroll-mt-24 relative overflow-hidden min-h-[900px]">
       {/* Gradient backgrounds with smooth opacity transitions */}
       {contributorCategories.map((category, index) => (
         <div

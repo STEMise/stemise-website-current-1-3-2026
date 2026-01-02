@@ -12,13 +12,8 @@ const Signup = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="py-24 flex items-center justify-center relative overflow-hidden">
-        {/* Background decorative elements */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
-        </div>
-        
-        <div className="container mx-auto px-6 max-w-lg relative z-10">
+      <main className="py-24 flex items-center justify-center">
+        <div className="container mx-auto px-6 max-w-lg">
           <Card className="border border-border/50 bg-gradient-to-br from-card to-secondary/30 rounded-2xl">
             <CardHeader className="text-center">
               <div className="mx-auto w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-4">

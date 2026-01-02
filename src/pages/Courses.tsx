@@ -26,14 +26,8 @@ const Courses = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="py-24 relative overflow-hidden">
-        {/* Background decorative elements */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/3 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/3 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl" />
-        </div>
-        
-        <div className="container mx-auto px-6 relative z-10">
+      <main className="py-24">
+        <div className="container mx-auto px-6">
           <div className="text-center mb-20">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
               Coming Soon

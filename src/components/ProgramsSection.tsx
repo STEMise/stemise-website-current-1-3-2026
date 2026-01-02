@@ -1,6 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Beaker, Cpu, Users } from "lucide-react";
+import { Beaker, Cpu, Users, ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const programs = [
   {
@@ -14,6 +16,8 @@ const programs = [
       "Safety guidance included",
       "Designed for interactive learning",
     ],
+    gradient: "from-blue-500/20 to-cyan-500/20",
+    iconBg: "bg-blue-500/20",
   },
   {
     icon: Cpu,
@@ -26,6 +30,8 @@ const programs = [
       "Programming languages",
       "Digital technology skills",
     ],
+    gradient: "from-purple-500/20 to-pink-500/20",
+    iconBg: "bg-purple-500/20",
   },
   {
     icon: Users,
@@ -38,6 +44,8 @@ const programs = [
       "Regularly scheduled",
       "Community-focused",
     ],
+    gradient: "from-emerald-500/20 to-teal-500/20",
+    iconBg: "bg-emerald-500/20",
   },
 ];
 
@@ -67,46 +75,59 @@ const ProgramsSection = () => {
   }, []);
 
   return (
-    <section id="programs" className="py-20 bg-card scroll-mt-24">
-      <div className="container mx-auto px-6">
+    <section id="programs" className="py-24 bg-background scroll-mt-24 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+      </div>
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div
           ref={headerRef}
-          className={`text-center mb-16 ${headerVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+          className={`text-center mb-20 ${headerVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
         >
-          <h2 className="text-3xl md:text-4xl font-semibold text-foreground">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+            What We Do
+          </span>
+          <h2 className="text-3xl md:text-5xl font-semibold text-foreground">
             Our Programs
           </h2>
-          <p className="mt-4 text-foreground/80 max-w-2xl mx-auto">
+          <p className="mt-6 text-foreground/70 max-w-2xl mx-auto text-lg leading-relaxed">
             STEMise's mission is practiced through two core activities: STEM Kit distributions and STEMise's Tech for Everybody (S.T.F.E.)
           </p>
         </div>
 
-        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div ref={cardsRef} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {programs.map((program, index) => (
             <Card
               key={program.title}
-              className={`border border-border bg-secondary hover-lift ${cardsVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
+              className={`group relative border-0 bg-gradient-to-br ${program.gradient} backdrop-blur-sm overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/10 ${cardsVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
               style={{ animationDelay: `${index * 0.15}s` }}
             >
-              <CardHeader>
-                <div className="w-12 h-12 flex items-center justify-center mb-4 animate-float" style={{ animationDelay: `${index * 0.5}s` }}>
-                  <program.icon className="h-6 w-6 text-foreground" />
+              {/* Card inner glow on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:to-transparent transition-all duration-500" />
+              
+              <CardHeader className="relative pb-2">
+                <div className={`w-14 h-14 ${program.iconBg} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <program.icon className="h-7 w-7 text-foreground" />
                 </div>
-                <CardTitle className="text-xl font-semibold text-foreground">
+                <CardTitle className="text-2xl font-semibold text-foreground">
                   {program.title}
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="text-foreground/80 text-sm leading-relaxed">
+              <CardContent className="relative">
+                <p className="text-foreground/70 leading-relaxed mb-6">
                   {program.description}
                 </p>
-                <ul className="mt-6 space-y-2">
-                  {program.features.map((feature) => (
+                <ul className="space-y-3">
+                  {program.features.map((feature, featureIndex) => (
                     <li
                       key={feature}
-                      className="text-sm text-foreground/80 flex items-center gap-2"
+                      className="text-sm text-foreground/80 flex items-center gap-3 group-hover:translate-x-1 transition-transform duration-300"
+                      style={{ transitionDelay: `${featureIndex * 50}ms` }}
                     >
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                      <span className="w-2 h-2 bg-primary rounded-full flex-shrink-0" />
                       {feature}
                     </li>
                   ))}
@@ -114,6 +135,15 @@ const ProgramsSection = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        <div className={`text-center mt-12 ${headerVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.5s' }}>
+          <Button size="lg" asChild className="group">
+            <Link to="/courses" className="gap-2 inline-flex items-center">
+              Explore All Programs
+              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

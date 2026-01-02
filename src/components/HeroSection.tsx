@@ -16,7 +16,7 @@ const HeroSection = () => {
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          <img alt="STEMise Banner" src="/lovable-uploads/0bf0f453-e9ad-4ad9-a3e8-7be7ebcbfe3b.png" className="h-40 md:h-20 w-auto mx-auto mb-2" />
+          <img alt="STEMise Banner" src="/lovable-uploads/0bf0f453-e9ad-4ad9-a3e8-7be7ebcbfe3b.png" className="h-40 md:h-20 w-auto mx-auto mb-2 shadow-none opacity-85" />
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground leading-tight animate-fade-in-up">
             Redefining STEM Education Worldwide
           </h1>

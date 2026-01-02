@@ -55,7 +55,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-1">
             <Link to="/" className="inline-block">
-              <img src={stemiseLogo} alt="STEMise" className="h-[30px] w-auto" />
+              <img src={stemiseLogo} alt="STEMise" className="h-40 w-auto" />
             </Link>
             <p className="mt-4 text-sm text-foreground/80">
               Redefining STEM education through hands-on learning worldwide.

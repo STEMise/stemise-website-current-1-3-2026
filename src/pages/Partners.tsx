@@ -10,38 +10,55 @@ import { Handshake, Globe, Users, Trophy } from "lucide-react";
 const Partners = () => {
   const benefits = [
     {
-      icon: <Globe className="h-6 w-6 text-foreground" />,
+      icon: Globe,
       title: "Global Reach",
-      description: "Amplify your impact through our worldwide STEM network and initiatives."
+      description: "Amplify your impact through our worldwide STEM network and initiatives.",
+      gradient: "from-sky-500/20 to-blue-500/20",
+      iconBg: "bg-sky-500/20",
     },
     {
-      icon: <Users className="h-6 w-6 text-foreground" />,
+      icon: Users,
       title: "Direct Access",
-      description: "Connect with thousands of students, educators, and STEM professionals."
+      description: "Connect with thousands of students, educators, and STEM professionals.",
+      gradient: "from-purple-500/20 to-pink-500/20",
+      iconBg: "bg-purple-500/20",
     },
     {
-      icon: <Handshake className="h-6 w-6 text-foreground" />,
+      icon: Handshake,
       title: "Strategic Impact",
-      description: "Collaborate on projects that bridge the gap in STEM education accessibility."
+      description: "Collaborate on projects that bridge the gap in STEM education accessibility.",
+      gradient: "from-emerald-500/20 to-teal-500/20",
+      iconBg: "bg-emerald-500/20",
     },
     {
-      icon: <Trophy className="h-6 w-6 text-foreground" />,
+      icon: Trophy,
       title: "Shared Values",
-      description: "Join a community dedicated to excellence, innovation, and educational equity."
+      description: "Join a community dedicated to excellence, innovation, and educational equity.",
+      gradient: "from-amber-500/20 to-orange-500/20",
+      iconBg: "bg-amber-500/20",
     }
   ];
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="py-20">
-        <div className="container mx-auto px-6">
+      <main className="py-24 relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 left-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl" />
+        </div>
+        
+        <div className="container mx-auto px-6 relative z-10">
           {/* Hero Section */}
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <div className="text-center mb-20">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+              Partnerships
+            </span>
+            <h1 className="text-3xl md:text-5xl font-semibold text-foreground">
               Partner With Us
             </h1>
-            <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
+            <p className="mt-6 text-lg text-foreground/70 max-w-2xl mx-auto leading-relaxed">
               Together, we can redefine STEM education and inspire the next generation of innovators worldwide.
             </p>
           </div>
@@ -49,43 +66,51 @@ const Partners = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Left: Benefits */}
             <div className="space-y-8">
-              <h2 className="text-3xl font-bold text-foreground">Why Partner with STEMise?</h2>
+              <h2 className="text-3xl md:text-5xl font-semibold text-foreground">Why Partner with STEMise?</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {benefits.map((benefit, index) => (
-                  <div key={index} className="p-6 bg-card border border-border hover:border-primary/50 transition-colors">
-                    <div className="mb-4">{benefit.icon}</div>
-                    <h3 className="font-semibold text-lg mb-2">{benefit.title}</h3>
-                    <p className="text-foreground/70 text-sm leading-relaxed">{benefit.description}</p>
-                  </div>
-                ))}
+                {benefits.map((benefit, index) => {
+                  const Icon = benefit.icon;
+                  return (
+                    <div 
+                      key={index} 
+                      className={`group p-6 bg-gradient-to-br ${benefit.gradient} rounded-2xl border border-border/50 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/10 transition-all duration-300`}
+                    >
+                      <div className={`w-12 h-12 ${benefit.iconBg} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                        <Icon className="h-6 w-6 text-foreground" />
+                      </div>
+                      <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
+                      <p className="text-foreground/70 text-sm leading-relaxed">{benefit.description}</p>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
             {/* Right: Sign up Form */}
-            <Card className="border border-border">
+            <Card className="border border-border/50 bg-gradient-to-br from-card to-secondary/30 rounded-2xl">
               <CardHeader>
-                <CardTitle>Partnership Inquiry</CardTitle>
-                <CardDescription>Fill out the form below and our team will get back to you within 48 hours.</CardDescription>
+                <CardTitle className="text-xl font-semibold">Partnership Inquiry</CardTitle>
+                <CardDescription className="text-foreground/70">Fill out the form below and our team will get back to you within 48 hours.</CardDescription>
               </CardHeader>
               <CardContent>
                 <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                   <div className="space-y-2">
                     <Label htmlFor="org-name">Organization Name</Label>
-                    <Input id="org-name" placeholder="ABC STEM Foundation" required />
+                    <Input id="org-name" placeholder="ABC STEM Foundation" required className="bg-background/50" />
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="contact-name">Contact Person</Label>
-                      <Input id="contact-name" placeholder="John Doe" required />
+                      <Input id="contact-name" placeholder="John Doe" required className="bg-background/50" />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="email">Work Email</Label>
-                      <Input id="email" type="email" placeholder="john@organization.org" required />
+                      <Input id="email" type="email" placeholder="john@organization.org" required className="bg-background/50" />
                     </div>
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="interest">Area of Interest</Label>
-                    <select id="interest" className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                    <select id="interest" className="flex h-10 w-full rounded-md border border-input bg-background/50 px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
                       <option>Sponsorship</option>
                       <option>Educational Programs</option>
                       <option>Resource Sharing</option>
@@ -94,7 +119,7 @@ const Partners = () => {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="message">How would you like to collaborate?</Label>
-                    <Textarea id="message" placeholder="Tell us about your organization and goals..." className="min-h-[120px]" required />
+                    <Textarea id="message" placeholder="Tell us about your organization and goals..." className="min-h-[120px] bg-background/50" required />
                   </div>
                   <Button type="submit" className="w-full">Submit Proposal</Button>
                 </form>

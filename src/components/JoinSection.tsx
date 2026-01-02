@@ -46,7 +46,7 @@ const JoinSection = () => {
           <div className={`mt-10 flex flex-col sm:flex-row gap-4 justify-center ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{
           animationDelay: '0.3s'
         }}>
-            <Button size="lg" className="gap-2 hover-lift animate-glow">
+            <Button size="lg" className="gap-2 hover-lift">
               Get involved
               <ArrowRight className="h-4 w-4" />
             </Button>

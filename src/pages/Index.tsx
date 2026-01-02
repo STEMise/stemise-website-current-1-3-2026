@@ -6,16 +6,13 @@ import ValuesSection from "@/components/ValuesSection";
 import MembershipSection from "@/components/MembershipSection";
 import JoinSection from "@/components/JoinSection";
 import Footer from "@/components/Footer";
-import heroBanner from "@/assets/hero-banner.png";
+
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Header />
       <main>
-        <section className="bg-card py-8 flex justify-center">
-          <img src={heroBanner} alt="STEMise Banner" className="h-24 md:h-32 w-auto" />
-        </section>
         <HeroSection />
         <MissionSection />
         <ProgramsSection />

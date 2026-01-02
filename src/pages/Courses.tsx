@@ -141,23 +141,16 @@ const Courses = () => {
       <Header />
       <main className="py-24">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-20">
-            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4 bg-primary-foreground text-secondary">
-              Coming Soon
-            </span>
-            <h1 className="text-3xl md:text-5xl font-semibold text-foreground">
-              STEMise Learning Portal
-            </h1>
-            <p className="mt-6 text-lg text-foreground/70 max-w-2xl mx-auto leading-relaxed">
-              Access world-class STEM curriculum, track your progress, and connect with global educators.
-            </p>
-          </div>
-
           {/* STEM Kit Request Section */}
           <div className="mb-24">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-4">Request STEM Kits</h2>
-              <p className="text-foreground/70 max-w-2xl mx-auto">
+              <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4 bg-primary-foreground text-secondary">
+                Distribute Resources
+              </span>
+              <h1 className="text-3xl md:text-5xl font-semibold text-foreground">
+                Request STEM Kits
+              </h1>
+              <p className="mt-6 text-lg text-foreground/70 max-w-2xl mx-auto leading-relaxed">
                 Select the kits you need for your school, community center, or educational program. 
                 We distribute STEM resources to educators worldwide.
               </p>
@@ -319,29 +312,44 @@ const Courses = () => {
             </DialogContent>
           </Dialog>
 
-          {/* Waitlist Card */}
-          <Card className="max-w-md mx-auto border border-border/50 bg-gradient-to-br from-card to-secondary/30 rounded-2xl mb-24">
-            <CardHeader className="text-center">
-              <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Mail className="h-7 w-7 text-primary" />
-              </div>
-              <CardTitle className="text-xl font-semibold">Join the Waitlist</CardTitle>
-              <CardDescription className="text-foreground/70">
-                Be the first to know when our learning portal goes live.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleWaitlistSubmit} className="space-y-4">
-                <Input type="email" placeholder="Enter your email" value={email} onChange={e => setEmail(e.target.value)} required className="bg-background/50" />
-                <Button type="submit" className="w-full">
-                  Notify Me
-                </Button>
-              </form>
-              <p className="text-sm text-center text-foreground/50 mt-4">
-                We'll never share your email with anyone else.
+          {/* Learning Portal Section */}
+          <div className="mb-24">
+            <div className="text-center mb-12">
+              <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4 bg-primary-foreground text-secondary">
+                Coming Soon
+              </span>
+              <h2 className="text-3xl md:text-5xl font-semibold text-foreground">
+                STEMise Learning Portal
+              </h2>
+              <p className="mt-6 text-lg text-foreground/70 max-w-2xl mx-auto leading-relaxed">
+                Access world-class STEM curriculum, track your progress, and connect with global educators.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+
+            {/* Waitlist Card */}
+            <Card className="max-w-md mx-auto border border-border/50 bg-gradient-to-br from-card to-secondary/30 rounded-2xl">
+              <CardHeader className="text-center">
+                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <Mail className="h-7 w-7 text-primary" />
+                </div>
+                <CardTitle className="text-xl font-semibold">Join the Waitlist</CardTitle>
+                <CardDescription className="text-foreground/70">
+                  Be the first to know when our learning portal goes live.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleWaitlistSubmit} className="space-y-4">
+                  <Input type="email" placeholder="Enter your email" value={email} onChange={e => setEmail(e.target.value)} required className="bg-background/50" />
+                  <Button type="submit" className="w-full">
+                    Notify Me
+                  </Button>
+                </form>
+                <p className="text-sm text-center text-foreground/50 mt-4">
+                  We'll never share your email with anyone else.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
 
           <div>
             <div className="text-center mb-12">

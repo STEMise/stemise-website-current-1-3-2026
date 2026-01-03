@@ -27,7 +27,7 @@ const HeroSection = () => {
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up stagger-3">
             <Button size="lg" asChild className="hover-lift animate-glow">
-              <Link to="/courses" className="gap-2 inline-flex items-center">
+              <Link to="/courses#programs" className="gap-2 inline-flex items-center">
                 Explore our programs
                 <ArrowRight className="h-4 w-4" />
               </Link>

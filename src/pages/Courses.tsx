@@ -8,6 +8,21 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { Mail, Package, Plus, Minus, Trash2, Send } from "lucide-react";
 import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
+import curriculaAi from "@/assets/curricula-ai.png";
+import curriculaCybersecurity from "@/assets/curricula-cybersecurity.png";
+import curriculaWebdev from "@/assets/curricula-webdev.png";
+import curriculaPython from "@/assets/curricula-python.png";
+import curriculaR from "@/assets/curricula-r.png";
+import curriculaJava from "@/assets/curricula-java.png";
+
+const curricula = [
+  { name: "AI", image: curriculaAi },
+  { name: "Cybersecurity", image: curriculaCybersecurity },
+  { name: "Web Development", image: curriculaWebdev },
+  { name: "Python", image: curriculaPython },
+  { name: "R", image: curriculaR },
+  { name: "Java", image: curriculaJava },
+];
 interface KitItem {
   id: string;
   name: string;
@@ -155,7 +170,6 @@ const Courses = () => {
     setRequesterEmail("");
     setOrganization("");
   };
-  const courses = ['Quantum Physics', 'Robotics Level 1', 'AI & Ethics', 'Sustainable Tech'];
   return <div className="min-h-screen bg-background">
       <Header />
       <main className="py-24">
@@ -320,15 +334,18 @@ const Courses = () => {
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-5xl font-semibold text-foreground">Upcoming Curricula</h2>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {courses.map(course => <div key={course} className="group p-4 bg-gradient-to-br from-card to-secondary/50 rounded-2xl border border-border/50 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 cursor-default">
-                  <div className="h-40 bg-muted/30 rounded-xl mb-4 relative overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <span className="text-sm font-semibold uppercase">Coming Soon</span>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {curricula.map(course => (
+                <div key={course.name} className="group p-6 bg-gradient-to-br from-card to-secondary/50 rounded-2xl border border-border/50 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 cursor-default">
+                  <div className="h-48 bg-muted/30 rounded-xl mb-4 relative overflow-hidden">
+                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="text-sm font-semibold uppercase mb-4">Coming Soon</span>
+                      <img src={course.image} alt={course.name} className="w-32 h-32 object-cover rounded-lg" />
                     </div>
                   </div>
-                  <h3 className="text-xl font-semibold text-center">{course}</h3>
-                </div>)}
+                  <h3 className="text-2xl font-semibold text-center">{course.name}</h3>
+                </div>
+              ))}
             </div>
           </div>
         </div>

@@ -313,7 +313,7 @@ const Courses = () => {
           </Dialog>
 
           {/* Learning Portal Section */}
-          <div className="mb-24">
+          <div id="programs" className="mb-24">
             <div className="text-center mb-12">
               <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4 bg-primary-foreground text-secondary">
                 Coming Soon

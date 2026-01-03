@@ -337,10 +337,10 @@ const Courses = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {curricula.map(course => (
                 <div key={course.name} className="group p-6 bg-gradient-to-br from-card to-secondary/50 rounded-2xl border border-border/50 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 cursor-default">
-                  <div className="h-48 bg-muted/30 rounded-xl mb-4 relative overflow-hidden">
-                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <span className="text-sm font-semibold uppercase mb-4">Coming Soon</span>
-                      <img src={course.image} alt={course.name} className="w-32 h-32 object-cover rounded-lg" />
+                  <div className="h-48 rounded-xl mb-4 relative overflow-hidden">
+                    <img src={course.image} alt={course.name} className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-background/60">
+                      <span className="text-sm font-semibold uppercase tracking-wider">Coming Soon</span>
                     </div>
                   </div>
                   <h3 className="text-2xl font-semibold text-center">{course.name}</h3>

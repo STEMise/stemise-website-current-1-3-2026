@@ -14,15 +14,25 @@ import curriculaWebdev from "@/assets/curricula-webdev.png";
 import curriculaPython from "@/assets/curricula-python.png";
 import curriculaR from "@/assets/curricula-r.png";
 import curriculaJava from "@/assets/curricula-java.png";
-
-const curricula = [
-  { name: "AI", image: curriculaAi },
-  { name: "Cybersecurity", image: curriculaCybersecurity },
-  { name: "Web Development", image: curriculaWebdev },
-  { name: "Python", image: curriculaPython },
-  { name: "R", image: curriculaR },
-  { name: "Java", image: curriculaJava },
-];
+const curricula = [{
+  name: "AI",
+  image: curriculaAi
+}, {
+  name: "Cybersecurity",
+  image: curriculaCybersecurity
+}, {
+  name: "Web Development",
+  image: curriculaWebdev
+}, {
+  name: "Python",
+  image: curriculaPython
+}, {
+  name: "R",
+  image: curriculaR
+}, {
+  name: "Java",
+  image: curriculaJava
+}];
 interface KitItem {
   id: string;
   name: string;
@@ -332,11 +342,10 @@ const Courses = () => {
 
           <div>
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-5xl font-semibold text-foreground">Upcoming S.T.F.E Curriculum</h2>
+              <h2 className="text-3xl font-semibold text-foreground md:text-3xl">Upcoming S.T.F.E Curriculum</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {curricula.map(course => (
-                <div key={course.name} className="group p-6 bg-gradient-to-br from-card to-secondary/50 rounded-2xl border border-border/50 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 cursor-default">
+              {curricula.map(course => <div key={course.name} className="group p-6 bg-gradient-to-br from-card to-secondary/50 rounded-2xl border border-border/50 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 cursor-default">
                   <div className="h-48 rounded-xl mb-4 relative overflow-hidden">
                     <img src={course.image} alt={course.name} className="w-full h-full object-cover" />
                     <div className="absolute inset-0 flex items-center justify-center bg-background/60">
@@ -344,15 +353,14 @@ const Courses = () => {
                     </div>
                   </div>
                   <h3 className="text-2xl font-semibold text-center">{course.name}</h3>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
 
           {/* Upcoming Workshops Section */}
           <div className="mt-24">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-5xl font-semibold text-foreground">Upcoming Workshops</h2>
+              <h2 className="text-3xl md:text-5xl font-semibold text-foreground">Workshops</h2>
             </div>
             <Card className="max-w-2xl mx-auto border border-border/50 bg-card">
               <CardContent className="py-12">

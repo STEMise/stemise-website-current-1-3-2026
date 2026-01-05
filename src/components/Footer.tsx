@@ -48,10 +48,11 @@ const socialLinks = [{
   url: "https://discord.gg/stemise",
   icon: DiscordIcon
 }];
+const mailtoHref = "mailto:officialstemise@gmail.com";
 const Footer = () => {
   return <footer className="bg-background border-t border-border py-12">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-[auto_1fr_auto] gap-8">
           {/* Brand */}
           <div className="md:col-span-1">
             <Link to="/" className="inline-block">
@@ -63,7 +64,7 @@ const Footer = () => {
 
           </div>
 
-          <div>
+          <div className="md:justify-self-center">
             <h4 className="font-medium text-foreground mb-4">Navigation</h4>
             <ul className="space-y-2">
               <li>
@@ -98,43 +99,16 @@ const Footer = () => {
                   Programs
                 </Link>
               </li>
-              <li>
-                <AppHashLink toId="contact" className="text-sm text-foreground/80 hover:text-primary transition-colors">
-                  Contact
-                </AppHashLink>
-              </li>
-            </ul>
-          </div>
-
-          {/* Programs */}
-          <div>
-            <h4 className="font-medium text-foreground mb-4">Programs</h4>
-            <ul className="space-y-2">
-              <li>
-                <AppHashLink toId="programs" className="text-sm text-foreground/80 hover:text-primary transition-colors">
-                  STEM Kits
-                </AppHashLink>
-              </li>
-              <li>
-                <AppHashLink toId="programs" className="text-sm text-foreground/80 hover:text-primary transition-colors">
-                  S.T.F.E. Curriculum
-                </AppHashLink>
-              </li>
-              <li>
-                <AppHashLink toId="programs" className="text-sm text-foreground/80 hover:text-primary transition-colors">
-                  Workshops
-                </AppHashLink>
-              </li>
             </ul>
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="md:justify-self-end">
             <h4 className="font-medium text-foreground mb-4">Contact</h4>
             <p className="text-sm text-foreground/80 mb-3">
               For inquiries, partnerships, or questions:
             </p>
-            <a href="mailto:officialstemise@gmail.com" className="text-sm text-primary hover:underline">
+            <a href={mailtoHref} className="text-sm text-primary hover:underline">
               officialstemise@gmail.com
             </a>
             <div className="flex gap-3 mt-4">

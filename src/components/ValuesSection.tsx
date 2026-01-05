@@ -5,19 +5,19 @@ const values = [{
   title: "Safety First",
   description: "All kits and workshops include appropriate safety guidance and age-appropriate materials. Events follow host institution safeguarding rules.",
   color: "from-amber-500/20 to-orange-500/20",
-  iconColor: "text-amber-400"
+  iconColor: "text-white-300"
 }, {
   icon: Heart,
   title: "Non-Discrimination",
   description: "STEMise does not discriminate based on race, nationality, ethnicity, religion, disability, sex, gender identity, sexual orientation, or socioeconomic status.",
   color: "from-rose-500/20 to-pink-500/20",
-  iconColor: "text-rose-400"
+  iconColor: "text-white-300"
 }, {
   icon: Globe,
   title: "Global Reach",
   description: "With members from across the world, we deliver hands-on learning experiences through both in-person and online workshops to reach diverse audiences.",
   color: "from-sky-500/20 to-blue-500/20",
-  iconColor: "text-sky-400"
+  iconColor: "text-white-300"
 }];
 const ValuesSection = () => {
   const [headerVisible, setHeaderVisible] = useState(false);

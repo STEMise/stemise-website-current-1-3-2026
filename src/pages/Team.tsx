@@ -11,17 +11,17 @@ const LinkedInIcon = ({
   </svg>;
 const teamMembers: { title: string; name: string; bio: string; linkedin: string; photo?: string }[] = [{
   title: "Executive Director",
-  name: "Name Here",
-  bio: "Bio coming soon...",
-  linkedin: "https://linkedin.com/in/"
+  name: "Ryan Ahn",
+  bio: "My name is Ryan Ahn, a junior from South Korea, and I am the Founder and Executive Director of STEMise. I am passionate about biology and any related areas. This year, I plan to guide my fellow executives and members to achieve the utmost success for the organization and to expand and scale STEMise globally!",
+  linkedin: "https://www.linkedin.com/in/ryan-ahn-81322736a/"
 }, {
   title: "Deputy Executive Director",
-  name: "Name Here",
-  bio: "Bio coming soon...",
-  linkedin: "https://linkedin.com/in/"
+  name: "Hyunjun Yi",
+  bio: "STEMise and I began our journey in a small café during early winter of 2025. Driven to make STEM education accessible to everyone, a café conversation turned into a real plan: make hands-on STEM learning accessible beyond privileged classrooms. Now, as Deputy Executive Director, I lead partnerships and execution across our global team.",
+  linkedin: "https://www.linkedin.com/in/hyunjun-yi-3424573a0/"
 }, {
   title: "Chief of Staff",
-  name: "Name Here",
+  name: "Landon Mahler",
   bio: "Bio coming soon...",
   linkedin: "https://linkedin.com/in/"
 }, {
@@ -32,27 +32,27 @@ const teamMembers: { title: string; name: string; bio: string; linkedin: string;
   photo: harryHonigPhoto
 }, {
   title: "Head of Technology",
-  name: "Name Here",
+  name: "Lucia Adams",
   bio: "Bio coming soon...",
-  linkedin: "https://linkedin.com/in/"
+  linkedin: "https://www.linkedin.com/in/lucia-m-adams/"
 }, {
   title: "Head of Marketing",
-  name: "Name Here",
+  name: "Devansh Bhalla",
   bio: "Bio coming soon...",
   linkedin: "https://linkedin.com/in/"
 }, {
   title: "Head of Education",
-  name: "Name Here",
+  name: "Hinal Fofandi",
   bio: "Bio coming soon...",
   linkedin: "https://linkedin.com/in/"
 }, {
   title: "Head of Outreach",
-  name: "Name Here",
+  name: "Mukil Siva",
   bio: "Bio coming soon...",
   linkedin: "https://linkedin.com/in/"
 }, {
   title: "Head of Finances",
-  name: "Name Here",
+  name: "Rishi Shah",
   bio: "Bio coming soon...",
   linkedin: "https://linkedin.com/in/"
 }];
@@ -69,7 +69,7 @@ const Team = () => {
               Get to Know Us
             </h1>
             <p className="mt-6 text-lg text-foreground/70 max-w-2xl mx-auto leading-relaxed">
-              Meet the passionate individuals driving STEMise's mission forward
+              Meet the passionate individuals driving STEMise's mission forward!
             </p>
           </div>
 

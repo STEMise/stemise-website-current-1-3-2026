@@ -348,6 +348,20 @@ const Courses = () => {
               ))}
             </div>
           </div>
+
+          {/* Upcoming Workshops Section */}
+          <div className="mt-24">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-5xl font-semibold text-foreground">Upcoming Workshops</h2>
+            </div>
+            <Card className="max-w-2xl mx-auto border border-border/50 bg-card">
+              <CardContent className="py-12">
+                <p className="text-center text-lg text-foreground/70">
+                  No upcoming workshops soon
+                </p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </main>
       <Footer />

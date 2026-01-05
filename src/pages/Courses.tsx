@@ -5,8 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Mail, Package, Plus, Minus, Trash2, Send } from "lucide-react";
-import { useState } from "react";
+import { Mail, Package, Plus, Minus, Trash2, Send, Calendar, MapPin, Clock } from "lucide-react";
+import { useState, useEffect } from "react";
 import { toast } from "@/hooks/use-toast";
 import curriculaAi from "@/assets/curricula-ai.png";
 import curriculaCybersecurity from "@/assets/curricula-cybersecurity.png";
@@ -14,6 +14,53 @@ import curriculaWebdev from "@/assets/curricula-webdev.png";
 import curriculaPython from "@/assets/curricula-python.png";
 import curriculaR from "@/assets/curricula-r.png";
 import curriculaJava from "@/assets/curricula-java.png";
+
+// Workshop type for API data
+interface Workshop {
+  id: string;
+  title: string;
+  description: string;
+  date: string;
+  time: string;
+  location: string;
+  registrationLink?: string;
+}
+
+// TODO: Replace with your Google Sheets API endpoint
+// Example: https://sheets.googleapis.com/v4/spreadsheets/{SPREADSHEET_ID}/values/{RANGE}?key={API_KEY}
+// Or use a service like SheetDB, Sheetsu, or a custom backend
+const WORKSHOPS_API_URL = "";
+
+const fetchWorkshops = async (): Promise<Workshop[]> => {
+  if (!WORKSHOPS_API_URL) {
+    return [];
+  }
+  
+  try {
+    const response = await fetch(WORKSHOPS_API_URL);
+    const data = await response.json();
+    
+    // TODO: Transform the Google Sheets response to match Workshop interface
+    // Google Sheets API returns: { values: [["id", "title", "description", ...], [...row data...]] }
+    // Example transformation:
+    // const rows = data.values?.slice(1) || []; // Skip header row
+    // return rows.map((row: string[]) => ({
+    //   id: row[0],
+    //   title: row[1],
+    //   description: row[2],
+    //   date: row[3],
+    //   time: row[4],
+    //   location: row[5],
+    //   registrationLink: row[6],
+    // }));
+    
+    return data.workshops || [];
+  } catch (error) {
+    console.error("Error fetching workshops:", error);
+    return [];
+  }
+};
+
 const curricula = [{
   name: "AI",
   image: curriculaAi
@@ -81,6 +128,18 @@ const Courses = () => {
   const [organization, setOrganization] = useState("");
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
   const [isSending, setIsSending] = useState(false);
+  const [workshops, setWorkshops] = useState<Workshop[]>([]);
+  const [isLoadingWorkshops, setIsLoadingWorkshops] = useState(true);
+
+  useEffect(() => {
+    const loadWorkshops = async () => {
+      setIsLoadingWorkshops(true);
+      const data = await fetchWorkshops();
+      setWorkshops(data);
+      setIsLoadingWorkshops(false);
+    };
+    loadWorkshops();
+  }, []);
   const handleWaitlistSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
@@ -362,13 +421,54 @@ const Courses = () => {
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-5xl font-semibold text-foreground">Workshops</h2>
             </div>
-            <Card className="max-w-2xl mx-auto border border-border/50 bg-card">
-              <CardContent className="py-12">
-                <p className="text-center text-lg text-foreground/70">
-                  No upcoming workshops soon
-                </p>
-              </CardContent>
-            </Card>
+            
+            {isLoadingWorkshops ? (
+              <Card className="max-w-2xl mx-auto border border-border/50 bg-card">
+                <CardContent className="py-12">
+                  <p className="text-center text-lg text-foreground/70">Loading workshops...</p>
+                </CardContent>
+              </Card>
+            ) : workshops.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {workshops.map((workshop) => (
+                  <Card key={workshop.id} className="border border-border/50 bg-gradient-to-br from-card to-secondary/30 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/10 transition-all duration-300">
+                    <CardHeader>
+                      <CardTitle className="text-xl">{workshop.title}</CardTitle>
+                      <CardDescription>{workshop.description}</CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      <div className="flex items-center gap-2 text-sm text-foreground/70">
+                        <Calendar className="h-4 w-4 text-primary" />
+                        <span>{workshop.date}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-sm text-foreground/70">
+                        <Clock className="h-4 w-4 text-primary" />
+                        <span>{workshop.time}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-sm text-foreground/70">
+                        <MapPin className="h-4 w-4 text-primary" />
+                        <span>{workshop.location}</span>
+                      </div>
+                      {workshop.registrationLink && (
+                        <Button asChild className="w-full mt-4">
+                          <a href={workshop.registrationLink} target="_blank" rel="noopener noreferrer">
+                            Register Now
+                          </a>
+                        </Button>
+                      )}
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            ) : (
+              <Card className="max-w-2xl mx-auto border border-border/50 bg-card">
+                <CardContent className="py-12">
+                  <p className="text-center text-lg text-foreground/70">
+                    No upcoming workshops soon
+                  </p>
+                </CardContent>
+              </Card>
+            )}
           </div>
         </div>
       </main>

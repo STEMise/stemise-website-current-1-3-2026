@@ -8,21 +8,18 @@ const programs = [{
   title: "STEM Kits",
   description: "Discipline-specific kits designed by members with expertise across science fields. Each kit transforms abstract concepts into hands-on experiments that cultivate curiosity and foster a lifelong passion for STEM.",
   features: ["Physics, Chemistry, Biology kits", "Age-appropriate materials", "Safety guidance included", "Designed for interactive learning"],
-  gradient: "from-blue-500/20 to-cyan-500/20",
   iconBg: "bg-blue-500/20"
 }, {
   icon: Cpu,
   title: "S.T.F.E. Curriculum",
   description: "STEMise's Tech For Everybody provides communities with fundamental knowledge of topics ranging from AI, cybersecurity, and programming languages—all relevant to today's era of digital technology.",
   features: ["AI literacy programs", "Cybersecurity fundamentals", "Programming languages", "Digital technology skills"],
-  gradient: "from-purple-500/20 to-pink-500/20",
   iconBg: "bg-purple-500/20"
 }, {
   icon: Users,
   title: "Interactive Workshops",
   description: "Both in-person and online workshops to address diverse target audiences. Members pass on their knowledge through kit distributions, hands-on activities, and technology curriculum lessons.",
   features: ["In-person sessions", "Online accessibility", "Regularly scheduled", "Community-focused"],
-  gradient: "from-emerald-500/20 to-teal-500/20",
   iconBg: "bg-emerald-500/20"
 }];
 const ProgramsSection = () => {
@@ -60,7 +57,7 @@ const ProgramsSection = () => {
         </div>
 
         <div ref={cardsRef} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {programs.map((program, index) => <Card key={program.title} className={`group relative border-0 bg-gradient-to-br ${program.gradient} backdrop-blur-sm overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/10 ${cardsVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{
+          {programs.map((program, index) => <Card key={program.title} className={`group relative bg-card overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/10 ${cardsVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{
           animationDelay: `${index * 0.15}s`
         }}>
               {/* Card inner glow on hover */}

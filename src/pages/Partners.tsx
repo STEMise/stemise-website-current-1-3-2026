@@ -6,7 +6,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Handshake, Globe, Users, Trophy } from "lucide-react";
+import partnerLogo1 from "@/assets/partner-logo-1.png";
+import partnerLogo2 from "@/assets/partner-logo-2.png";
+import partnerLogo3 from "@/assets/partner-logo-3.png";
+import partnerLogo4 from "@/assets/partner-logo-4.png";
+
 const Partners = () => {
+  const partnerLogos = [partnerLogo1, partnerLogo2, partnerLogo3, partnerLogo4];
   const benefits = [{
     icon: Globe,
     title: "Global Reach",
@@ -68,7 +74,7 @@ const Partners = () => {
             </div>
 
             {/* Right: Sign up Form */}
-            <Card className="border border-border/50 bg-gradient-to-br from-card to-secondary/30 rounded-2xl">
+            <Card className="border border-border/50 bg-card rounded-2xl">
               <CardHeader>
                 <CardTitle className="text-xl font-semibold">Partnership Inquiry</CardTitle>
                 <CardDescription className="text-foreground/70">Fill out the form below and our team will get back to you within 48 hours.</CardDescription>
@@ -106,6 +112,24 @@ const Partners = () => {
                 </form>
               </CardContent>
             </Card>
+          </div>
+
+          {/* Partner Logos Conveyor Belt */}
+          <div className="mt-20">
+            <h3 className="text-center text-lg font-medium text-foreground/70 mb-8">Our Partners</h3>
+            <div className="relative overflow-hidden bg-background py-8">
+              <div className="flex animate-scroll w-max">
+                {[...partnerLogos, ...partnerLogos, ...partnerLogos, ...partnerLogos].map((logo, index) => (
+                  <div key={index} className="flex-shrink-0 mx-12">
+                    <img 
+                      src={logo} 
+                      alt={`Partner ${(index % 4) + 1}`} 
+                      className="h-16 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </main>

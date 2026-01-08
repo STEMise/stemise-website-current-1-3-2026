@@ -72,6 +72,20 @@ const Donations = () => {
                 </blockquote>
                 <p className="mt-4 font-semibold text-sm">— Educator from Lagos, Nigeria</p>
               </div>
+
+              {/* Hack Club Donation Card */}
+              <div className="bg-[#ec3750] rounded-2xl border border-[#d63045] p-8 flex flex-col items-center justify-center text-center">
+                <p className="text-white/90 text-sm mb-4">Support us through Hack Club's fiscal sponsorship</p>
+                <a 
+                  href="https://hcb.hackclub.com/donations/start/stemise" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-3 w-full h-12 bg-white hover:bg-white/90 text-[#ec3750] font-semibold rounded-md transition-colors"
+                >
+                  <img src={hackclubLogo} alt="Hack Club" className="h-8 w-auto" />
+                  <span>Donate with Hack Club</span>
+                </a>
+              </div>
             </div>
 
             {/* Right: Donation Form */}
@@ -108,16 +122,6 @@ const Donations = () => {
                       <span className="text-sm text-foreground/60">Secure payment processed via Stripe</span>
                     </div>
                     <Button type="submit" className="w-full h-12 text-lg">Process Donation</Button>
-                    
-                    <a 
-                      href="https://hcb.hackclub.com/donations/start/stemise" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-3 w-full h-12 bg-[#ec3750] hover:bg-[#d63045] text-white font-medium rounded-md transition-colors"
-                    >
-                      <img src={hackclubLogo} alt="Hack Club" className="h-8 w-auto" />
-                      <span>Donate with Hack Club</span>
-                    </a>
                   </div>
                 </form>
               </CardContent>

@@ -74,7 +74,7 @@ const Donations = () => {
             </div>
 
             {/* Right: Donation Form */}
-            <Card className="border border-border/50 bg-gradient-to-br from-card to-secondary/30 rounded-2xl">
+            <Card className="border border-border/50 bg-card rounded-2xl self-center">
               <CardHeader>
                 <CardTitle className="text-xl font-semibold">Make a Donation</CardTitle>
                 <CardDescription className="text-foreground/70">Support our mission with a one-time or recurring gift.</CardDescription>

@@ -66,27 +66,25 @@ const Donations = () => {
               })}
               </div>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl border border-border/50 p-8 flex flex-col justify-center">
-                  <blockquote className="italic text-foreground/80 border-l-4 border-primary pl-4 py-2">
-                    "The kits provided by STEMise changed how my students think about the world. They aren't just learning; they are building."
-                  </blockquote>
-                  <p className="mt-4 font-semibold text-sm">— Educator from Lagos, Nigeria</p>
-                </div>
+              <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl border border-border/50 p-8">
+                <blockquote className="italic text-foreground/80 border-l-4 border-primary pl-4 py-2">
+                  "The kits provided by STEMise changed how my students think about the world. They aren't just learning; they are building."
+                </blockquote>
+                <p className="mt-4 font-semibold text-sm">— Educator from Lagos, Nigeria</p>
+              </div>
 
-                {/* Hack Club Donation Card */}
-                <div className="bg-[#ec3750] rounded-2xl border border-[#d63045] p-8 flex flex-col items-center justify-center text-center">
-                  <p className="text-white/90 text-sm mb-4">Support us through Hack Club's fiscal sponsorship</p>
-                  <a 
-                    href="https://hcb.hackclub.com/donations/start/stemise" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-3 w-full h-12 bg-white hover:bg-white/90 text-[#ec3750] font-semibold rounded-md transition-colors"
-                  >
-                    <img src={hackclubLogo} alt="Hack Club" className="h-8 w-auto" />
-                    <span>Donate with Hack Club</span>
-                  </a>
-                </div>
+              {/* Hack Club Donation Card */}
+              <div className="bg-[#ec3750] rounded-2xl border border-[#d63045] p-8 flex flex-col items-center justify-center text-center">
+                <p className="text-white/90 text-sm mb-4">Support us through Hack Club's fiscal sponsorship</p>
+                <a 
+                  href="https://hcb.hackclub.com/donations/start/stemise" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-3 w-full h-12 bg-white hover:bg-white/90 text-[#ec3750] font-semibold rounded-md transition-colors"
+                >
+                  <img src={hackclubLogo} alt="Hack Club" className="h-8 w-auto" />
+                  <span>Donate with Hack Club</span>
+                </a>
               </div>
             </div>
 

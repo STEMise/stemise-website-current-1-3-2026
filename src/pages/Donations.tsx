@@ -51,7 +51,7 @@ const Donations = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Left: Impact Content */}
             <div className="space-y-8">
-              <h2 className="text-3xl md:text-5xl font-semibold text-foreground">Where Your Money Goes</h2>
+              <h2 className="text-3xl md:text-5xl font-semibold text-foreground">Where Your Money Goes:</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {causes.map((cause, index) => {
                 const Icon = cause.icon;

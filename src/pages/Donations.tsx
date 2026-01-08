@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Heart, ShieldCheck, Target, TrendingUp } from "lucide-react";
+import hackclubLogo from "@/assets/hackclub-logo.png";
 const Donations = () => {
   const causes = [{
     icon: Target,
@@ -74,7 +75,7 @@ const Donations = () => {
             </div>
 
             {/* Right: Donation Form */}
-            <Card className="border border-border/50 bg-card rounded-2xl self-center">
+            <Card className="border border-border/50 bg-card rounded-2xl">
               <CardHeader>
                 <CardTitle className="text-xl font-semibold">Make a Donation</CardTitle>
                 <CardDescription className="text-foreground/70">Support our mission with a one-time or recurring gift.</CardDescription>
@@ -107,6 +108,16 @@ const Donations = () => {
                       <span className="text-sm text-foreground/60">Secure payment processed via Stripe</span>
                     </div>
                     <Button type="submit" className="w-full h-12 text-lg">Process Donation</Button>
+                    
+                    <a 
+                      href="https://hcb.hackclub.com/donations/start/stemise" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-3 w-full h-12 bg-[#ec3750] hover:bg-[#d63045] text-white font-medium rounded-md transition-colors"
+                    >
+                      <img src={hackclubLogo} alt="Hack Club" className="h-8 w-auto" />
+                      <span>Donate with Hack Club</span>
+                    </a>
                   </div>
                 </form>
               </CardContent>

@@ -73,6 +73,48 @@ const Donations = () => {
                 <p className="mt-4 font-semibold text-sm">— Educator from Lagos, Nigeria</p>
               </div>
 
+            </div>
+
+            {/* Right: Donation Form + Hack Club Card */}
+            <div className="space-y-8">
+              <Card className="border border-border/50 bg-card rounded-2xl">
+                <CardHeader>
+                  <CardTitle className="text-xl font-semibold">Make a Donation</CardTitle>
+                  <CardDescription className="text-foreground/70">Support our mission with a one-time or recurring gift.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <form className="space-y-6" onSubmit={e => e.preventDefault()}>
+                    <div className="space-y-4">
+                      <Label>Select Amount</Label>
+                      <div className="grid grid-cols-3 gap-3">
+                        {["$10", "$50", "$100", "$250", "$500", "Custom"].map(amount => <Button key={amount} variant="outline" type="button" className="w-full hover:bg-primary/10 hover:border-primary/50">
+                            {amount}
+                          </Button>)}
+                      </div>
+                    </div>
+
+                    <div className="space-y-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="donor-name">Full Name</Label>
+                        <Input id="donor-name" placeholder="John Doe" required className="bg-background/50" />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="donor-email">Email Address</Label>
+                        <Input id="donor-email" type="email" placeholder="john@example.com" required className="bg-background/50" />
+                      </div>
+                    </div>
+
+                    <div className="space-y-4 pt-4 border-t border-border/50">
+                      <div className="flex items-center gap-2 mb-4">
+                        <ShieldCheck className="h-4 w-4 text-emerald-500" />
+                        <span className="text-sm text-foreground/60">Secure payment processed via Stripe</span>
+                      </div>
+                      <Button type="submit" className="w-full h-12 text-lg">Process Donation</Button>
+                    </div>
+                  </form>
+                </CardContent>
+              </Card>
+
               {/* Hack Club Donation Card */}
               <div className="bg-[#ec3750] rounded-2xl border border-[#d63045] p-8 flex flex-col items-center justify-center text-center">
                 <p className="text-white/90 text-sm mb-4">Support us through Hack Club's fiscal sponsorship</p>
@@ -87,45 +129,6 @@ const Donations = () => {
                 </a>
               </div>
             </div>
-
-            {/* Right: Donation Form */}
-            <Card className="border border-border/50 bg-card rounded-2xl">
-              <CardHeader>
-                <CardTitle className="text-xl font-semibold">Make a Donation</CardTitle>
-                <CardDescription className="text-foreground/70">Support our mission with a one-time or recurring gift.</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <form className="space-y-8" onSubmit={e => e.preventDefault()}>
-                  <div className="space-y-4">
-                    <Label>Select Amount</Label>
-                    <div className="grid grid-cols-3 gap-3">
-                      {["$10", "$50", "$100", "$250", "$500", "Custom"].map(amount => <Button key={amount} variant="outline" type="button" className="w-full hover:bg-primary/10 hover:border-primary/50">
-                          {amount}
-                        </Button>)}
-                    </div>
-                  </div>
-
-                  <div className="space-y-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="donor-name">Full Name</Label>
-                      <Input id="donor-name" placeholder="John Doe" required className="bg-background/50" />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="donor-email">Email Address</Label>
-                      <Input id="donor-email" type="email" placeholder="john@example.com" required className="bg-background/50" />
-                    </div>
-                  </div>
-
-                  <div className="space-y-4 pt-4 border-t border-border/50">
-                    <div className="flex items-center gap-2 mb-4">
-                      <ShieldCheck className="h-4 w-4 text-emerald-500" />
-                      <span className="text-sm text-foreground/60">Secure payment processed via Stripe</span>
-                    </div>
-                    <Button type="submit" className="w-full h-12 text-lg">Process Donation</Button>
-                  </div>
-                </form>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </main>

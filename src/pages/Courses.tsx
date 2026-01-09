@@ -124,12 +124,8 @@ const Courses = () => {
         {/* Hero Section */}
         <section ref={heroRef} className="relative py-24 overflow-hidden md:py-32">
           <div className="absolute inset-0">
-            <img 
-              src={stemKitsHero} 
-              alt="Students building with STEM kits" 
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-background/85" />
+            <img src={stemKitsHero} alt="Students building with STEM kits" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-background/85 opacity-100" />
           </div>
           <div className="container mx-auto px-6 relative">
             <div className={`max-w-4xl mx-auto text-center transition-all duration-700 ${isHeroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -138,9 +134,9 @@ const Courses = () => {
               </span>
               <h1 className="text-4xl font-bold text-foreground mb-6 leading-tight md:text-5xl">
                 Learn, Build, and
-                <span className="text-primary"> Innovate</span>
+                <span className="text-primary-foreground"> Innovate</span>
               </h1>
-              <p className="text-foreground/80 mb-8 max-w-2xl mx-auto leading-relaxed text-lg">
+              <p className="mb-8 max-w-2xl mx-auto leading-relaxed text-lg text-foreground">
                 Access world-class STEM curriculum, hands-on learning materials, 
                 and connect with a global community of learners and educators.
               </p>
@@ -149,12 +145,12 @@ const Courses = () => {
         </section>
 
         {/* Program Highlights */}
-        <section className="border-y border-border/50 bg-secondary/20 py-[40px]">
+        <section className="border-y border-border/50 py-[40px] bg-[sidebar-accent-foreground] bg-accent">
           <div className="container mx-auto px-6">
             <div className="grid md:grid-cols-3 gap-8">
               {programHighlights.map((item, index) => <div key={index} className="text-center">
-                  <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <item.icon className="h-7 w-7 text-white bg-transparent" />
+                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4 bg-primary-foreground">
+                    <item.icon className="h-7 w-7 bg-transparent text-blue-500" />
                   </div>
                   <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
                   <p className="text-foreground/70 text-sm">{item.description}</p>
@@ -164,7 +160,7 @@ const Courses = () => {
         </section>
 
         {/* STEM Kits Section */}
-        <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent">
+        <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent bg-card">
           <div className="container mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
               <div>
@@ -198,11 +194,7 @@ const Courses = () => {
                 </Button>
               </div>
               <div className="relative">
-                <img 
-                  src={stemKitsShowcase} 
-                  alt="STEM kits with electronics and robotics components" 
-                  className="w-full rounded-2xl shadow-2xl"
-                />
+                <img src={stemKitsShowcase} alt="STEM kits with electronics and robotics components" className="w-full rounded-2xl shadow-2xl" />
                 <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-xl -z-10" />
                 <div className="absolute -top-4 -left-4 w-16 h-16 bg-primary/10 rounded-xl -z-10" />
               </div>
@@ -264,10 +256,8 @@ const Courses = () => {
               {curricula.map(course => <div key={course.name} className="group p-6 bg-card rounded-2xl border border-border/50 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
                   <div className="h-40 rounded-xl mb-4 relative overflow-hidden">
                     <img src={course.image} alt={course.name} className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 flex items-center justify-center bg-background/70">
-                      <span className="text-xs font-semibold uppercase tracking-wider px-3 py-1 bg-primary/20 rounded-full text-primary">
-                        Coming Soon
-                      </span>
+                    <div className="absolute inset-0 flex items-center justify-center bg-background/70 opacity-10">
+                      
                     </div>
                   </div>
                   <h3 className="text-xl font-semibold text-foreground mb-2">{course.name}</h3>

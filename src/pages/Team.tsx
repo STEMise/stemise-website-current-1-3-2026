@@ -6,6 +6,7 @@ import landonMahlerPhoto from "@/assets/team-landon-mahler.jpg";
 import harryHonigPhoto from "@/assets/team-harry-honig.jpeg";
 import luciaAdamsPhoto from "@/assets/team-lucia-adams.jpg";
 import marisaMartignonPhoto from "@/assets/team-marisa-martignon.jpg";
+import devanshBhallaPhoto from "@/assets/team-devansh-bhalla.jpg";
 
 const LinkedInIcon = ({
   className
@@ -47,8 +48,9 @@ const teamMembers: { title: string; name: string; bio: string; linkedin: string;
 }, {
   title: "Head of Marketing",
   name: "Devansh Bhalla",
-  bio: "Bio coming soon...",
-  linkedin: "https://linkedin.com/in/"
+  bio: "Hi! My name is Devansh, and I'm the Head of Marketing at STEMise. I lead graphic design and marketing strategy, collaborating with my team to build a cohesive media kit that attracts and engages future audiences. Outside of STEMise, I'm active in DECA and enjoy UI design, game development, roller coasters, adventure travel, and experiences.",
+  linkedin: "https://www.linkedin.com/in/devansh-bhalla-b2a45a382",
+  photo: devanshBhallaPhoto
 }, {
   title: "Head of Education",
   name: "Marisa Martignon",

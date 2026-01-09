@@ -72,7 +72,7 @@ const ProgramsSection = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="relative">
-                <p className="text-foreground/70 leading-relaxed mb-6">
+                <p className="leading-relaxed mb-6 text-white">
                   {program.description}
                 </p>
                 <ul className="space-y-3">

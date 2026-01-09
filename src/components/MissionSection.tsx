@@ -62,7 +62,7 @@ const MissionSection = () => {
           }].map((stat, index) => <div key={stat.label} className={`group p-6 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl border border-border/50 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 ${statsVisible ? 'animate-scale-in' : 'opacity-0'}`} style={{
             animationDelay: `${(index + 1) * 0.1}s`
           }}>
-                <p className="text-3xl font-semibold text-primary">{stat.value}</p>
+                <p className="text-3xl font-semibold text-white">{stat.value}</p>
                 <p className="mt-2 text-sm text-foreground/70">{stat.label}</p>
               </div>)}
           </div>

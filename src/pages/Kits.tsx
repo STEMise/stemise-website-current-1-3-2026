@@ -365,10 +365,7 @@ const Kits = () => {
                   {/* Progress Indicator */}
                   <Card className="border border-border/50 bg-card">
                     <CardContent className="pt-6">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm font-medium text-foreground">Request Progress</span>
-                        <span className="text-sm text-foreground/70">{getProgress()}%</span>
-                      </div>
+                      
                       <Progress value={getProgress()} className="h-2" />
                       
                     </CardContent>

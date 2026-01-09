@@ -13,6 +13,8 @@ import curriculaWebdev from "@/assets/curricula-webdev.png";
 import curriculaPython from "@/assets/curricula-python.png";
 import curriculaR from "@/assets/curricula-r.png";
 import curriculaJava from "@/assets/curricula-java.png";
+import stemKitsHero from "@/assets/stem-kits-hero.jpg";
+import stemKitsShowcase from "@/assets/stem-kits-showcase.jpg";
 
 // Workshop type for API data
 interface Workshop {
@@ -120,8 +122,15 @@ const Courses = () => {
       <Header />
       <main>
         {/* Hero Section */}
-        <section ref={heroRef} className="relative py-24 overflow-hidden md:py-[50px]">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent py-0 mx-[2000px]" />
+        <section ref={heroRef} className="relative py-24 overflow-hidden md:py-32">
+          <div className="absolute inset-0">
+            <img 
+              src={stemKitsHero} 
+              alt="Students building with STEM kits" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-background/85" />
+          </div>
           <div className="container mx-auto px-6 relative">
             <div className={`max-w-4xl mx-auto text-center transition-all duration-700 ${isHeroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6 border border-primary/30 text-secondary bg-primary-foreground">
@@ -135,7 +144,6 @@ const Courses = () => {
                 Access world-class STEM curriculum, hands-on learning materials, 
                 and connect with a global community of learners and educators.
               </p>
-              
             </div>
           </div>
         </section>
@@ -155,49 +163,50 @@ const Courses = () => {
           </div>
         </section>
 
-        {/* STEM Kits CTA Section */}
-        <section className="py-20">
-          <div className="container mx-auto px-[2px]">
-            <Card className="max-w-4xl mx-auto border border-primary/30 bg-gradient-to-br from-primary/10 to-transparent overflow-hidden">
-              <div className="grid md:grid-cols-2 gap-8">
-                <CardContent className="py-12 px-8">
-                  <div className="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
-                    <Package className="h-7 w-7 text-white" />
-                  </div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                    Free STEM Kits for Educators
-                  </h2>
-                  
-                  <ul className="space-y-2 mb-6">
-                    <li className="flex items-center gap-2 text-foreground/80">
-                      <Sparkles className="h-4 w-4 text-primary" />
-                      <span>8+ different kit types available</span>
-                    </li>
-                    <li className="flex items-center gap-2 text-foreground/80">
-                      
-                      <span>Each kit serves 15-30 students</span>
-                    </li>
-                    <li className="flex items-center gap-2 text-foreground/80">
-                      <BookOpen className="h-4 w-4 text-primary" />
-                      <span>
-                    </span>
-                    </li>
-                  </ul>
-                  <Button size="lg" asChild>
-                    <Link to="/kits">
-                      Request Free Kits <ArrowRight className="ml-2 h-5 w-5" />
-                    </Link>
-                  </Button>
-                </CardContent>
-                <div className="hidden items-center justify-center bg-gradient-to-br from-primary/20 to-primary/5 p-8 md:items-center md:justify-center px-[30px] py-[30px] md:flex md:flex-row">
-                  <div className="grid grid-cols-2 gap-4">
-                    {[Package, Sparkles, BookOpen, Users].map((Icon, idx) => <div key={idx} className="w-20 h-20 bg-background/50 rounded-xl flex items-center justify-center backdrop-blur-sm">
-                        <Icon className="h-10 w-10 text-white" />
-                      </div>)}
-                  </div>
+        {/* STEM Kits Section */}
+        <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent">
+          <div className="container mx-auto px-6">
+            <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+              <div>
+                <div className="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
+                  <Package className="h-7 w-7 text-primary" />
                 </div>
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                  Free STEM Kits for Educators
+                </h2>
+                <p className="text-foreground/70 mb-6 text-lg">
+                  Bring hands-on STEM learning to your classroom with our free educational kits, designed for educators worldwide.
+                </p>
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-center gap-3 text-foreground/80">
+                    <Sparkles className="h-5 w-5 text-primary flex-shrink-0" />
+                    <span>8+ different kit types available</span>
+                  </li>
+                  <li className="flex items-center gap-3 text-foreground/80">
+                    <Users className="h-5 w-5 text-primary flex-shrink-0" />
+                    <span>Each kit serves 15-30 students</span>
+                  </li>
+                  <li className="flex items-center gap-3 text-foreground/80">
+                    <BookOpen className="h-5 w-5 text-primary flex-shrink-0" />
+                    <span>Complete lesson plans & guides included</span>
+                  </li>
+                </ul>
+                <Button size="lg" asChild>
+                  <Link to="/kits">
+                    Request Free Kits <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
               </div>
-            </Card>
+              <div className="relative">
+                <img 
+                  src={stemKitsShowcase} 
+                  alt="STEM kits with electronics and robotics components" 
+                  className="w-full rounded-2xl shadow-2xl"
+                />
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-xl -z-10" />
+                <div className="absolute -top-4 -left-4 w-16 h-16 bg-primary/10 rounded-xl -z-10" />
+              </div>
+            </div>
           </div>
         </section>
 

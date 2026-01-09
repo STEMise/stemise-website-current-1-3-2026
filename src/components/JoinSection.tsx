@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import AppHashLink from "@/components/AppHashLink";
+import { Link } from "react-router-dom";
 import joinImage from "@/assets/join-community.jpg";
 import { useEffect, useRef, useState } from "react";
 const JoinSection = () => {
@@ -51,7 +51,7 @@ const JoinSection = () => {
               <ArrowRight className="h-4 w-4" />
             </Button>
             <Button variant="outline" size="lg" asChild className="hover-lift bg-foreground text-background border-foreground hover:bg-foreground/90 hover:text-background">
-              <AppHashLink toId="contact">Contact us</AppHashLink>
+              <Link to="/contact">Contact us</Link>
             </Button>
           </div>
 

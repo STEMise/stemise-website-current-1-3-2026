@@ -9,6 +9,7 @@ import Partners from "./pages/Partners";
 import Donations from "./pages/Donations";
 
 import Courses from "./pages/Courses";
+import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import ScrollToHash from "@/components/ScrollToHash";
 
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/donations" element={<Donations />} />
           
           <Route path="/courses" element={<Courses />} />
+          <Route path="/contact" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

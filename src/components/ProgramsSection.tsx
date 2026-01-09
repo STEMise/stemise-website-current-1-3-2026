@@ -79,7 +79,7 @@ const ProgramsSection = () => {
                   {program.features.map((feature, featureIndex) => <li key={feature} className="text-sm text-foreground/80 flex items-center gap-3 group-hover:translate-x-1 transition-transform duration-300" style={{
                 transitionDelay: `${featureIndex * 50}ms`
               }}>
-                      <span className="w-2 h-2 bg-primary rounded-full flex-shrink-0" />
+                      <span className="w-2 h-2 rounded-full flex-shrink-0 bg-white" />
                       {feature}
                     </li>)}
                 </ul>

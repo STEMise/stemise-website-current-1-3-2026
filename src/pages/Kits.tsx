@@ -318,9 +318,7 @@ const Kits = () => {
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">Available STEM Kits</h2>
-              <p className="text-foreground/70 max-w-2xl mx-auto text-lg">
-                Select the kits you need for your classroom. Each kit includes everything for hands-on learning.
-              </p>
+              
             </div>
 
             <div className="grid lg:grid-cols-3 gap-8">
@@ -473,7 +471,7 @@ const Kits = () => {
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">Frequently Asked Questions</h2>
-              <p className="text-foreground/70 max-w-xl mx-auto text-lg">Everything you need to know about requesting STEM kits</p>
+              
             </div>
             <div className="max-w-3xl mx-auto">
               <Accordion type="single" collapsible className="space-y-4">

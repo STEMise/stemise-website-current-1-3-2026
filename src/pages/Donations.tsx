@@ -58,7 +58,7 @@ const Donations = () => {
 
           {/* Impact Section */}
           <div className="text-center mb-12">
-            <h2 className="text-2xl font-semibold text-foreground mb-4 md:text-5xl">Where Your Money Goes</h2>
+            <h2 className="text-2xl font-semibold text-foreground mb-4 md:text-4xl">Where Your Money Goes</h2>
             <p className="text-foreground/70 max-w-xl mx-auto text-lg">
               Every dollar you donate directly supports our programs and initiatives.
             </p>

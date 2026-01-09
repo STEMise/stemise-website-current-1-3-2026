@@ -297,7 +297,7 @@ const Kits = () => {
         <section id="how-it-works" className="py-20">
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">STEM KITS</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Request Our STEM Kits</h2>
               <p className="text-foreground/70 max-w-xl mx-auto">Getting STEM kits for your classroom is simple</p>
             </div>
             <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
@@ -307,7 +307,7 @@ const Kits = () => {
                   </div>
                   <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
                   <p className="text-sm text-foreground/70">{item.description}</p>
-                  {item.step < 4 && <div className="hidden md:block absolute top-7 left-[60%] w-[80%] h-0.5 bg-border" />}
+                  {item.step < 4}
                 </div>)}
             </div>
           </div>

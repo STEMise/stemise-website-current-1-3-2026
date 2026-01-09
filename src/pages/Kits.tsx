@@ -297,16 +297,16 @@ const Kits = () => {
         <section id="how-it-works" className="py-20">
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Request Our STEM Kits</h2>
-              <p className="text-foreground/70 max-w-xl mx-auto">Getting STEM kits for your classroom is simple</p>
+              <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">Request Our STEM Kits</h2>
+              <p className="text-foreground/70 max-w-xl mx-auto text-lg">Getting STEM kits for your classroom is simple</p>
             </div>
             <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
               {howItWorks.map(item => <div key={item.step} className="relative text-center">
                   <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-primary-foreground font-bold text-xl">
                     {item.step}
                   </div>
-                  <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-sm text-foreground/70">{item.description}</p>
+                  <h3 className="font-semibold text-foreground mb-2 text-lg">{item.title}</h3>
+                  <p className="text-foreground/70 text-base">{item.description}</p>
                   {item.step < 4}
                 </div>)}
             </div>
@@ -317,8 +317,8 @@ const Kits = () => {
         <section ref={kitsRef} className="py-20 bg-secondary/10">
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Available STEM Kits</h2>
-              <p className="text-foreground/70 max-w-2xl mx-auto">
+              <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">Available STEM Kits</h2>
+              <p className="text-foreground/70 max-w-2xl mx-auto text-lg">
                 Select the kits you need for your classroom. Each kit includes everything for hands-on learning.
               </p>
             </div>
@@ -374,7 +374,7 @@ const Kits = () => {
                   <Card className="border border-border/50 bg-card">
                     <CardHeader className="pb-3">
                       <CardTitle className="text-xl flex items-center gap-2">
-                        <Package className="h-5 w-5 text-primary" />
+                        
                         Your Request
                       </CardTitle>
                     </CardHeader>

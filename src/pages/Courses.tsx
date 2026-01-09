@@ -131,7 +131,7 @@ const Courses = () => {
                 Learn, Build, and
                 <span className="text-primary"> Innovate</span>
               </h1>
-              <p className="text-xl text-foreground/80 mb-8 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-foreground/80 mb-8 max-w-2xl mx-auto leading-relaxed text-lg">
                 Access world-class STEM curriculum, hands-on learning materials, 
                 and connect with a global community of learners and educators.
               </p>

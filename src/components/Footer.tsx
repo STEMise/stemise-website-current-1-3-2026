@@ -119,9 +119,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <a href={mailtoHref} className="text-sm text-foreground/70 hover:text-primary transition-colors">
-                  officialstemise@gmail.com
-                </a>
+                
               </li>
             </ul>
             <div className="mt-6">

@@ -7,9 +7,19 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Progress } from "@/components/ui/progress";
-import { Package, Plus, Minus, Trash2, Send, CheckCircle, Users, GraduationCap, Truck, Clock, Globe, Award, ArrowRight, Sparkles, BookOpen, Beaker } from "lucide-react";
+import { Package, Plus, Minus, Trash2, Send, CheckCircle, Users, GraduationCap, Truck, Clock, Globe, Award, ArrowRight } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { toast } from "@/hooks/use-toast";
+
+// Kit images
+import kitRobotics from "@/assets/kit-robotics.png";
+import kitElectronics from "@/assets/kit-electronics.png";
+import kitChemistry from "@/assets/kit-chemistry.png";
+import kitPhysics from "@/assets/kit-physics.png";
+import kitCoding from "@/assets/kit-coding.png";
+import kitBiology from "@/assets/kit-biology.png";
+import kitMath from "@/assets/kit-math.png";
+import kitRenewable from "@/assets/kit-renewable.png";
 interface KitItem {
   id: string;
   name: string;
@@ -24,7 +34,7 @@ const stemKits = [{
   grades: "6-12",
   includes: ["Arduino Uno", "Motors & Wheels", "Sensors Pack", "Project Guide"],
   deliveryTime: "2-3 weeks",
-  icon: Sparkles
+  image: kitRobotics
 }, {
   id: "electronics-lab",
   name: "Electronics Lab Kit",
@@ -33,7 +43,7 @@ const stemKits = [{
   grades: "5-10",
   includes: ["Breadboards", "LED Pack", "Resistors Set", "Multimeter"],
   deliveryTime: "2-3 weeks",
-  icon: Beaker
+  image: kitElectronics
 }, {
   id: "chemistry-set",
   name: "Chemistry Experiment Set",
@@ -42,7 +52,7 @@ const stemKits = [{
   grades: "4-8",
   includes: ["Test Tubes", "Safe Chemicals", "Safety Goggles", "Lab Manual"],
   deliveryTime: "3-4 weeks",
-  icon: Beaker
+  image: kitChemistry
 }, {
   id: "physics-toolkit",
   name: "Physics Toolkit",
@@ -51,7 +61,7 @@ const stemKits = [{
   grades: "6-12",
   includes: ["Optics Kit", "Mechanics Set", "Electricity Lab", "Experiment Cards"],
   deliveryTime: "2-3 weeks",
-  icon: Sparkles
+  image: kitPhysics
 }, {
   id: "coding-bundle",
   name: "Coding Education Bundle",
@@ -60,7 +70,7 @@ const stemKits = [{
   grades: "5-12",
   includes: ["Micro:bits x5", "Raspberry Pi", "Sensors", "Curriculum Guide"],
   deliveryTime: "2-3 weeks",
-  icon: BookOpen
+  image: kitCoding
 }, {
   id: "biology-microscope",
   name: "Biology Microscope Kit",
@@ -69,7 +79,7 @@ const stemKits = [{
   grades: "4-10",
   includes: ["Microscopes x3", "Prepared Slides", "Blank Slides", "Field Guide"],
   deliveryTime: "3-4 weeks",
-  icon: Beaker
+  image: kitBiology
 }, {
   id: "math-manipulatives",
   name: "Math Manipulatives Set",
@@ -78,7 +88,7 @@ const stemKits = [{
   grades: "K-8",
   includes: ["Geometric Shapes", "Fraction Tiles", "Algebra Tiles", "Activity Book"],
   deliveryTime: "2-3 weeks",
-  icon: BookOpen
+  image: kitMath
 }, {
   id: "renewable-energy",
   name: "Renewable Energy Kit",
@@ -87,7 +97,7 @@ const stemKits = [{
   grades: "6-12",
   includes: ["Solar Panels", "Wind Turbine", "Hydro Generator", "Project Guide"],
   deliveryTime: "3-4 weeks",
-  icon: Sparkles
+  image: kitRenewable
 }];
 const testimonials = [{
   quote: "The robotics kits transformed our after-school program. Students who were disengaged are now leading projects!",
@@ -317,17 +327,21 @@ const Kits = () => {
               {/* Available Kits */}
               <div className="lg:col-span-2 space-y-8">
                 <div className="grid sm:grid-cols-2 gap-6">
-                  {stemKits.map(kit => <Card key={kit.id} className="border border-border/50 bg-card hover:border-primary/50 transition-all duration-300 group">
+                  {stemKits.map(kit => <Card key={kit.id} className="border border-border/50 bg-card hover:border-primary/50 transition-all duration-300 group overflow-hidden">
+                      <div className="aspect-[4/3] overflow-hidden bg-secondary/30">
+                        <img 
+                          src={kit.image} 
+                          alt={kit.name} 
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
                       <CardHeader className="pb-3">
                         <div className="flex items-start justify-between mb-2">
-                          <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                            <kit.icon className="h-6 w-6 text-primary" />
-                          </div>
+                          <CardTitle className="text-lg">{kit.name}</CardTitle>
                           <Button size="sm" onClick={() => addKit(kit)} className="h-9 px-4">
                             <Plus className="h-4 w-4 mr-1" /> Add
                           </Button>
                         </div>
-                        <CardTitle className="text-lg">{kit.name}</CardTitle>
                         <CardDescription className="text-foreground/70">{kit.description}</CardDescription>
                       </CardHeader>
                       <CardContent className="pt-0">

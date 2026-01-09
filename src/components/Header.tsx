@@ -26,6 +26,10 @@ const Header = () => {
     kind: "route" as const,
     to: "/courses",
     label: "Programs"
+  }, {
+    kind: "route" as const,
+    to: "/kits",
+    label: "Kits"
   }];
   return <header className="sticky top-0 z-50 bg-background border-b border-border">
       <div className="container mx-auto px-6">

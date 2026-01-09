@@ -23,7 +23,7 @@ const MissionSection = () => {
     if (statsRef.current) observer.observe(statsRef.current);
     return () => observer.disconnect();
   }, []);
-  return <section id="about" className="py-24 scroll-mt-24 relative overflow-hidden">
+  return <section id="about" className="scroll-mt-24 relative overflow-hidden py-[80px]">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto">
           <div ref={headerRef} className={`text-center mb-12 ${headerVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>

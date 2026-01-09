@@ -36,15 +36,15 @@ const MissionSection = () => {
           </div>
           
           <div ref={contentRef} className={`bg-gradient-to-br from-card to-secondary/50 p-8 md:p-12 rounded-3xl border border-border/50 backdrop-blur-sm hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 ${contentVisible ? 'animate-fade-in-up stagger-1' : 'opacity-0'}`}>
-            <p className="font-serif text-lg md:text-xl leading-relaxed text-foreground/90">
+            <p className="font-serif text-lg md:text-xl leading-relaxed text-foreground/90 text-center">
               STEMise is an international, youth-led organization committed to redefining STEM education by focusing on introducing hands-on learning to communities through interactive STEM kits, technology curricula, and educational workshops.
             </p>
             
-            <p className="font-serif text-lg md:text-xl leading-relaxed text-foreground/90 mt-6">
+            <p className="font-serif text-lg md:text-xl leading-relaxed text-foreground/90 mt-6 text-center">
               Our actions are driven by the foundational belief in the effectiveness and power of interactive learning compared to passive learning, and our desire to transform abstract classroom concepts into engaging, meaningful, and real-world learning experiences for learners worldwide.
             </p>
 
-            <p className="font-serif text-lg md:text-xl leading-relaxed text-foreground/90 mt-6">
+            <p className="font-serif text-lg md:text-xl leading-relaxed text-foreground/90 mt-6 text-center">
               Through our discipline-specific STEM kits, members—each with their expertise in different science disciplines—have the opportunity to apply their creative minds to formulate personalized kits that serve as effective tools for learning and cultivating curiosity, as well as fostering a lifelong passion in STEM.
             </p>
           </div>

@@ -120,8 +120,8 @@ const Courses = () => {
       <Header />
       <main>
         {/* Hero Section */}
-        <section ref={heroRef} className="relative py-24 md:py-32 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent" />
+        <section ref={heroRef} className="relative py-24 overflow-hidden md:py-[50px]">
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent py-0 mx-[2000px]" />
           <div className="container mx-auto px-6 relative">
             <div className={`max-w-4xl mx-auto text-center transition-all duration-700 ${isHeroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6 border border-primary/30 text-secondary bg-primary-foreground">
@@ -135,22 +135,13 @@ const Courses = () => {
                 Access world-class STEM curriculum, hands-on learning materials, 
                 and connect with a global community of learners and educators.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" asChild className="text-lg px-8">
-                  <Link to="/kits" className="text-5xl">
-                    Request STEM Kits <Package className="ml-2 h-5 w-5" />
-                  </Link>
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <a href="#curriculum">View Curriculum</a>
-                </Button>
-              </div>
+              
             </div>
           </div>
         </section>
 
         {/* Program Highlights */}
-        <section className="py-16 border-y border-border/50 bg-secondary/20">
+        <section className="border-y border-border/50 bg-secondary/20 py-[40px]">
           <div className="container mx-auto px-6">
             <div className="grid md:grid-cols-3 gap-8">
               {programHighlights.map((item, index) => <div key={index} className="text-center">
@@ -166,7 +157,7 @@ const Courses = () => {
 
         {/* STEM Kits CTA Section */}
         <section className="py-20">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto px-[2px]">
             <Card className="max-w-4xl mx-auto border border-primary/30 bg-gradient-to-br from-primary/10 to-transparent overflow-hidden">
               <div className="grid md:grid-cols-2 gap-8">
                 <CardContent className="py-12 px-8">
@@ -200,10 +191,10 @@ const Courses = () => {
                     </Link>
                   </Button>
                 </CardContent>
-                <div className="hidden md:flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/5 p-8">
+                <div className="hidden items-center justify-center bg-gradient-to-br from-primary/20 to-primary/5 p-8 md:items-center md:justify-center px-[30px] py-[30px] md:flex md:flex-row">
                   <div className="grid grid-cols-2 gap-4">
                     {[Package, Sparkles, BookOpen, Users].map((Icon, idx) => <div key={idx} className="w-20 h-20 bg-background/50 rounded-xl flex items-center justify-center backdrop-blur-sm">
-                        <Icon className="h-10 w-10 text-primary/60" />
+                        <Icon className="h-10 w-10 text-white" />
                       </div>)}
                   </div>
                 </div>

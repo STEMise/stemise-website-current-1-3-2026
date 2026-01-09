@@ -40,7 +40,7 @@ const Donations = () => {
 
           {/* Main Donation Card - Centered */}
           <div className="flex justify-center mb-20">
-            <div className="bg-[#ec3750] rounded-3xl p-10 md:p-14 flex-col text-center max-w-lg w-full shadow-2xl shadow-[#ec3750]/20 flex items-center justify-start px-[40px] py-[30px]">
+            <div className="bg-[#ec3750] rounded-3xl p-10 md:p-14 text-center max-w-lg w-full shadow-2xl shadow-[#ec3750]/20 items-center justify-start px-[40px] py-[30px] mx-0 my-0 flex flex-col gap-0">
               <img src={hackclubLogo} alt="Hack Club" className="h-14 w-auto mb-6" />
               <h2 className="text-white text-2xl md:text-3xl font-semibold mb-4">
                 Donate to STEMise

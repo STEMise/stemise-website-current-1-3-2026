@@ -47,90 +47,48 @@ const socialLinks = [{
 }];
 const mailtoHref = "mailto:officialstemise@gmail.com";
 const Footer = () => {
-  return <footer className="bg-background border-t border-border py-16">
+  return <footer className="bg-background border-t border-border py-10">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Brand */}
-          <div className="lg:col-span-1">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
+          {/* Brand & Social */}
+          <div className="flex-shrink-0">
             <Link to="/" className="inline-block">
-              <img src={stemiseLogo} alt="STEMise" className="h-32 w-auto" />
+              <img src={stemiseLogo} alt="STEMise" className="h-20 w-auto" />
             </Link>
-            <p className="mt-4 text-sm text-foreground/70 leading-relaxed">
-              Redefining STEM education through hands-on learning experiences for students worldwide.
-            </p>
-            <div className="flex gap-3 mt-6">
-              {socialLinks.map(social => <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center rounded-lg bg-secondary hover:bg-primary/20 transition-colors" aria-label={social.name}>
-                  <social.icon className="h-5 w-5 text-foreground" />
+            <div className="flex gap-2 mt-4">
+              {socialLinks.map(social => <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center rounded-md bg-secondary hover:bg-primary/20 transition-colors" aria-label={social.name}>
+                  <social.icon className="h-4 w-4 text-foreground" />
                 </a>)}
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="font-semibold text-foreground mb-4 text-sm uppercase tracking-wider">NAVIGATION</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/" className="text-sm text-foreground/70 hover:text-primary transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/courses" className="text-sm text-foreground/70 hover:text-primary transition-colors">
-                  Programs
-                </Link>
-              </li>
-              <li>
-                <Link to="/kits" className="text-sm text-foreground/70 hover:text-primary transition-colors">
-                  STEM Kits
-                </Link>
-              </li>
-              <li>
-                <Link to="/donations" className="text-sm text-foreground/70 hover:text-primary transition-colors">
-                  Donate
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* About */}
-          <div>
-            <h4 className="font-semibold text-foreground mb-4 text-sm uppercase tracking-wider">About</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/team" className="text-sm text-foreground/70 hover:text-primary transition-colors">
-                  Our Team
-                </Link>
-              </li>
-              <li>
-                <Link to="/partners" className="text-sm text-foreground/70 hover:text-primary transition-colors">
-                  Partners
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="font-semibold text-foreground mb-4 text-sm uppercase tracking-wider">Get In Touch</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/contact" className="text-sm text-foreground/70 hover:text-primary transition-colors">
-                  Contact Us
-                </Link>
-              </li>
-              <li>
-                
-              </li>
-            </ul>
-            <div className="mt-6">
-              <Link to="/donations">
-                
-              </Link>
-            </div>
+          {/* Links - Horizontal layout */}
+          <div className="flex flex-wrap gap-x-12 gap-y-4 lg:pt-2">
+            <Link to="/" className="text-sm text-foreground/70 hover:text-primary transition-colors">
+              Home
+            </Link>
+            <Link to="/courses" className="text-sm text-foreground/70 hover:text-primary transition-colors">
+              Programs
+            </Link>
+            <Link to="/kits" className="text-sm text-foreground/70 hover:text-primary transition-colors">
+              STEM Kits
+            </Link>
+            <Link to="/donations" className="text-sm text-foreground/70 hover:text-primary transition-colors">
+              Donate
+            </Link>
+            <Link to="/team" className="text-sm text-foreground/70 hover:text-primary transition-colors">
+              Our Team
+            </Link>
+            <Link to="/partners" className="text-sm text-foreground/70 hover:text-primary transition-colors">
+              Partners
+            </Link>
+            <Link to="/contact" className="text-sm text-foreground/70 hover:text-primary transition-colors">
+              Contact Us
+            </Link>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-border">
+        <div className="mt-8 pt-6 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-foreground/60 text-center md:text-left">
               © {new Date().getFullYear()} STEMise. All rights reserved.

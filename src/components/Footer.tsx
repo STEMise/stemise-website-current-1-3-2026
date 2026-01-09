@@ -49,18 +49,9 @@ const mailtoHref = "mailto:officialstemise@gmail.com";
 const Footer = () => {
   return <footer className="bg-background border-t border-border py-[20px]">
       <div className="container mx-auto px-[2px]">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-[6px]">
           {/* Brand & Social */}
-          <div className="">
-            <Link to="/" className="inline-block">
-              
-            </Link>
-            <div className="mt-4 items-start justify-start flex flex-row gap-[10px] my-0 py-0">
-              {socialLinks.map(social => <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center rounded-md bg-secondary hover:bg-primary/20 transition-colors" aria-label={social.name}>
-                  <social.icon className="h-4 w-4 text-foreground" />
-                </a>)}
-            </div>
-          </div>
+          
 
           {/* Links - Horizontal layout */}
           <div className="flex-wrap gap-x-12 gap-y-4 lg:pt-2 flex-row flex items-center justify-center">

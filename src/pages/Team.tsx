@@ -31,7 +31,7 @@ const teamMembers: { title: string; name: string; bio: string; linkedin: string;
   title: "Chief of Staff",
   name: "Landon Mahler",
   bio: "Hi Everyone! My name is Landon Mahler and I am the Chief of Staff for STEMise. I am a junior in Idaho and am passionate about business, specifically strategic business management. I’m actively involved in several non profits, and am the President of my school’s DECA club. I’m so excited to help expand STEM accessibility around the world with STEMise!",
-  linkedin: "https://linkedin.com/in/",
+  linkedin: "https://www.linkedin.com/in/landon-mahler-14573a3a1/",
   photo: landonMahlerPhoto
 }, {
   title: "Head of Operations",
@@ -42,7 +42,7 @@ const teamMembers: { title: string; name: string; bio: string; linkedin: string;
 }, {
   title: "Head of Technology",
   name: "Lucia Adams",
-  bio: "Hi, I’m Lucia Adams. I’m the Head of Technology at STEMise, where I design, build, and manage our website and database systems. My work focuses on keeping our platforms reliable, accessible, and centered on the students who rely on them to learn, collaborate, and grow through our STEM programs.",
+  bio: "Hello! I’m Lucia Adams. I’m the Head of Technology at STEMise, where I design, build, and manage our website and database systems. My work focuses on keeping our platforms reliable, accessible, and centered on the students who rely on them to learn, collaborate, and grow through our STEM programs.",
   linkedin: "https://www.linkedin.com/in/lucia-m-adams/",
   photo: luciaAdamsPhoto
 }, {
@@ -54,8 +54,8 @@ const teamMembers: { title: string; name: string; bio: string; linkedin: string;
 }, {
   title: "Head of Education",
   name: "Marisa Martignon",
-  bio: "Bio coming soon...",
-  linkedin: "https://www.linkedin.com/in/hinalfofandi/",
+  bio: "I'm Marisa \"Risa\" Martignon, a junior from Italy. At STEMise, I help design and approve the curriculum, using expertise from robotics coaching and tutoring. I've fenced since I was 7, I'm an energy drink connoisseur, and I'm passionate about cognitive science and maths.",
+  linkedin: "",
   photo: marisaMartignonPhoto
 }, {
   title: "Head of Outreach",
@@ -105,11 +105,13 @@ const Team = () => {
                   {member.bio}
                 </p>
                 {/* LinkedIn */}
-                <div className="flex justify-center mt-4">
-                  <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center transition-opacity hover:opacity-70" aria-label={`${member.name}'s LinkedIn`}>
-                    <LinkedInIcon className="h-5 w-5 text-foreground" />
-                  </a>
-                </div>
+                {member.linkedin ? (
+                  <div className="flex justify-center mt-4">
+                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center transition-opacity hover:opacity-70" aria-label={`${member.name}'s LinkedIn`}>
+                      <LinkedInIcon className="h-5 w-5 text-foreground" />
+                    </a>
+                  </div>
+                ) : null}
               </div>)}
           </div>
         </div>

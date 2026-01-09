@@ -51,16 +51,16 @@ const ContactSection = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${contactHero})` }}
       />
-      {/* Gradient overlay matching hero style */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80" />
+      {/* Dark blue overlay for contrast */}
+      <div className="absolute inset-0 bg-[#050b1d]/70" />
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-semibold text-foreground">
+            <h2 className="text-5xl md:text-5xl font-semibold text-foreground">
               Get in Touch
             </h2>
-            <p className="mt-4 text-foreground/80">
+            <p className="mt-4 text-lg md:text-xl text-foreground/80">
               Have questions about STEMise or want to collaborate? We'd love to hear from you.
             </p>
           </div>
@@ -68,11 +68,12 @@ const ContactSection = () => {
           <div className="bg-card p-8 border border-border">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
-                <Label htmlFor="name">Name</Label>
+                <Label htmlFor="name" className="text-base">Name</Label>
                 <Input
                   id="name"
                   type="text"
                   placeholder="Your name"
+                  className="text-base md:text-lg"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
@@ -80,11 +81,12 @@ const ContactSection = () => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email" className="text-base">Email</Label>
                 <Input
                   id="email"
                   type="email"
                   placeholder="your@email.com"
+                  className="text-base md:text-lg"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -92,18 +94,19 @@ const ContactSection = () => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="message">Message</Label>
+                <Label htmlFor="message" className="text-base">Message</Label>
                 <Textarea
                   id="message"
                   placeholder="Your message..."
                   rows={5}
+                  className="text-base md:text-lg"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   required
                 />
               </div>
 
-              <Button type="submit" className="w-full" disabled={isSubmitting}>
+              <Button type="submit" className="w-full text-base md:text-lg" disabled={isSubmitting}>
                 {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
             </form>

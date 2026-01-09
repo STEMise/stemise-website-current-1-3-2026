@@ -329,11 +329,7 @@ const Kits = () => {
                 <div className="grid sm:grid-cols-2 gap-6">
                   {stemKits.map(kit => <Card key={kit.id} className="border border-border/50 bg-card hover:border-primary/50 transition-all duration-300 group overflow-hidden">
                       <div className="aspect-[4/3] overflow-hidden bg-secondary/30">
-                        <img 
-                          src={kit.image} 
-                          alt={kit.name} 
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
+                        <img src={kit.image} alt={kit.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                       </div>
                       <CardHeader className="pb-3">
                         <div className="flex items-start justify-between mb-2">
@@ -346,18 +342,9 @@ const Kits = () => {
                       </CardHeader>
                       <CardContent className="pt-0">
                         <div className="space-y-2 text-sm">
-                          <div className="flex items-center gap-2 text-foreground/80">
-                            <Users className="h-4 w-4 text-primary/70" />
-                            <span>Serves {kit.students} students</span>
-                          </div>
-                          <div className="flex items-center gap-2 text-foreground/80">
-                            <GraduationCap className="h-4 w-4 text-primary/70" />
-                            <span>Grades {kit.grades}</span>
-                          </div>
-                          <div className="flex items-center gap-2 text-foreground/80">
-                            <Truck className="h-4 w-4 text-primary/70" />
-                            <span>{kit.deliveryTime} delivery</span>
-                          </div>
+                          
+                          
+                          
                         </div>
                         <div className="mt-4 pt-3 border-t border-border/50">
                           <p className="text-xs text-foreground/60 mb-2">Includes:</p>
@@ -383,12 +370,7 @@ const Kits = () => {
                         <span className="text-sm text-foreground/70">{getProgress()}%</span>
                       </div>
                       <Progress value={getProgress()} className="h-2" />
-                      <div className="flex justify-between mt-2 text-xs text-foreground/60">
-                        <span className={getProgress() >= 25 ? "text-primary" : ""}>Kits</span>
-                        <span className={getProgress() >= 50 ? "text-primary" : ""}>Info</span>
-                        <span className={getProgress() >= 75 ? "text-primary" : ""}>Details</span>
-                        <span className={getProgress() >= 100 ? "text-primary" : ""}>Ready</span>
-                      </div>
+                      
                     </CardContent>
                   </Card>
 
@@ -487,26 +469,7 @@ const Kits = () => {
         </Dialog>
 
         {/* Testimonials */}
-        <section className="py-20">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">What Educators Say</h2>
-              <p className="text-foreground/70 max-w-xl mx-auto">Hear from teachers who've received STEM kits</p>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              {testimonials.map((item, index) => <Card key={index} className="border border-border/50 bg-card">
-                  <CardContent className="pt-6">
-                    <p className="text-foreground/90 mb-4 italic">"{item.quote}"</p>
-                    <div>
-                      <p className="font-semibold text-foreground">{item.author}</p>
-                      <p className="text-sm text-foreground/70">{item.role}</p>
-                      <p className="text-xs text-primary">{item.location}</p>
-                    </div>
-                  </CardContent>
-                </Card>)}
-            </div>
-          </div>
-        </section>
+        
 
         {/* FAQ Section */}
         <section className="py-20 bg-secondary/10">

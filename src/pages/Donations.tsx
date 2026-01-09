@@ -2,33 +2,25 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Heart, Target, TrendingUp, ShieldCheck, Sparkles } from "lucide-react";
 import hackclubLogo from "@/assets/hackclub-logo.png";
-
 const Donations = () => {
-  const impactItems = [
-    {
-      icon: Target,
-      title: "STEM Kits",
-      description: "Physical learning materials for students worldwide",
-    },
-    {
-      icon: TrendingUp,
-      title: "Scholarships",
-      description: "Funding education for promising STEM students",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Safe Spaces",
-      description: "Creating secure environments for learning",
-    },
-    {
-      icon: Sparkles,
-      title: "Community",
-      description: "Building awareness for STEM education",
-    },
-  ];
-
-  return (
-    <div className="min-h-screen bg-background">
+  const impactItems = [{
+    icon: Target,
+    title: "STEM Kits",
+    description: "Physical learning materials for students worldwide"
+  }, {
+    icon: TrendingUp,
+    title: "Scholarships",
+    description: "Funding education for promising STEM students"
+  }, {
+    icon: ShieldCheck,
+    title: "Safe Spaces",
+    description: "Creating secure environments for learning"
+  }, {
+    icon: Sparkles,
+    title: "Community",
+    description: "Building awareness for STEM education"
+  }];
+  return <div className="min-h-screen bg-background">
       <Header />
       <main className="py-24">
         <div className="container mx-auto px-6">
@@ -48,7 +40,7 @@ const Donations = () => {
 
           {/* Main Donation Card - Centered */}
           <div className="flex justify-center mb-20">
-            <div className="bg-[#ec3750] rounded-3xl p-10 md:p-14 flex flex-col items-center text-center max-w-lg w-full shadow-2xl shadow-[#ec3750]/20">
+            <div className="bg-[#ec3750] rounded-3xl p-10 md:p-14 flex-col text-center max-w-lg w-full shadow-2xl shadow-[#ec3750]/20 flex items-center justify-start px-[40px] py-[30px]">
               <img src={hackclubLogo} alt="Hack Club" className="h-14 w-auto mb-6" />
               <h2 className="text-white text-2xl md:text-3xl font-semibold mb-4">
                 Donate to STEMise
@@ -56,18 +48,11 @@ const Donations = () => {
               <p className="text-white/85 text-base md:text-lg mb-8 leading-relaxed">
                 Support us through Hack Club's fiscal sponsorship. Your donation is 100% tax-deductible.
               </p>
-              <a
-                href="https://hcb.hackclub.com/donations/start/stemise"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-3 w-full h-14 bg-white hover:bg-white/95 text-[#ec3750] font-semibold rounded-xl transition-all duration-300 text-lg hover:scale-[1.02] hover:shadow-lg"
-              >
+              <a href="https://hcb.hackclub.com/donations/start/stemise" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 w-full h-14 bg-white hover:bg-white/95 text-[#ec3750] font-semibold rounded-xl transition-all duration-300 text-lg hover:scale-[1.02] hover:shadow-lg">
                 <Heart className="h-5 w-5" />
                 <span>Donate Now</span>
               </a>
-              <p className="text-white/60 text-sm mt-5">
-                Secure payment powered by Stripe
-              </p>
+              
             </div>
           </div>
 
@@ -83,20 +68,15 @@ const Donations = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto mb-16">
             {impactItems.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={index}
-                  className="group p-6 bg-card rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 text-center"
-                >
+            const Icon = item.icon;
+            return <div key={index} className="group p-6 bg-card rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 text-center">
                   <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors duration-300">
                     <Icon className="h-6 w-6 text-primary" />
                   </div>
                   <h3 className="text-lg font-semibold mb-2 text-foreground">{item.title}</h3>
                   <p className="text-foreground/60 text-sm leading-relaxed">{item.description}</p>
-                </div>
-              );
-            })}
+                </div>;
+          })}
           </div>
 
           {/* Testimonial */}
@@ -112,8 +92,6 @@ const Donations = () => {
         </div>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Donations;

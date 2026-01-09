@@ -216,7 +216,7 @@ const Courses = () => {
         <section id="portal" className="py-20 bg-secondary/10">
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
-              <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4 bg-primary/20 text-primary border border-primary/30">
+              <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4 border border-primary/30 text-sidebar bg-primary-foreground">
                 Coming Soon
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">

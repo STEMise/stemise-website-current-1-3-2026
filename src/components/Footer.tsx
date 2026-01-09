@@ -45,7 +45,7 @@ const socialLinks = [{
   icon: TikTokIcon
 }, {
   name: "Discord",
-  url: "https://discord.gg/stemise",
+  url: "https://discord.gg/dHYPMrsD8U",
   icon: DiscordIcon
 }];
 const mailtoHref = "mailto:officialstemise@gmail.com";

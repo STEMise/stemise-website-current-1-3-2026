@@ -77,7 +77,7 @@ const Donations = () => {
 
             {/* Right: Donation Form + Hack Club Card */}
             <div className="space-y-8">
-              <Card className="border border-border/50 bg-card rounded-2xl">
+              <Card className="border border-border/50 bg-card rounded-2xl lg:mt-6">
                 <CardHeader>
                   <CardTitle className="text-xl font-semibold">Make a Donation</CardTitle>
                   <CardDescription className="text-foreground/70">Support our mission with a one-time or recurring gift.</CardDescription>

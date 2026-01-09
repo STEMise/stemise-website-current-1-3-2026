@@ -1,6 +1,11 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ryanAhnPhoto from "@/assets/team-ryan-ahn.png";
+import hyunjunYiPhoto from "@/assets/team-hyunjun-yi.jpg";
+import landonMahlerPhoto from "@/assets/team-landon-mahler.jpg";
 import harryHonigPhoto from "@/assets/team-harry-honig.jpeg";
+import luciaAdamsPhoto from "@/assets/team-lucia-adams.jpg";
+import marisaMartignonPhoto from "@/assets/team-marisa-martignon.jpg";
 
 const LinkedInIcon = ({
   className
@@ -13,28 +18,32 @@ const teamMembers: { title: string; name: string; bio: string; linkedin: string;
   title: "Executive Director",
   name: "Ryan Ahn",
   bio: "My name is Ryan Ahn, a junior from South Korea, and I am the Founder and Executive Director of STEMise. I am passionate about biology and any related areas. This year, I plan to guide my fellow executives and members to achieve the utmost success for the organization and to expand and scale STEMise globally!",
-  linkedin: "https://www.linkedin.com/in/ryan-ahn-81322736a/"
+  linkedin: "https://www.linkedin.com/in/ryan-ahn-81322736a/",
+  photo: ryanAhnPhoto
 }, {
   title: "Deputy Executive Director",
   name: "Hyunjun Yi",
   bio: "STEMise and I began our journey in a small café during early winter of 2025. Driven to make STEM education accessible to everyone, a café conversation turned into a real plan: make hands-on STEM learning accessible beyond privileged classrooms. Now, as Deputy Executive Director, I lead partnerships and execution across our global team.",
-  linkedin: "https://www.linkedin.com/in/hyunjun-yi-3424573a0/"
+  linkedin: "https://www.linkedin.com/in/hyunjun-yi-3424573a0/",
+  photo: hyunjunYiPhoto
 }, {
   title: "Chief of Staff",
   name: "Landon Mahler",
-  bio: "Bio coming soon...",
-  linkedin: "https://linkedin.com/in/"
+  bio: "Hi Everyone! My name is Landon Mahler and I am the Chief of Staff for STEMise. I am a junior in Idaho and am passionate about business, specifically strategic business management. I’m actively involved in several non profits, and am the President of my school’s DECA club. I’m so excited to help expand STEM accessibility around the world with STEMise!",
+  linkedin: "https://linkedin.com/in/",
+  photo: landonMahlerPhoto
 }, {
   title: "Head of Operations",
   name: "Harry Honig",
-  bio: "Leads STEMise's operations, building systems that enable chapter growth and global coordination. Oversees workflows, onboarding, and cross-team execution to ensure programs run efficiently and scale sustainably, supporting the organization's mission to expand access to STEM and AI education.",
+  bio: "Harry Honig Leads STEMise's operations, building systems that enable chapter growth and global coordination. Oversees workflows, onboarding, and cross-team execution to ensure programs run efficiently and scale sustainably, supporting the organization's mission to expand access to STEM and AI education.",
   linkedin: "https://www.linkedin.com/in/harry-honig-56b3b6303/",
   photo: harryHonigPhoto
 }, {
   title: "Head of Technology",
   name: "Lucia Adams",
-  bio: "Bio coming soon...",
-  linkedin: "https://www.linkedin.com/in/lucia-m-adams/"
+  bio: "Hi, I’m Lucia Adams. I’m the Head of Technology at STEMise, where I design, build, and manage our website and database systems. My work focuses on keeping our platforms reliable, accessible, and centered on the students who rely on them to learn, collaborate, and grow through our STEM programs.",
+  linkedin: "https://www.linkedin.com/in/lucia-m-adams/",
+  photo: luciaAdamsPhoto
 }, {
   title: "Head of Marketing",
   name: "Devansh Bhalla",
@@ -42,9 +51,10 @@ const teamMembers: { title: string; name: string; bio: string; linkedin: string;
   linkedin: "https://linkedin.com/in/"
 }, {
   title: "Head of Education",
-  name: "Hinal Fofandi",
+  name: "Marisa Martignon",
   bio: "Bio coming soon...",
-  linkedin: "https://linkedin.com/in/"
+  linkedin: "https://www.linkedin.com/in/hinalfofandi/",
+  photo: marisaMartignonPhoto
 }, {
   title: "Head of Outreach",
   name: "Mukil Siva",

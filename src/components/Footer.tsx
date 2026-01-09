@@ -81,9 +81,25 @@ const Footer = () => {
 
         <div className="mt-8 pt-6 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-foreground/60 text-center md:text-left">
-              © {new Date().getFullYear()} STEMise. All rights reserved.
-            </p>
+            <div className="flex flex-col items-center md:items-start gap-2">
+              <p className="text-sm text-foreground/60 text-center md:text-left">
+                © {new Date().getFullYear()} STEMise. All rights reserved.
+              </p>
+              <div className="flex gap-4">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground/60 hover:text-primary transition-colors"
+                    aria-label={social.name}
+                  >
+                    <social.icon className="w-5 h-5" />
+                  </a>
+                ))}
+              </div>
+            </div>
             <p className="text-xs text-foreground/50 text-center md:text-right max-w-2xl">
               STEMise does not discriminate based on race, nationality, ethnicity, religion, disability, sex, gender identity, sexual orientation, or socioeconomic status.
             </p>

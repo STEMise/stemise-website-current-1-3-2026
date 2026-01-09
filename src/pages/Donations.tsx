@@ -70,8 +70,8 @@ const Donations = () => {
             {impactItems.map((item, index) => {
             const Icon = item.icon;
             return <div key={index} className="group p-6 bg-card rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 text-center">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors duration-300">
-                    <Icon className="h-6 w-6 text-primary" />
+                  <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-105 transition-transform duration-300">
+                    <Icon className="h-6 w-6 text-primary-foreground" />
                   </div>
                   <h3 className="text-lg font-semibold mb-2 text-foreground">{item.title}</h3>
                   <p className="text-foreground/60 text-sm leading-relaxed">{item.description}</p>

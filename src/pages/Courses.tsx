@@ -127,7 +127,7 @@ const Courses = () => {
               <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6 border border-primary/30 text-secondary bg-primary-foreground">
                 STEM Education Programs
               </span>
-              <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
+              <h1 className="text-4xl font-bold text-foreground mb-6 leading-tight md:text-5xl">
                 Learn, Build, and
                 <span className="text-primary"> Innovate</span>
               </h1>

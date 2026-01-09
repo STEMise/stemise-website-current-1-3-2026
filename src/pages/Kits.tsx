@@ -173,9 +173,25 @@ const Kits = () => {
   const [message, setMessage] = useState("");
   const [requesterName, setRequesterName] = useState("");
   const [requesterEmail, setRequesterEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
   const [organization, setOrganization] = useState("");
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
   const [isSending, setIsSending] = useState(false);
+
+  const validateEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const email = e.target.value;
+    setRequesterEmail(email);
+    if (email && !validateEmail(email)) {
+      setEmailError("Please enter a valid email address");
+    } else {
+      setEmailError("");
+    }
+  };
   const [isHeroVisible, setIsHeroVisible] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const kitsRef = useRef<HTMLDivElement>(null);
@@ -251,6 +267,15 @@ const Kits = () => {
       toast({
         title: "Missing information",
         description: "Please fill in your name and email.",
+        variant: "destructive"
+      });
+      return;
+    }
+    if (!validateEmail(requesterEmail)) {
+      setEmailError("Please enter a valid email address");
+      toast({
+        title: "Invalid email",
+        description: "Please enter a valid email address.",
         variant: "destructive"
       });
       return;
@@ -409,7 +434,18 @@ const Kits = () => {
 
                       <div className="space-y-4">
                         <Input placeholder="Your name *" value={requesterName} onChange={e => setRequesterName(e.target.value)} className="bg-secondary/30 border-border/50" />
-                        <Input type="email" placeholder="Your email *" value={requesterEmail} onChange={e => setRequesterEmail(e.target.value)} className="bg-secondary/30 border-border/50" />
+                        <div className="space-y-1">
+                          <Input 
+                            type="email" 
+                            placeholder="Your email *" 
+                            value={requesterEmail} 
+                            onChange={handleEmailChange} 
+                            className={`bg-secondary/30 border-border/50 ${emailError ? 'border-destructive' : ''}`} 
+                          />
+                          {emailError && (
+                            <p className="text-xs text-destructive">{emailError}</p>
+                          )}
+                        </div>
                         <Input placeholder="School / Organization" value={organization} onChange={e => setOrganization(e.target.value)} className="bg-secondary/30 border-border/50" />
                         <Textarea placeholder="Tell us about your program and how you'll use the kits..." value={message} onChange={e => setMessage(e.target.value)} className="bg-secondary/30 border-border/50 min-h-[100px]" />
                         <Button className="w-full" onClick={handleSubmitRequest} disabled={selectedKits.length === 0}>

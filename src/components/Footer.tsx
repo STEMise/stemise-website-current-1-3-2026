@@ -106,26 +106,24 @@ const Footer = () => {
                   Partners
                 </Link>
               </li>
-              <li>
-                
-              </li>
-              <li>
-                <Link to="/contact" className="text-sm text-foreground/70 hover:text-primary transition-colors">
-                  Contact Us
-                </Link>
-              </li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
             <h4 className="font-semibold text-foreground mb-4 text-sm uppercase tracking-wider">Get In Touch</h4>
-            <p className="text-sm text-foreground/70 mb-4 leading-relaxed">
-              Have questions about our programs or want to partner with us?
-            </p>
-            <a href={mailtoHref} className="inline-flex items-center text-sm text-primary hover:underline font-medium">
-              officialstemise@gmail.com
-            </a>
+            <ul className="space-y-3">
+              <li>
+                <Link to="/contact" className="text-sm text-foreground/70 hover:text-primary transition-colors">
+                  Contact Us
+                </Link>
+              </li>
+              <li>
+                <a href={mailtoHref} className="text-sm text-foreground/70 hover:text-primary transition-colors">
+                  officialstemise@gmail.com
+                </a>
+              </li>
+            </ul>
             <div className="mt-6">
               <Link to="/donations">
                 <span className="inline-block px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors">

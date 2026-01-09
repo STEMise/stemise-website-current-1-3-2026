@@ -12,7 +12,7 @@ const HeroSection = () => {
       transformOrigin: 'center center'
     }} />
       {/* Animated gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80 py-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80 py-0 opacity-100" />
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-3xl mx-auto text-center">

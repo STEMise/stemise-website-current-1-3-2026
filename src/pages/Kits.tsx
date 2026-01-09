@@ -297,6 +297,9 @@ const Kits = () => {
         <section id="how-it-works" className="py-20">
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
+              <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+                How It Works
+              </span>
               <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">Request Our STEM Kits</h2>
               <p className="text-foreground/70 max-w-xl mx-auto text-lg">Getting STEM kits for your classroom is simple</p>
             </div>

@@ -162,7 +162,7 @@ const Courses = () => {
               <div className="grid md:grid-cols-2 gap-8">
                 <CardContent className="py-12 px-8">
                   <div className="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
-                    <Package className="h-7 w-7 text-primary" />
+                    <Package className="h-7 w-7 text-white" />
                   </div>
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
                     Free STEM Kits for Educators

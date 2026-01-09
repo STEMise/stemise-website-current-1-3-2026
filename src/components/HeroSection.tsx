@@ -21,7 +21,7 @@ const HeroSection = () => {
             Redefining STEM Education Worldwide
           </h1>
 
-          <p className="mt-6 text-lg md:text-xl text-foreground/80 leading-relaxed animate-fade-in-up stagger-2">
+          <p className="mt-6 text-lg leading-relaxed animate-fade-in-up stagger-2 text-primary-foreground bg-transparent md:text-2xl">
             An international, youth-led organization committed to transforming abstract classroom concepts into engaging, meaningful learning experiences through hands-on STEM kits and technology curricula.
           </p>
 

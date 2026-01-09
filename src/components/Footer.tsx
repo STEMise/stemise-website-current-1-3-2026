@@ -47,15 +47,15 @@ const socialLinks = [{
 }];
 const mailtoHref = "mailto:officialstemise@gmail.com";
 const Footer = () => {
-  return <footer className="bg-background border-t border-border py-10">
-      <div className="container mx-auto px-6">
+  return <footer className="bg-background border-t border-border py-[20px]">
+      <div className="container mx-auto px-[2px]">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
           {/* Brand & Social */}
-          <div className="flex-shrink-0">
+          <div className="">
             <Link to="/" className="inline-block">
-              <img src={stemiseLogo} alt="STEMise" className="h-20 w-auto" />
+              
             </Link>
-            <div className="flex gap-2 mt-4">
+            <div className="mt-4 items-start justify-start flex flex-row gap-[10px] my-0 py-0">
               {socialLinks.map(social => <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center rounded-md bg-secondary hover:bg-primary/20 transition-colors" aria-label={social.name}>
                   <social.icon className="h-4 w-4 text-foreground" />
                 </a>)}
@@ -63,26 +63,26 @@ const Footer = () => {
           </div>
 
           {/* Links - Horizontal layout */}
-          <div className="flex flex-wrap gap-x-12 gap-y-4 lg:pt-2">
-            <Link to="/" className="text-sm text-foreground/70 hover:text-primary transition-colors">
+          <div className="flex-wrap gap-x-12 gap-y-4 lg:pt-2 flex-row flex items-center justify-center">
+            <Link to="/" className="text-foreground/70 hover:text-primary transition-colors text-lg">
               Home
             </Link>
-            <Link to="/courses" className="text-sm text-foreground/70 hover:text-primary transition-colors">
+            <Link to="/courses" className="text-foreground/70 hover:text-primary transition-colors text-lg">
               Programs
             </Link>
-            <Link to="/kits" className="text-sm text-foreground/70 hover:text-primary transition-colors">
+            <Link to="/kits" className="text-foreground/70 hover:text-primary transition-colors text-lg">
               STEM Kits
             </Link>
-            <Link to="/donations" className="text-sm text-foreground/70 hover:text-primary transition-colors">
+            <Link to="/donations" className="text-foreground/70 hover:text-primary transition-colors text-lg">
               Donate
             </Link>
-            <Link to="/team" className="text-sm text-foreground/70 hover:text-primary transition-colors">
+            <Link to="/team" className="text-foreground/70 hover:text-primary transition-colors text-lg">
               Our Team
             </Link>
-            <Link to="/partners" className="text-sm text-foreground/70 hover:text-primary transition-colors">
+            <Link to="/partners" className="text-foreground/70 hover:text-primary transition-colors text-lg">
               Partners
             </Link>
-            <Link to="/contact" className="text-sm text-foreground/70 hover:text-primary transition-colors">
+            <Link to="/contact" className="text-foreground/70 hover:text-primary transition-colors text-lg">
               Contact Us
             </Link>
           </div>

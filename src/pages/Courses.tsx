@@ -150,7 +150,7 @@ const Courses = () => {
             <div className="grid md:grid-cols-3 gap-8">
               {programHighlights.map((item, index) => <div key={index} className="text-center">
                   <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4 bg-primary-foreground">
-                    <item.icon className="h-7 w-7 bg-transparent text-blue-500" />
+                    <item.icon className="h-7 w-7 bg-transparent text-blue-600" />
                   </div>
                   <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
                   <p className="text-foreground/70 text-sm">{item.description}</p>

@@ -27,12 +27,10 @@ interface Workshop {
 
 // TODO: Replace with your Google Sheets API endpoint
 const WORKSHOPS_API_URL = "";
-
 const fetchWorkshops = async (): Promise<Workshop[]> => {
   if (!WORKSHOPS_API_URL) {
     return [];
   }
-  
   try {
     const response = await fetch(WORKSHOPS_API_URL);
     const data = await response.json();
@@ -42,45 +40,63 @@ const fetchWorkshops = async (): Promise<Workshop[]> => {
     return [];
   }
 };
-
-const curricula = [
-  { name: "AI", image: curriculaAi, description: "Machine learning and artificial intelligence fundamentals" },
-  { name: "Cybersecurity", image: curriculaCybersecurity, description: "Digital security and ethical hacking basics" },
-  { name: "Web Development", image: curriculaWebdev, description: "Build modern websites and web applications" },
-  { name: "Python", image: curriculaPython, description: "Programming fundamentals with Python" },
-  { name: "R", image: curriculaR, description: "Data analysis and statistical computing" },
-  { name: "Java", image: curriculaJava, description: "Object-oriented programming with Java" }
-];
-
-const programHighlights = [
-  { icon: BookOpen, title: "Expert Curriculum", description: "Designed by educators and industry professionals" },
-  { icon: Users, title: "Community Learning", description: "Connect with students worldwide" },
-  { icon: Sparkles, title: "Hands-On Projects", description: "Learn by building real-world applications" }
-];
-
+const curricula = [{
+  name: "AI",
+  image: curriculaAi,
+  description: "Machine learning and artificial intelligence fundamentals"
+}, {
+  name: "Cybersecurity",
+  image: curriculaCybersecurity,
+  description: "Digital security and ethical hacking basics"
+}, {
+  name: "Web Development",
+  image: curriculaWebdev,
+  description: "Build modern websites and web applications"
+}, {
+  name: "Python",
+  image: curriculaPython,
+  description: "Programming fundamentals with Python"
+}, {
+  name: "R",
+  image: curriculaR,
+  description: "Data analysis and statistical computing"
+}, {
+  name: "Java",
+  image: curriculaJava,
+  description: "Object-oriented programming with Java"
+}];
+const programHighlights = [{
+  icon: BookOpen,
+  title: "Expert Curriculum",
+  description: "Designed by educators and industry professionals"
+}, {
+  icon: Users,
+  title: "Community Learning",
+  description: "Connect with students worldwide"
+}, {
+  icon: Sparkles,
+  title: "Hands-On Projects",
+  description: "Learn by building real-world applications"
+}];
 const Courses = () => {
   const [email, setEmail] = useState("");
   const [workshops, setWorkshops] = useState<Workshop[]>([]);
   const [isLoadingWorkshops, setIsLoadingWorkshops] = useState(true);
   const [isHeroVisible, setIsHeroVisible] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.target === heroRef.current && entry.isIntersecting) {
-            setIsHeroVisible(true);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.target === heroRef.current && entry.isIntersecting) {
+          setIsHeroVisible(true);
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
     if (heroRef.current) observer.observe(heroRef.current);
     return () => observer.disconnect();
   }, []);
-
   useEffect(() => {
     const loadWorkshops = async () => {
       setIsLoadingWorkshops(true);
@@ -90,7 +106,6 @@ const Courses = () => {
     };
     loadWorkshops();
   }, []);
-
   const handleWaitlistSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
@@ -101,20 +116,15 @@ const Courses = () => {
       setEmail("");
     }
   };
-
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       <Header />
       <main>
         {/* Hero Section */}
-        <section 
-          ref={heroRef}
-          className="relative py-24 md:py-32 overflow-hidden"
-        >
+        <section ref={heroRef} className="relative py-24 md:py-32 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent" />
           <div className="container mx-auto px-6 relative">
             <div className={`max-w-4xl mx-auto text-center transition-all duration-700 ${isHeroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6 bg-primary/20 text-primary border border-primary/30">
+              <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-6 border border-primary/30 text-secondary bg-primary-foreground">
                 STEM Education Programs
               </span>
               <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
@@ -143,15 +153,13 @@ const Courses = () => {
         <section className="py-16 border-y border-border/50 bg-secondary/20">
           <div className="container mx-auto px-6">
             <div className="grid md:grid-cols-3 gap-8">
-              {programHighlights.map((item, index) => (
-                <div key={index} className="text-center">
+              {programHighlights.map((item, index) => <div key={index} className="text-center">
                   <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                     <item.icon className="h-7 w-7 text-primary" />
                   </div>
                   <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
                   <p className="text-foreground/70 text-sm">{item.description}</p>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </section>
@@ -194,11 +202,9 @@ const Courses = () => {
                 </CardContent>
                 <div className="hidden md:flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/5 p-8">
                   <div className="grid grid-cols-2 gap-4">
-                    {[Package, Sparkles, BookOpen, Users].map((Icon, idx) => (
-                      <div key={idx} className="w-20 h-20 bg-background/50 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                    {[Package, Sparkles, BookOpen, Users].map((Icon, idx) => <div key={idx} className="w-20 h-20 bg-background/50 rounded-xl flex items-center justify-center backdrop-blur-sm">
                         <Icon className="h-10 w-10 text-primary/60" />
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                 </div>
               </div>
@@ -234,14 +240,7 @@ const Courses = () => {
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleWaitlistSubmit} className="space-y-4">
-                  <Input 
-                    type="email" 
-                    placeholder="Enter your email" 
-                    value={email} 
-                    onChange={e => setEmail(e.target.value)} 
-                    required 
-                    className="bg-secondary/30 border-border/50"
-                  />
+                  <Input type="email" placeholder="Enter your email" value={email} onChange={e => setEmail(e.target.value)} required className="bg-secondary/30 border-border/50" />
                   <Button type="submit" className="w-full">
                     Notify Me
                   </Button>
@@ -264,11 +263,7 @@ const Courses = () => {
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              {curricula.map(course => (
-                <div 
-                  key={course.name} 
-                  className="group p-6 bg-card rounded-2xl border border-border/50 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
-                >
+              {curricula.map(course => <div key={course.name} className="group p-6 bg-card rounded-2xl border border-border/50 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
                   <div className="h-40 rounded-xl mb-4 relative overflow-hidden">
                     <img src={course.image} alt={course.name} className="w-full h-full object-cover" />
                     <div className="absolute inset-0 flex items-center justify-center bg-background/70">
@@ -279,8 +274,7 @@ const Courses = () => {
                   </div>
                   <h3 className="text-xl font-semibold text-foreground mb-2">{course.name}</h3>
                   <p className="text-sm text-foreground/70">{course.description}</p>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </section>
@@ -295,16 +289,12 @@ const Courses = () => {
               </p>
             </div>
             
-            {isLoadingWorkshops ? (
-              <Card className="max-w-2xl mx-auto border border-border/50 bg-card">
+            {isLoadingWorkshops ? <Card className="max-w-2xl mx-auto border border-border/50 bg-card">
                 <CardContent className="py-12">
                   <p className="text-center text-lg text-foreground/70">Loading workshops...</p>
                 </CardContent>
-              </Card>
-            ) : workshops.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                {workshops.map((workshop) => (
-                  <Card key={workshop.id} className="border border-border/50 bg-card hover:border-primary/50 transition-all duration-300">
+              </Card> : workshops.length > 0 ? <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                {workshops.map(workshop => <Card key={workshop.id} className="border border-border/50 bg-card hover:border-primary/50 transition-all duration-300">
                     <CardHeader>
                       <CardTitle className="text-xl">{workshop.title}</CardTitle>
                       <CardDescription>{workshop.description}</CardDescription>
@@ -322,32 +312,24 @@ const Courses = () => {
                         <MapPin className="h-4 w-4 text-primary" />
                         <span>{workshop.location}</span>
                       </div>
-                      {workshop.registrationLink && (
-                        <Button asChild className="w-full mt-4">
+                      {workshop.registrationLink && <Button asChild className="w-full mt-4">
                           <a href={workshop.registrationLink} target="_blank" rel="noopener noreferrer">
                             Register Now
                           </a>
-                        </Button>
-                      )}
+                        </Button>}
                     </CardContent>
-                  </Card>
-                ))}
-              </div>
-            ) : (
-              <Card className="max-w-2xl mx-auto border border-border/50 bg-card">
+                  </Card>)}
+              </div> : <Card className="max-w-2xl mx-auto border border-border/50 bg-card">
                 <CardContent className="py-12">
                   <p className="text-center text-lg text-foreground/70">
                     No upcoming workshops at the moment. Check back soon!
                   </p>
                 </CardContent>
-              </Card>
-            )}
+              </Card>}
           </div>
         </section>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Courses;

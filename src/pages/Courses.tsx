@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Mail, Calendar, MapPin, Clock, Package, ArrowRight, Sparkles, BookOpen, Users } from "lucide-react";
+import { Mail, Calendar, MapPin, Clock, Package, ArrowRight, Sparkles, BookOpen } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { toast } from "@/hooks/use-toast";
 import { Link } from "react-router-dom";
@@ -167,22 +167,20 @@ const Courses = () => {
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
                     Free STEM Kits for Educators
                   </h2>
-                  <p className="text-foreground/80 mb-6 leading-relaxed">
-                    Request hands-on learning materials for your classroom, community center, 
-                    or educational program. We provide robotics kits, chemistry sets, coding bundles, and more.
-                  </p>
+                  
                   <ul className="space-y-2 mb-6">
                     <li className="flex items-center gap-2 text-foreground/80">
                       <Sparkles className="h-4 w-4 text-primary" />
                       <span>8+ different kit types available</span>
                     </li>
                     <li className="flex items-center gap-2 text-foreground/80">
-                      <Users className="h-4 w-4 text-primary" />
+                      
                       <span>Each kit serves 15-30 students</span>
                     </li>
                     <li className="flex items-center gap-2 text-foreground/80">
                       <BookOpen className="h-4 w-4 text-primary" />
-                      <span>Includes curriculum materials</span>
+                      <span>
+                    </span>
                     </li>
                   </ul>
                   <Button size="lg" asChild>

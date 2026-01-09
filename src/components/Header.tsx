@@ -26,10 +26,6 @@ const Header = () => {
     kind: "route" as const,
     to: "/courses",
     label: "Programs"
-  }, {
-    kind: "route" as const,
-    to: "/kits",
-    label: "Kits"
   }];
   return <header className="sticky top-0 z-50 bg-background border-b border-border">
       <div className="container mx-auto px-6">
@@ -46,6 +42,9 @@ const Header = () => {
                 </Link> : <AppHashLink key={link.toId} toId={link.toId} className="text-foreground hover:text-primary transition-colors text-sm font-medium border-b-2 border-transparent hover:border-primary pb-1">
                   {link.label}
                 </AppHashLink>)}
+            <Button size="sm" asChild>
+              <AppHashLink toId="join">Join Us</AppHashLink>
+            </Button>
           </nav>
 
 
@@ -63,6 +62,9 @@ const Header = () => {
                   </Link> : <AppHashLink key={link.toId} toId={link.toId} className="text-foreground hover:text-primary transition-colors text-sm font-medium py-2" onClick={() => setIsMenuOpen(false)}>
                     {link.label}
                   </AppHashLink>)}
+              <Button size="sm" asChild className="w-fit">
+                <AppHashLink toId="join" onClick={() => setIsMenuOpen(false)}>Join Us</AppHashLink>
+              </Button>
             </div>
           </nav>}
       </div>

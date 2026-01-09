@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-
+import contactHero from "@/assets/contact-hero.jpg";
 
 const ContactSection = () => {
   const [name, setName] = useState("");
@@ -45,8 +45,16 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 scroll-mt-24">
-      <div className="container mx-auto px-6">
+    <section id="contact" className="relative min-h-[80vh] flex items-center py-20 scroll-mt-24">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${contactHero})` }}
+      />
+      {/* Gradient overlay matching hero style */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80" />
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-semibold text-foreground">

@@ -160,47 +160,7 @@ const Courses = () => {
         </section>
 
         {/* STEM Kits Section */}
-        <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent bg-card">
-          <div className="container mx-auto px-6">
-            <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-              <div>
-                <div className="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
-                  <Package className="h-7 w-7 text-primary" />
-                </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                  Free STEM Kits for Educators
-                </h2>
-                <p className="text-foreground/70 mb-6 text-lg">
-                  Bring hands-on STEM learning to your classroom with our free educational kits, designed for educators worldwide.
-                </p>
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-center gap-3 text-foreground/80">
-                    <Sparkles className="h-5 w-5 text-primary flex-shrink-0" />
-                    <span>8+ different kit types available</span>
-                  </li>
-                  <li className="flex items-center gap-3 text-foreground/80">
-                    <Users className="h-5 w-5 text-primary flex-shrink-0" />
-                    <span>Each kit serves 15-30 students</span>
-                  </li>
-                  <li className="flex items-center gap-3 text-foreground/80">
-                    <BookOpen className="h-5 w-5 text-primary flex-shrink-0" />
-                    <span>Complete lesson plans & guides included</span>
-                  </li>
-                </ul>
-                <Button size="lg" asChild>
-                  <Link to="/kits">
-                    Request Free Kits <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
-                </Button>
-              </div>
-              <div className="relative">
-                <img src={stemKitsShowcase} alt="STEM kits with electronics and robotics components" className="w-full rounded-2xl shadow-2xl" />
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-xl -z-10" />
-                <div className="absolute -top-4 -left-4 w-16 h-16 bg-primary/10 rounded-xl -z-10" />
-              </div>
-            </div>
-          </div>
-        </section>
+        
 
         {/* Learning Portal Section */}
         <section id="portal" className="py-20 bg-secondary/10">

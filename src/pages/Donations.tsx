@@ -26,10 +26,10 @@ const Donations = () => {
         <div className="container mx-auto px-6">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4 bg-primary/10 text-primary">
+            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4 bg-primary-foreground text-sidebar">
               Make an Impact
             </span>
-            <h1 className="text-4xl md:text-6xl font-semibold text-foreground mb-6">
+            <h1 className="text-4xl font-semibold text-foreground mb-6 md:text-5xl">
               Support Our Mission
             </h1>
             <p className="text-lg text-foreground/70 max-w-2xl mx-auto leading-relaxed">

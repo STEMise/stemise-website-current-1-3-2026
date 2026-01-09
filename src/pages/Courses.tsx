@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Mail, Calendar, MapPin, Clock, Package, ArrowRight, Sparkles, BookOpen } from "lucide-react";
+import { Mail, Calendar, MapPin, Clock, Package, ArrowRight, Sparkles, BookOpen, Users } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { toast } from "@/hooks/use-toast";
 import { Link } from "react-router-dom";

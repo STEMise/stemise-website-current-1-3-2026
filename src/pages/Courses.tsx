@@ -165,7 +165,7 @@ const Courses = () => {
         <section className="py-20 bg-background">
           <div className="container mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-              <div>
+              <div className="animate-fade-in-up stagger-2">
                 <div className="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
                   <Package className="h-7 w-7 text-white" />
                 </div>
@@ -193,7 +193,7 @@ const Courses = () => {
                   </Link>
                 </Button>
               </div>
-              <div className="relative">
+              <div className="relative animate-fade-in-up stagger-3">
                 <img src={stemKitsShowcase} alt="STEM kits with electronics and robotics components" className="w-full rounded-2xl shadow-2xl" />
                 <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-xl -z-10" />
                 <div className="absolute -top-4 -left-4 w-16 h-16 bg-primary/10 rounded-xl -z-10" />
@@ -205,7 +205,7 @@ const Courses = () => {
         {/* Learning Portal Section */}
         <section id="portal" className="py-20 bg-background">
           <div className="container mx-auto px-6">
-            <div className="text-center mb-12">
+            <div className="text-center mb-12 animate-fade-in-up">
               <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4 border border-primary/30 text-sidebar bg-primary-foreground">
                 Coming Soon
               </span>
@@ -244,7 +244,7 @@ const Courses = () => {
         {/* Curriculum Section */}
         <section id="curriculum" className="py-20">
           <div className="container mx-auto px-6">
-            <div className="text-center mb-12">
+            <div className="text-center mb-12 animate-fade-in-up">
               <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">Upcoming Curriculum</h2>
               
             </div>
@@ -264,7 +264,7 @@ const Courses = () => {
         {/* Upcoming Workshops Section */}
         <section className="py-20 bg-secondary/10">
           <div className="container mx-auto px-6">
-            <div className="text-center mb-12">
+            <div className="text-center mb-12 animate-fade-in-up">
               <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">Workshops</h2>
               <p className="text-foreground/70 max-w-xl mx-auto text-lg">
                 Join our interactive workshops and learn from experts

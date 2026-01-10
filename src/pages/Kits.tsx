@@ -327,14 +327,14 @@ const Kits = () => {
       {/* How It Works */}
       <section id="how-it-works" className="py-20">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-fade-in-up">
             <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
               How It Works
             </span>
             <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">Request Our STEM Kits</h2>
             <p className="text-foreground/70 max-w-xl mx-auto text-lg">Getting STEM kits for your classroom is simple</p>
           </div>
-          <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto animate-fade-in-up stagger-2">
             {howItWorks.map(item => <div key={item.step} className="relative text-center">
               <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-primary-foreground font-bold text-xl">
                 {item.step}
@@ -350,7 +350,7 @@ const Kits = () => {
       {/* Kit Selection Section */}
       <section ref={kitsRef} className="py-20 bg-secondary/10">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-fade-in-up stagger-3">
             <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">Available STEM Kits</h2>
 
           </div>

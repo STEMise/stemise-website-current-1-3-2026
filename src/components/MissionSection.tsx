@@ -36,7 +36,7 @@ const MissionSection = () => {
           </div>
           
           <div ref={contentRef} className={`bg-gradient-to-br from-card to-secondary/50 p-8 md:p-12 rounded-3xl border border-border/50 backdrop-blur-sm hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 ${contentVisible ? 'animate-fade-in-up stagger-1' : 'opacity-0'}`}>
-            <p className="font-serif text-lg md:text-xl leading-relaxed text-foreground/90 text-center">
+            <p className="font-serif text-lg leading-relaxed text-foreground/90 text-center md:text-2xl">
               STEMise is an international, youth-led organization committed to redefining STEM education by focusing on introducing hands-on learning to communities through interactive STEM kits, technology curricula, and educational workshops.
             </p>
             

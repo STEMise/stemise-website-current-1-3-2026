@@ -193,8 +193,8 @@ const Courses = () => {
               </div>
               <div className="relative animate-fade-in-up stagger-3">
                 <img src={stemKitsShowcase} alt="STEM kits with electronics and robotics components" className="w-full rounded-2xl shadow-2xl" />
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-xl -z-10" />
-                <div className="absolute -top-4 -left-4 w-16 h-16 bg-primary/10 rounded-xl -z-10" />
+                
+                
               </div>
             </div>
           </div>

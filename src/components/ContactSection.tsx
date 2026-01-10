@@ -60,7 +60,7 @@ const ContactSection = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-2xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-fade-in-up">
             <h2 className="text-5xl md:text-5xl font-semibold text-foreground">
               Get in Touch
             </h2>
@@ -69,7 +69,7 @@ const ContactSection = () => {
             </p>
           </div>
 
-          <div className="bg-card p-8 border border-border">
+          <div className="bg-card p-8 border border-border animate-fade-in-up stagger-2">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
                 <Label htmlFor="name" className="text-base">Name</Label>

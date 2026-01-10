@@ -7,23 +7,18 @@ import stemiseLogo from "@/assets/stemise-logo.png";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navLinks = [{
-    kind: "hash" as const,
-    toId: "about",
+    to: "/",
     label: "About"
   }, {
-    kind: "route" as const,
     to: "/partners",
     label: "Partners"
   }, {
-    kind: "route" as const,
     to: "/donations",
     label: "Donations"
   }, {
-    kind: "route" as const,
     to: "/team",
     label: "Team"
   }, {
-    kind: "route" as const,
     to: "/courses",
     label: "Programs"
   }];
@@ -37,11 +32,9 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8" aria-label="Primary">
-            {navLinks.map(link => link.kind === "route" ? <Link key={link.to} to={link.to} className="transition-colors text-sm font-medium border-b-2 border-transparent hover:border-primary pb-1 text-white">
+            {navLinks.map(link => <Link key={link.to} to={link.to} className="transition-colors text-sm font-medium border-b-2 border-transparent hover:border-primary pb-1 text-white">
                   {link.label}
-                </Link> : <AppHashLink key={link.toId} toId={link.toId} className="text-foreground hover:text-primary transition-colors text-sm font-medium border-b-2 border-transparent hover:border-primary pb-1">
-                  {link.label}
-                </AppHashLink>)}
+                </Link>)}
             <Button size="sm" asChild>
               <AppHashLink toId="join">Join Us</AppHashLink>
             </Button>
@@ -57,11 +50,9 @@ const Header = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && <nav className="md:hidden py-4 border-t border-border" aria-label="Mobile">
             <div className="flex flex-col gap-4">
-              {navLinks.map(link => link.kind === "route" ? <Link key={link.to} to={link.to} className="text-foreground hover:text-primary transition-colors text-sm font-medium py-2" onClick={() => setIsMenuOpen(false)}>
+              {navLinks.map(link => <Link key={link.to} to={link.to} className="text-foreground hover:text-primary transition-colors text-sm font-medium py-2" onClick={() => setIsMenuOpen(false)}>
                     {link.label}
-                  </Link> : <AppHashLink key={link.toId} toId={link.toId} className="text-foreground hover:text-primary transition-colors text-sm font-medium py-2" onClick={() => setIsMenuOpen(false)}>
-                    {link.label}
-                  </AppHashLink>)}
+                  </Link>)}
               <Button size="sm" asChild className="w-fit">
                 <AppHashLink toId="join" onClick={() => setIsMenuOpen(false)}>Join Us</AppHashLink>
               </Button>

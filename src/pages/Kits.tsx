@@ -345,7 +345,7 @@ const Kits = () => {
       </section>
 
       {/* Kit Selection Section */}
-      <section ref={kitsRef} className="py-20 bg-secondary/10">
+      <section ref={kitsRef} className="py-20 bg-background">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12 animate-fade-in-up stagger-3">
             <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">Available STEM Kits</h2>

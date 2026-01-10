@@ -37,7 +37,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8" aria-label="Primary">
-            {navLinks.map(link => link.kind === "route" ? <Link key={link.to} to={link.to} className="text-foreground hover:text-primary transition-colors text-sm font-medium border-b-2 border-transparent hover:border-primary pb-1">
+            {navLinks.map(link => link.kind === "route" ? <Link key={link.to} to={link.to} className="transition-colors text-sm font-medium border-b-2 border-transparent hover:border-primary pb-1 text-white">
                   {link.label}
                 </Link> : <AppHashLink key={link.toId} toId={link.toId} className="text-foreground hover:text-primary transition-colors text-sm font-medium border-b-2 border-transparent hover:border-primary pb-1">
                   {link.label}

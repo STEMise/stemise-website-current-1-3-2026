@@ -47,7 +47,7 @@ const socialLinks = [{
 }];
 const mailtoHref = "mailto:officialstemise@gmail.com";
 const Footer = () => {
-  return <footer className="bg-background border-t border-border py-[20px]">
+  return <footer className="border-t border-border py-[20px] bg-ring">
       <div className="container mx-auto px-[2px]">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-[6px]">
           {/* Brand & Social */}
@@ -55,25 +55,25 @@ const Footer = () => {
 
           {/* Links - Horizontal layout */}
           <div className="flex-wrap gap-x-12 gap-y-4 lg:pt-2 flex-row flex items-center justify-center gap-[108px] w-full">
-            <Link to="/" className="text-foreground/70 hover:text-primary transition-colors text-lg">
+            <Link to="/" className="transition-colors text-lg text-white">
               Home
             </Link>
-            <Link to="/courses" className="text-foreground/70 hover:text-primary transition-colors text-lg">
+            <Link to="/courses" className="transition-colors text-lg text-white">
               Programs
             </Link>
-            <Link to="/kits" className="text-foreground/70 hover:text-primary transition-colors text-lg">
+            <Link to="/kits" className="transition-colors text-lg text-white">
               STEM Kits
             </Link>
-            <Link to="/donations" className="text-foreground/70 hover:text-primary transition-colors text-lg">
+            <Link to="/donations" className="transition-colors text-lg text-white">
               Donate
             </Link>
-            <Link to="/team" className="text-foreground/70 hover:text-primary transition-colors text-lg">
+            <Link to="/team" className="transition-colors text-lg text-white">
               Our Team
             </Link>
-            <Link to="/partners" className="text-foreground/70 hover:text-primary transition-colors text-lg">
+            <Link to="/partners" className="transition-colors text-lg text-white">
               Partners
             </Link>
-            <Link to="/contact" className="text-foreground/70 hover:text-primary transition-colors text-lg">
+            <Link to="/contact" className="transition-colors text-lg text-white">
               Contact Us
             </Link>
           </div>
@@ -82,16 +82,16 @@ const Footer = () => {
         <div className="mt-8 pt-6 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex flex-col items-center md:items-start gap-2">
-              <p className="text-sm text-foreground/60 text-center md:text-left">
+              <p className="text-sm text-center md:text-left text-white/[0.83]">
                 © {new Date().getFullYear()} STEMise. All rights reserved.
               </p>
-              <div className="flex gap-4">
+              <div className="flex gap-4 text-white">
                 {socialLinks.map(social => <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-primary transition-colors" aria-label={social.name}>
                     <social.icon className="w-5 h-5" />
                   </a>)}
               </div>
             </div>
-            <p className="text-xs text-foreground/50 text-center md:text-right max-w-2xl">
+            <p className="text-xs text-center md:text-right max-w-2xl text-white/[0.79]">
               STEMise does not discriminate based on race, nationality, ethnicity, religion, disability, sex, gender identity, sexual orientation, or socioeconomic status.
             </p>
           </div>

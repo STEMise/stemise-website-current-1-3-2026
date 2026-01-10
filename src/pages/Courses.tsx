@@ -247,10 +247,8 @@ const Courses = () => {
         <section id="curriculum" className="py-20">
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Upcoming Curriculum</h2>
-              <p className="max-w-xl mx-auto text-lg font-sans text-white/90 bg-transparent">
-                Our S.T.F.E (Science, Technology, Fundamentals, Engineering) curriculum is coming soon
-              </p>
+              <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">Upcoming Curriculum</h2>
+              
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
               {curricula.map(course => <div key={course.name} className="group p-6 bg-card rounded-2xl border border-border/50 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
@@ -269,8 +267,8 @@ const Courses = () => {
         <section className="py-20 bg-secondary/10">
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Workshops</h2>
-              <p className="text-foreground/70 max-w-xl mx-auto">
+              <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">Workshops</h2>
+              <p className="text-foreground/70 max-w-xl mx-auto text-lg">
                 Join our interactive workshops and learn from experts
               </p>
             </div>

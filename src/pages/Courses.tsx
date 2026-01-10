@@ -211,10 +211,10 @@ const Courses = () => {
               <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4 border border-primary/30 text-sidebar bg-primary-foreground">
                 Coming Soon
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">
                 STEMise Learning Portal
               </h2>
-              <p className="text-foreground/70 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-foreground/70 max-w-2xl mx-auto leading-relaxed text-lg">
                 Access world-class STEM curriculum, track your progress, and connect with global educators.
               </p>
             </div>
@@ -235,7 +235,7 @@ const Courses = () => {
                     {isSubmitting ? "Submitting..." : "Notify Me"}
                   </Button>
                 </form>
-                <p className="text-sm text-center text-foreground/50 mt-4">
+                <p className="text-center text-foreground/50 mt-4 text-xs">
                   We'll never share your email with anyone else.
                 </p>
               </CardContent>

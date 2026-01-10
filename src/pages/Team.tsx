@@ -7,7 +7,6 @@ import harryHonigPhoto from "@/assets/team-harry-honig.jpeg";
 import luciaAdamsPhoto from "@/assets/team-lucia-adams.jpg";
 import marisaMartignonPhoto from "@/assets/team-marisa-martignon.jpg";
 import devanshBhallaPhoto from "@/assets/team-devansh-bhalla.jpg";
-
 const LinkedInIcon = ({
   className
 }: {
@@ -15,7 +14,13 @@ const LinkedInIcon = ({
 }) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
   </svg>;
-const teamMembers: { title: string; name: string; bio: string; linkedin: string; photo?: string }[] = [{
+const teamMembers: {
+  title: string;
+  name: string;
+  bio: string;
+  linkedin: string;
+  photo?: string;
+}[] = [{
   title: "Executive Director",
   name: "Ryan Ahn",
   bio: "My name is Ryan Ahn, a junior from South Korea, and I am the Founder and Executive Director of STEMise. I am passionate about biology and any related areas. This year, I plan to guide my fellow executives and members to achieve the utmost success for the organization and to expand and scale STEMise globally!",
@@ -74,13 +79,13 @@ const Team = () => {
       <main className="py-24">
         <div className="container mx-auto px-6">
           <div className="text-center mb-20">
-            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4 bg-primary-foreground text-secondary">
+            <span className="inline-block px-4 py-1.5 rounded-full font-medium mb-4 bg-primary-foreground text-secondary text-lg">
               Our Team
             </span>
-            <h1 className="text-3xl md:text-5xl font-semibold text-foreground">
+            <h1 className="text-3xl font-semibold text-foreground md:text-6xl">
               Get to Know Us
             </h1>
-            <p className="mt-6 text-lg text-foreground/70 max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-6 text-foreground/70 max-w-2xl mx-auto leading-relaxed text-2xl">
               Meet the passionate individuals driving STEMise's mission forward!
             </p>
           </div>
@@ -88,13 +93,9 @@ const Team = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => <div key={index} className="bg-card border border-border/50 rounded-2xl p-6 transition-all duration-300">
                 {/* Photo */}
-                {member.photo ? (
-                  <img src={member.photo} alt={member.name} className="w-32 h-32 mx-auto mb-4 rounded-2xl border border-border/50 object-cover" />
-                ) : (
-                  <div className="w-32 h-32 mx-auto mb-4 bg-muted/50 rounded-2xl border border-border/50 flex items-center justify-center">
+                {member.photo ? <img src={member.photo} alt={member.name} className="w-32 h-32 mx-auto mb-4 rounded-2xl border border-border/50 object-cover" /> : <div className="w-32 h-32 mx-auto mb-4 bg-muted/50 rounded-2xl border border-border/50 flex items-center justify-center">
                     <span className="text-muted-foreground text-sm">Photo</span>
-                  </div>
-                )}
+                  </div>}
                 <h3 className="text-xl font-semibold text-foreground text-center">
                   {member.name}
                 </h3>
@@ -105,13 +106,11 @@ const Team = () => {
                   {member.bio}
                 </p>
                 {/* LinkedIn */}
-                {member.linkedin ? (
-                  <div className="flex justify-center mt-4">
+                {member.linkedin ? <div className="flex justify-center mt-4">
                     <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center transition-opacity hover:opacity-70" aria-label={`${member.name}'s LinkedIn`}>
                       <LinkedInIcon className="h-5 w-5 text-foreground" />
                     </a>
-                  </div>
-                ) : null}
+                  </div> : null}
               </div>)}
           </div>
         </div>

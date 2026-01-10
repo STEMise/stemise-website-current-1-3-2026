@@ -162,7 +162,7 @@ const Courses = () => {
         
 
         {/* STEM Kits Section */}
-        <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent bg-card">
+        <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent bg-background">
           <div className="container mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
               <div>
@@ -205,7 +205,7 @@ const Courses = () => {
         </section>
 
         {/* Learning Portal Section */}
-        <section id="portal" className="py-20 bg-secondary/10">
+        <section id="portal" className="py-20 bg-background">
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
               <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4 border border-primary/30 text-sidebar bg-primary-foreground">

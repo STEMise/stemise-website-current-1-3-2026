@@ -26,13 +26,13 @@ const Donations = () => {
         <div className="container mx-auto px-6">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4 bg-primary-foreground text-sidebar">
+            <span className="inline-block px-4 py-1.5 rounded-full font-medium mb-4 bg-primary-foreground text-sidebar text-lg">
               Make an Impact
             </span>
-            <h1 className="text-4xl font-semibold text-foreground mb-6 md:text-5xl">
+            <h1 className="text-4xl font-semibold text-foreground mb-6 md:text-6xl">
               Support Our Mission
             </h1>
-            <p className="text-lg text-foreground/70 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-foreground/70 max-w-2xl mx-auto leading-relaxed text-2xl">
               Your contribution helps us bring STEM education to every corner of the world. 
               Every donation makes a difference.
             </p>

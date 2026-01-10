@@ -177,12 +177,10 @@ const Kits = () => {
   const [organization, setOrganization] = useState("");
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
   const [isSending, setIsSending] = useState(false);
-
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
-
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const email = e.target.value;
     setRequesterEmail(email);
@@ -322,7 +320,7 @@ const Kits = () => {
         <section id="how-it-works" className="py-20">
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
-              <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+              <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4 bg-primary-foreground text-background">
                 How It Works
               </span>
               <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">Request Our STEM Kits</h2>
@@ -435,16 +433,8 @@ const Kits = () => {
                       <div className="space-y-4">
                         <Input placeholder="Your name *" value={requesterName} onChange={e => setRequesterName(e.target.value)} className="bg-secondary/30 border-border/50" />
                         <div className="space-y-1">
-                          <Input 
-                            type="email" 
-                            placeholder="Your email *" 
-                            value={requesterEmail} 
-                            onChange={handleEmailChange} 
-                            className={`bg-secondary/30 border-border/50 ${emailError ? 'border-destructive' : ''}`} 
-                          />
-                          {emailError && (
-                            <p className="text-xs text-destructive">{emailError}</p>
-                          )}
+                          <Input type="email" placeholder="Your email *" value={requesterEmail} onChange={handleEmailChange} className={`bg-secondary/30 border-border/50 ${emailError ? 'border-destructive' : ''}`} />
+                          {emailError && <p className="text-xs text-destructive">{emailError}</p>}
                         </div>
                         <Input placeholder="School / Organization" value={organization} onChange={e => setOrganization(e.target.value)} className="bg-secondary/30 border-border/50" />
                         <Textarea placeholder="Tell us about your program and how you'll use the kits..." value={message} onChange={e => setMessage(e.target.value)} className="bg-secondary/30 border-border/50 min-h-[100px]" />

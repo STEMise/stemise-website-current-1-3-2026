@@ -282,7 +282,6 @@ const Kits = () => {
   };
   const sendRequest = async () => {
     setIsSending(true);
-
     const result = await submitKitRequest({
       name: requesterName,
       email: requesterEmail,
@@ -293,10 +292,8 @@ const Kits = () => {
         quantity: k.quantity
       }))
     });
-
     setIsSending(false);
     setShowConfirmDialog(false);
-
     if (result.success) {
       toast({
         title: "Request submitted!",
@@ -328,11 +325,11 @@ const Kits = () => {
       <section id="how-it-works" className="py-20">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12 animate-fade-in-up">
-            <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full font-medium mb-4 text-lg bg-secondary-foreground text-background">
               How It Works
             </span>
-            <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">Request Our STEM Kits</h2>
-            <p className="text-foreground/70 max-w-xl mx-auto text-lg">Getting STEM kits for your classroom is simple</p>
+            <h2 className="text-3xl font-bold text-foreground mb-4 md:text-6xl">Request Our STEM Kits</h2>
+            <p className="text-foreground/70 max-w-xl mx-auto text-2xl">Getting STEM kits for your classroom is simple</p>
           </div>
           <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto animate-fade-in-up stagger-2">
             {howItWorks.map(item => <div key={item.step} className="relative text-center">
@@ -403,19 +400,15 @@ const Kits = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    {selectedKits.length === 0 ? (
-                      <div className="text-center py-8">
+                    {selectedKits.length === 0 ? <div className="text-center py-8">
                         <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-3">
                           <Package className="h-8 w-8 text-foreground/40" />
                         </div>
                         <p className="text-foreground/60 text-sm">
                           No kits selected yet.<br />Click "Add" on any kit to include it.
                         </p>
-                      </div>
-                    ) : (
-                      <div className="space-y-3 mb-6">
-                        {selectedKits.map(kit => (
-                          <div key={kit.id} className="flex items-center justify-between p-3 bg-secondary/50 rounded-lg border border-border/30">
+                      </div> : <div className="space-y-3 mb-6">
+                        {selectedKits.map(kit => <div key={kit.id} className="flex items-center justify-between p-3 bg-secondary/50 rounded-lg border border-border/30">
                             <div className="flex-1 min-w-0">
                               <p className="font-medium text-sm truncate text-foreground">{kit.name}</p>
                             </div>
@@ -431,24 +424,14 @@ const Kits = () => {
                                 <Trash2 className="h-3 w-3" />
                               </Button>
                             </div>
-                          </div>
-                        ))}
-                      </div>
-                    )}
+                          </div>)}
+                      </div>}
 
                     <div className="space-y-4">
                       <Input placeholder="Your name *" value={requesterName} onChange={e => setRequesterName(e.target.value)} className="bg-secondary/30 border-border/50" />
                       <div className="space-y-1">
-                        <Input
-                          type="email"
-                          placeholder="Your email *"
-                          value={requesterEmail}
-                          onChange={handleEmailChange}
-                          className={`bg-secondary/30 border-border/50 ${emailError ? 'border-destructive' : ''}`}
-                        />
-                        {emailError && (
-                          <p className="text-xs text-destructive">{emailError}</p>
-                        )}
+                        <Input type="email" placeholder="Your email *" value={requesterEmail} onChange={handleEmailChange} className={`bg-secondary/30 border-border/50 ${emailError ? 'border-destructive' : ''}`} />
+                        {emailError && <p className="text-xs text-destructive">{emailError}</p>}
                       </div>
                       <Input placeholder="School / Organization" value={organization} onChange={e => setOrganization(e.target.value)} className="bg-secondary/30 border-border/50" />
                       <Textarea placeholder="Tell us about your program and how you'll use the kits..." value={message} onChange={e => setMessage(e.target.value)} className="bg-secondary/30 border-border/50 min-h-[100px]" />

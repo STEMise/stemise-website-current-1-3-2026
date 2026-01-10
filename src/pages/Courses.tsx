@@ -155,7 +155,7 @@ const Courses = () => {
                 <div className="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
                   <Package className="h-7 w-7 text-white" />
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">
                   Free STEM Kits for Educators
                 </h2>
                 <p className="text-foreground/70 mb-6 text-lg">
@@ -164,15 +164,15 @@ const Courses = () => {
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-center gap-3 text-foreground/80">
                     <Sparkles className="h-5 w-5 text-primary flex-shrink-0" />
-                    <span>8+ different kit types available</span>
+                    <span className="text-lg">8+ different kit types available</span>
                   </li>
                   <li className="flex items-center gap-3 text-foreground/80">
                     <Users className="h-5 w-5 text-primary flex-shrink-0" />
-                    <span>Each kit serves 15-30 students</span>
+                    <span className="text-lg">Each kit serves 15-30 students</span>
                   </li>
                   <li className="flex items-center gap-3 text-foreground/80">
                     <BookOpen className="h-5 w-5 text-primary flex-shrink-0" />
-                    <span>Complete lesson plans & guides included</span>
+                    <span className="text-lg">Complete lesson plans & guides included</span>
                   </li>
                 </ul>
                 <Button size="lg" asChild>
@@ -223,7 +223,7 @@ const Courses = () => {
                     Notify Me
                   </Button>
                 </form>
-                <p className="text-sm text-center text-foreground/50 mt-4">
+                <p className="text-center text-foreground/50 mt-4 text-xs">
                   We'll never share your email with anyone else.
                 </p>
               </CardContent>
@@ -246,8 +246,8 @@ const Courses = () => {
                       
                     </div>
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">{course.name}</h3>
-                  <p className="text-sm text-foreground/70">{course.description}</p>
+                  <h3 className="font-semibold text-foreground mb-2 text-2xl">{course.name}</h3>
+                  <p className="text-foreground/70 text-base">{course.description}</p>
                 </div>)}
             </div>
           </div>

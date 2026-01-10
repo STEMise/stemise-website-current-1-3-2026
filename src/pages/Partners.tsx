@@ -13,7 +13,6 @@ import partnerLogo1 from "@/assets/partner-logo-1.png";
 import partnerLogo2 from "@/assets/partner-logo-2.png";
 import partnerLogo3 from "@/assets/partner-logo-3.png";
 import partnerLogo4 from "@/assets/partner-logo-4.png";
-
 const Partners = () => {
   const [formData, setFormData] = useState({
     orgName: "",
@@ -23,7 +22,6 @@ const Partners = () => {
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const partnerLogos = [partnerLogo1, partnerLogo2, partnerLogo3, partnerLogo4];
   const benefits = [{
     icon: Globe,
@@ -50,10 +48,8 @@ const Partners = () => {
     gradient: "from-amber-500/20 to-orange-500/20",
     iconBg: "bg-amber-500/20"
   }];
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     if (!formData.orgName || !formData.contactName || !formData.email || !formData.message) {
       toast({
         title: "Please fill in all fields",
@@ -61,7 +57,6 @@ const Partners = () => {
       });
       return;
     }
-
     setIsSubmitting(true);
     const result = await submitPartnershipInquiry({
       organizationName: formData.orgName,
@@ -71,13 +66,18 @@ const Partners = () => {
       message: formData.message
     });
     setIsSubmitting(false);
-
     if (result.success) {
       toast({
         title: "Proposal submitted!",
         description: "Our team will get back to you within 48 hours."
       });
-      setFormData({ orgName: "", contactName: "", email: "", interest: "Sponsorship", message: "" });
+      setFormData({
+        orgName: "",
+        contactName: "",
+        email: "",
+        interest: "Sponsorship",
+        message: ""
+      });
     } else {
       toast({
         title: "Submission failed",
@@ -86,20 +86,19 @@ const Partners = () => {
       });
     }
   };
-
   return <div className="min-h-screen bg-background">
     <Header />
     <main className="py-24">
       <div className="container mx-auto px-6">
         {/* Hero Section */}
         <div className="text-center mb-20">
-          <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4 bg-primary-foreground text-secondary">
+          <span className="inline-block px-4 py-1.5 rounded-full font-medium mb-4 bg-primary-foreground text-secondary text-lg">
             Partnerships
           </span>
-          <h1 className="text-3xl md:text-5xl font-semibold text-foreground">
+          <h1 className="text-3xl font-semibold text-foreground md:text-6xl">
             Partner With Us
           </h1>
-          <p className="mt-6 text-lg text-foreground/70 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-6 text-foreground/70 max-w-2xl mx-auto leading-relaxed text-2xl">
             Together, we can redefine STEM education and inspire the next generation of innovators worldwide.
           </p>
         </div>
@@ -132,21 +131,33 @@ const Partners = () => {
               <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="space-y-2">
                   <Label htmlFor="org-name">Organization Name</Label>
-                  <Input id="org-name" placeholder="ABC STEM Foundation" required className="bg-background/50" value={formData.orgName} onChange={e => setFormData(prev => ({ ...prev, orgName: e.target.value }))} disabled={isSubmitting} />
+                  <Input id="org-name" placeholder="ABC STEM Foundation" required className="bg-background/50" value={formData.orgName} onChange={e => setFormData(prev => ({
+                    ...prev,
+                    orgName: e.target.value
+                  }))} disabled={isSubmitting} />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="contact-name">Contact Person</Label>
-                    <Input id="contact-name" placeholder="John Doe" required className="bg-background/50" value={formData.contactName} onChange={e => setFormData(prev => ({ ...prev, contactName: e.target.value }))} disabled={isSubmitting} />
+                    <Input id="contact-name" placeholder="John Doe" required className="bg-background/50" value={formData.contactName} onChange={e => setFormData(prev => ({
+                      ...prev,
+                      contactName: e.target.value
+                    }))} disabled={isSubmitting} />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">Work Email</Label>
-                    <Input id="email" type="email" placeholder="john@organization.org" required className="bg-background/50" value={formData.email} onChange={e => setFormData(prev => ({ ...prev, email: e.target.value }))} disabled={isSubmitting} />
+                    <Input id="email" type="email" placeholder="john@organization.org" required className="bg-background/50" value={formData.email} onChange={e => setFormData(prev => ({
+                      ...prev,
+                      email: e.target.value
+                    }))} disabled={isSubmitting} />
                   </div>
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="interest">Area of Interest</Label>
-                  <select id="interest" className="flex h-10 w-full rounded-md border border-input bg-background/50 px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" value={formData.interest} onChange={e => setFormData(prev => ({ ...prev, interest: e.target.value }))} disabled={isSubmitting}>
+                  <select id="interest" className="flex h-10 w-full rounded-md border border-input bg-background/50 px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" value={formData.interest} onChange={e => setFormData(prev => ({
+                    ...prev,
+                    interest: e.target.value
+                  }))} disabled={isSubmitting}>
                     <option>Sponsorship</option>
                     <option>Educational Programs</option>
                     <option>Resource Sharing</option>
@@ -155,7 +166,10 @@ const Partners = () => {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="message">How would you like to collaborate?</Label>
-                  <Textarea id="message" placeholder="Tell us about your organization and goals..." className="min-h-[120px] bg-background/50" required value={formData.message} onChange={e => setFormData(prev => ({ ...prev, message: e.target.value }))} disabled={isSubmitting} />
+                  <Textarea id="message" placeholder="Tell us about your organization and goals..." className="min-h-[120px] bg-background/50" required value={formData.message} onChange={e => setFormData(prev => ({
+                    ...prev,
+                    message: e.target.value
+                  }))} disabled={isSubmitting} />
                 </div>
                 <Button type="submit" className="w-full" disabled={isSubmitting}>
                   {isSubmitting ? "Submitting..." : "Submit Proposal"}

@@ -7,12 +7,12 @@ import Index from "./pages/Index";
 import Team from "./pages/Team";
 import Partners from "./pages/Partners";
 import Donations from "./pages/Donations";
-
 import Courses from "./pages/Courses";
 import Kits from "./pages/Kits";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import ScrollToHash from "@/components/ScrollToHash";
+import PageLoader from "@/components/PageLoader";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +22,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <PageLoader />
         <ScrollToHash />
         <Routes>
           <Route path="/" element={<Index />} />

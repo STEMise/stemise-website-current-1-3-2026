@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { submitContactMessage } from "@/lib/formService";
 import contactHero from "@/assets/contact-hero.jpg";
 
 const ContactSection = () => {
@@ -15,7 +16,7 @@ const ContactSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!name || !email || !message) {
       toast({
         title: "Please fill in all fields",
@@ -26,34 +27,37 @@ const ContactSection = () => {
 
     setIsSubmitting(true);
 
-    // TODO: Replace with actual backend call
-    // Example: await fetch('/api/contact', { method: 'POST', body: JSON.stringify({ name, email, message }) })
-    console.log("Contact form submission:", { name, email, message });
+    const result = await submitContactMessage({ name, email, message });
 
-    // Simulate submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you as soon as possible.",
-    });
-
-    setName("");
-    setEmail("");
-    setMessage("");
     setIsSubmitting(false);
+
+    if (result.success) {
+      toast({
+        title: "Message sent!",
+        description: "We'll get back to you as soon as possible.",
+      });
+      setName("");
+      setEmail("");
+      setMessage("");
+    } else {
+      toast({
+        title: "Submission failed",
+        description: result.error || "Please try again later.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
     <section id="contact" className="relative min-h-[80vh] flex items-center py-20 scroll-mt-24">
       {/* Background Image */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${contactHero})` }}
       />
       {/* Dark blue overlay for contrast */}
       <div className="absolute inset-0 bg-[#050b1d]/70" />
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">

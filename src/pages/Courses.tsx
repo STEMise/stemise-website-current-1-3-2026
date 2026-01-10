@@ -145,19 +145,7 @@ const Courses = () => {
         </section>
 
         {/* Program Highlights */}
-        <section className="border-y border-border/50 py-[40px] bg-[sidebar-accent-foreground] bg-accent">
-          <div className="container mx-auto px-6">
-            <div className="grid md:grid-cols-3 gap-8">
-              {programHighlights.map((item, index) => <div key={index} className="text-center">
-                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4 bg-primary-foreground">
-                    <item.icon className="h-7 w-7 bg-transparent text-blue-600" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-foreground/70 text-sm">{item.description}</p>
-                </div>)}
-            </div>
-          </div>
-        </section>
+        
 
         {/* STEM Kits Section */}
         <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent bg-card">
@@ -203,7 +191,7 @@ const Courses = () => {
         </section>
 
         {/* Learning Portal Section */}
-        <section id="portal" className="py-20 bg-secondary/10">
+        <section id="portal" className="py-20 bg-[sidebar-accent-foreground] bg-background">
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
               <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4 border border-primary/30 text-sidebar bg-primary-foreground">
@@ -268,7 +256,7 @@ const Courses = () => {
         </section>
 
         {/* Upcoming Workshops Section */}
-        <section className="py-20 bg-secondary/10">
+        <section className="py-20 bg-background">
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Workshops</h2>

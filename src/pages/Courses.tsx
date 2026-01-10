@@ -162,12 +162,12 @@ const Courses = () => {
         
 
         {/* STEM Kits Section */}
-        <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent bg-card">
+        <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent bg-background">
           <div className="container mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
               <div>
                 <div className="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
-                  <Package className="h-7 w-7 text-white" />
+                  <Package className="text-white w-[30px] h-[30px]" />
                 </div>
                 <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">
                   Free STEM Kits for Educators
@@ -205,23 +205,23 @@ const Courses = () => {
         </section>
 
         {/* Learning Portal Section */}
-        <section id="portal" className="py-20 bg-secondary/10">
+        <section id="portal" className="py-20 bg-background">
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
               <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4 border border-primary/30 text-sidebar bg-primary-foreground">
                 Coming Soon
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">
                 STEMise Learning Portal
               </h2>
-              <p className="text-foreground/70 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-foreground/70 max-w-2xl mx-auto leading-relaxed text-lg">
                 Access world-class STEM curriculum, track your progress, and connect with global educators.
               </p>
             </div>
             <Card className="max-w-md mx-auto border border-border/50 bg-card">
               <CardHeader className="text-center">
-                <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <Mail className="h-7 w-7 text-white" />
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4 bg-transparent">
+                  <Mail className="text-white w-[70px] h-[70px]" />
                 </div>
                 <CardTitle className="text-xl font-semibold">Join the Waitlist</CardTitle>
                 <CardDescription className="text-foreground/70">
@@ -235,7 +235,7 @@ const Courses = () => {
                     {isSubmitting ? "Submitting..." : "Notify Me"}
                   </Button>
                 </form>
-                <p className="text-sm text-center text-foreground/50 mt-4">
+                <p className="text-center text-foreground/50 mt-4 text-xs">
                   We'll never share your email with anyone else.
                 </p>
               </CardContent>
@@ -247,10 +247,8 @@ const Courses = () => {
         <section id="curriculum" className="py-20">
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Upcoming Curriculum</h2>
-              <p className="max-w-xl mx-auto text-lg font-sans text-white/90 bg-transparent">
-                Our S.T.F.E (Science, Technology, Fundamentals, Engineering) curriculum is coming soon
-              </p>
+              <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">Our Upcoming Curriculum</h2>
+              
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
               {curricula.map(course => <div key={course.name} className="group p-6 bg-card rounded-2xl border border-border/50 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
@@ -266,11 +264,11 @@ const Courses = () => {
         </section>
 
         {/* Upcoming Workshops Section */}
-        <section className="py-20 bg-secondary/10">
+        <section className="py-20 bg-background">
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Workshops</h2>
-              <p className="text-foreground/70 max-w-xl mx-auto">
+              <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">Workshops</h2>
+              <p className="text-foreground/70 max-w-xl mx-auto text-lg">
                 Join our interactive workshops and learn from experts
               </p>
             </div>

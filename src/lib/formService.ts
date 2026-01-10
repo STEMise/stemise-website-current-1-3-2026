@@ -1,5 +1,10 @@
 import { supabase } from './supabase';
 
+const supabaseNotConfiguredError = {
+    success: false,
+    error: 'Supabase is not configured. Set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY.'
+};
+
 export type FormType = 'waitlist' | 'partnership' | 'contact';
 
 interface WaitlistData {
@@ -24,6 +29,9 @@ interface ContactData {
  * Submit a waitlist signup to Supabase
  */
 export async function submitWaitlist(data: WaitlistData): Promise<{ success: boolean; error?: string }> {
+    if (!supabase) {
+        return supabaseNotConfiguredError;
+    }
     const { error } = await supabase
         .from('form_submissions')
         .insert({
@@ -43,6 +51,9 @@ export async function submitWaitlist(data: WaitlistData): Promise<{ success: boo
  * Submit a partnership inquiry to Supabase
  */
 export async function submitPartnershipInquiry(data: PartnershipData): Promise<{ success: boolean; error?: string }> {
+    if (!supabase) {
+        return supabaseNotConfiguredError;
+    }
     const { error } = await supabase
         .from('form_submissions')
         .insert({
@@ -66,6 +77,9 @@ export async function submitPartnershipInquiry(data: PartnershipData): Promise<{
  * Submit a contact form message to Supabase
  */
 export async function submitContactMessage(data: ContactData): Promise<{ success: boolean; error?: string }> {
+    if (!supabase) {
+        return supabaseNotConfiguredError;
+    }
     const { error } = await supabase
         .from('form_submissions')
         .insert({
@@ -95,6 +109,9 @@ interface KitRequestData {
  * Submit a STEM kit request to Supabase
  */
 export async function submitKitRequest(data: KitRequestData): Promise<{ success: boolean; error?: string }> {
+    if (!supabase) {
+        return supabaseNotConfiguredError;
+    }
     const kitsDescription = data.kits.map(k => `${k.name} x${k.quantity}`).join(', ');
 
     const { error } = await supabase

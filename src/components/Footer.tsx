@@ -47,7 +47,7 @@ const socialLinks = [{
 }];
 const mailtoHref = "mailto:officialstemise@gmail.com";
 const Footer = () => {
-  return <footer className="border-t py-[20px] bg-[sidebar-accent-foreground] bg-background border-transparent">
+  return <footer className="border-t py-[20px] bg-[sidebar-accent-foreground] bg-background border-primary-foreground">
       <div className="container mx-auto px-[2px]">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-[6px]">
           {/* Brand & Social */}
@@ -79,7 +79,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-white/[0.52]">
+        <div className="mt-8 pt-6 border-t border-primary-foreground">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex flex-col items-center md:items-start gap-2">
               <p className="text-sm text-center md:text-left text-white/[0.57]">

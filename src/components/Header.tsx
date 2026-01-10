@@ -27,7 +27,7 @@ const Header = () => {
     to: "/courses",
     label: "Programs"
   }];
-  return <header className="sticky top-0 z-50 bg-background border-b border-transparent">
+  return <header className="sticky top-0 z-50 bg-background border-b border-primary-foreground">
       <div className="container mx-auto px-6 bg-background">
         <div className="flex items-center justify-between h-16 border-transparent">
           {/* Logo */}

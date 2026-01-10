@@ -11,6 +11,8 @@ const HeroSection = () => {
       backgroundImage: `url(${heroImage})`,
       transformOrigin: 'center center'
     }} />
+      {/* Darken background image for stronger contrast */}
+      <div className="absolute inset-0 bg-black/90" />
       {/* Animated gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80 py-0 opacity-100" />
       

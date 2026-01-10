@@ -25,6 +25,8 @@ const JoinSection = () => {
       backgroundImage: `url(${joinImage})`,
       transformOrigin: 'center center'
     }} />
+      {/* Darken background image for stronger contrast */}
+      <div className="absolute inset-0 bg-black/40" />
       {/* Dark Overlay with gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/70 to-background/85" />
       
@@ -37,7 +39,7 @@ const JoinSection = () => {
             Join STEMise Today
           </h2>
 
-          <p className={`mt-6 text-foreground/70 text-lg leading-relaxed ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{
+          <p className={`mt-6 text-foreground/100 text-lg leading-relaxed ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{
           animationDelay: '0.2s'
         }}>
             Be part of an international community of young leaders dedicated to transforming STEM education. Whether you're a student, educator, or volunteer, there's a place for you at STEMise.

@@ -82,7 +82,7 @@ const Footer = () => {
         <div className="mt-8 pt-6 border-t border-white/[0.52]">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex flex-col items-center md:items-start gap-2">
-              <p className="text-sm text-center md:text-left text-white/[0.83]">
+              <p className="text-sm text-center md:text-left text-white/[0.57]">
                 © {new Date().getFullYear()} STEMise. All rights reserved.
               </p>
               <div className="flex gap-4 text-white">
@@ -91,7 +91,7 @@ const Footer = () => {
                   </a>)}
               </div>
             </div>
-            <p className="text-xs text-center md:text-right max-w-2xl text-white/[0.79]">
+            <p className="text-xs text-center md:text-right max-w-2xl text-white/[0.49]">
               STEMise does not discriminate based on race, nationality, ethnicity, religion, disability, sex, gender identity, sexual orientation, or socioeconomic status.
             </p>
           </div>

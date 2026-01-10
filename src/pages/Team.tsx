@@ -78,7 +78,7 @@ const Team = () => {
       <Header />
       <main className="py-24">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-20">
+          <div className="text-center mb-20 animate-fade-in-up">
             <span className="inline-block px-4 py-1.5 rounded-full font-medium mb-4 bg-primary-foreground text-secondary text-lg">
               Our Team
             </span>
@@ -91,7 +91,7 @@ const Team = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => <div key={index} className="bg-card border border-border/50 rounded-2xl p-6 transition-all duration-300">
+            {teamMembers.map((member, index) => <div key={index} className="bg-card border border-border/50 rounded-2xl p-6 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
                 {/* Photo */}
                 {member.photo ? <img src={member.photo} alt={member.name} className="w-32 h-32 mx-auto mb-4 rounded-2xl border border-border/50 object-cover" /> : <div className="w-32 h-32 mx-auto mb-4 bg-muted/50 rounded-2xl border border-border/50 flex items-center justify-center">
                     <span className="text-muted-foreground text-sm">Photo</span>

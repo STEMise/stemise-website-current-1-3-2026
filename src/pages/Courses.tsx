@@ -162,7 +162,7 @@ const Courses = () => {
         
 
         {/* STEM Kits Section */}
-        <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent bg-background">
+        <section className="py-20 bg-background">
           <div className="container mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
               <div>

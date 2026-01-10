@@ -6,7 +6,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Progress } from "@/components/ui/progress";
 import { Package, Plus, Minus, Trash2, Send, CheckCircle, Users, GraduationCap, Truck, Clock, Globe, Award, ArrowRight } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { toast } from "@/hooks/use-toast";
@@ -395,14 +394,6 @@ const Kits = () => {
             {/* Request Summary */}
             <div>
               <div className="sticky top-24 space-y-4">
-                {/* Progress Indicator */}
-                <Card className="border border-border/50 bg-card">
-                  <CardContent className="pt-6">
-
-                    <Progress value={getProgress()} className="h-2" />
-
-                  </CardContent>
-                </Card>
 
                 <Card className="border border-border/50 bg-card">
                   <CardHeader className="pb-3">

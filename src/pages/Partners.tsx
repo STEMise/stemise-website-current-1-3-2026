@@ -91,7 +91,7 @@ const Partners = () => {
     <main className="py-24">
       <div className="container mx-auto px-6">
         {/* Hero Section */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-20 animate-fade-in-up">
           <span className="inline-block px-4 py-1.5 rounded-full font-medium mb-4 bg-primary-foreground text-secondary text-lg">
             Partnerships
           </span>
@@ -105,7 +105,7 @@ const Partners = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left: Benefits */}
-          <div className="space-y-8">
+          <div className="space-y-8 animate-fade-in-up stagger-2">
             <h2 className="text-3xl md:text-5xl font-semibold text-foreground">Why Partner with STEMise?</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {benefits.map((benefit, index) => {
@@ -122,7 +122,7 @@ const Partners = () => {
           </div>
 
           {/* Right: Sign up Form */}
-          <Card className="border border-border/50 bg-card rounded-2xl">
+          <Card className="border border-border/50 bg-card rounded-2xl animate-fade-in-up stagger-3">
             <CardHeader>
               <CardTitle className="text-xl font-semibold">Partnership Inquiry</CardTitle>
               <CardDescription className="text-foreground/70">Fill out the form below and our team will get back to you within 48 hours.</CardDescription>

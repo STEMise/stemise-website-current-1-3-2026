@@ -25,7 +25,7 @@ const Donations = () => {
       <main className="py-24">
         <div className="container mx-auto px-6">
           {/* Hero Section */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 animate-fade-in-up">
             <span className="inline-block px-4 py-1.5 rounded-full font-medium mb-4 bg-primary-foreground text-sidebar text-lg">
               Make an Impact
             </span>
@@ -39,7 +39,7 @@ const Donations = () => {
           </div>
 
           {/* Main Donation Card - Centered */}
-          <div className="flex justify-center mb-20">
+          <div className="flex justify-center mb-20 animate-fade-in-up stagger-2">
             <div className="bg-[#ec3750] rounded-3xl p-10 md:p-14 text-center max-w-lg w-full shadow-2xl shadow-[#ec3750]/20 items-center justify-start px-[40px] py-[30px] mx-0 my-0 flex flex-col gap-0">
               <img src={hackclubLogo} alt="Hack Club" className="h-14 w-auto mb-6" />
               <h2 className="text-white text-2xl font-semibold mb-4 md:text-5xl">
@@ -57,7 +57,7 @@ const Donations = () => {
           </div>
 
           {/* Impact Section */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-fade-in-up stagger-3">
             <h2 className="text-2xl font-semibold text-foreground mb-4 md:text-4xl">Where Your Money Goes</h2>
             <p className="text-foreground/70 max-w-xl mx-auto text-lg">
               Every dollar you donate directly supports our programs and initiatives.
@@ -67,7 +67,7 @@ const Donations = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto mb-16">
             {impactItems.map((item, index) => {
             const Icon = item.icon;
-            return <div key={index} className="group p-6 bg-card rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 text-center">
+            return <div key={index} className="group p-6 bg-card rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 text-center animate-fade-in-up" style={{ animationDelay: `${0.4 + index * 0.1}s` }}>
                   <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-105 transition-transform duration-300 bg-transparent">
                     <Icon className="h-6 w-6 text-primary-foreground" />
                   </div>

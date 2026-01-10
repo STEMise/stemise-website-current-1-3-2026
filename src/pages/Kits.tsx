@@ -10,6 +10,7 @@ import { Progress } from "@/components/ui/progress";
 import { Package, Plus, Minus, Trash2, Send, CheckCircle, Users, GraduationCap, Truck, Clock, Globe, Award, ArrowRight } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { toast } from "@/hooks/use-toast";
+import { submitKitRequest } from "@/lib/formService";
 
 // Kit images
 import kitRobotics from "@/assets/kit-robotics.png";
@@ -282,40 +283,67 @@ const Kits = () => {
   };
   const sendRequest = async () => {
     setIsSending(true);
-    const requestData = {
-      to: "officialstemise@gmail.com",
-      from: requesterEmail,
+
+    const result = await submitKitRequest({
       name: requesterName,
-      organization,
-      message,
+      email: requesterEmail,
+      organization: organization,
+      message: message,
       kits: selectedKits.map(k => ({
         name: k.name,
         quantity: k.quantity
       }))
-    };
-    console.log("Request data to send:", requestData);
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    });
+
     setIsSending(false);
     setShowConfirmDialog(false);
-    toast({
-      title: "Request submitted!",
-      description: "We'll review your request and get back to you soon."
-    });
-    setSelectedKits([]);
-    setMessage("");
-    setRequesterName("");
-    setRequesterEmail("");
-    setOrganization("");
+
+    if (result.success) {
+      toast({
+        title: "Request submitted!",
+        description: "We'll review your request and get back to you soon."
+      });
+      setSelectedKits([]);
+      setMessage("");
+      setRequesterName("");
+      setRequesterEmail("");
+      setOrganization("");
+    } else {
+      toast({
+        title: "Submission failed",
+        description: result.error || "Please try again later.",
+        variant: "destructive"
+      });
+    }
   };
   return <div className="min-h-screen bg-background">
-      <Header />
-      <main>
-        {/* Hero Section */}
-        
+    <Header />
+    <main>
+      {/* Hero Section */}
 
-        {/* Impact Stats */}
-        
 
+      {/* Impact Stats */}
+
+
+      {/* How It Works */}
+      <section id="how-it-works" className="py-20">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+              How It Works
+            </span>
+            <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">Request Our STEM Kits</h2>
+            <p className="text-foreground/70 max-w-xl mx-auto text-lg">Getting STEM kits for your classroom is simple</p>
+          </div>
+          <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            {howItWorks.map(item => <div key={item.step} className="relative text-center">
+              <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-primary-foreground font-bold text-xl">
+                {item.step}
+              </div>
+              <h3 className="font-semibold text-foreground mb-2 text-lg">{item.title}</h3>
+              <p className="text-foreground/70 text-base">{item.description}</p>
+              {item.step < 4}
+            </div>)}
         {/* How It Works */}
         <section id="how-it-works" className="py-20">
           <div className="container mx-auto px-6">
@@ -337,190 +365,204 @@ const Kits = () => {
                 </div>)}
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Kit Selection Section */}
-        <section ref={kitsRef} className="py-20 bg-secondary/10">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">Available STEM Kits</h2>
-              
+      {/* Kit Selection Section */}
+      <section ref={kitsRef} className="py-20 bg-secondary/10">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">Available STEM Kits</h2>
+
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* Available Kits */}
+            <div className="lg:col-span-2 space-y-8">
+              <div className="grid sm:grid-cols-2 gap-6">
+                {stemKits.map(kit => <Card key={kit.id} className="border border-border/50 bg-card hover:border-primary/50 transition-all duration-300 group overflow-hidden">
+                  <div className="aspect-[4/3] overflow-hidden bg-secondary/30">
+                    <img src={kit.image} alt={kit.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  </div>
+                  <CardHeader className="pb-3">
+                    <div className="flex items-start justify-between mb-2">
+                      <CardTitle className="text-lg">{kit.name}</CardTitle>
+                      <Button size="sm" onClick={() => addKit(kit)} className="h-9 px-4">
+                        <Plus className="h-4 w-4 mr-1" /> Add
+                      </Button>
+                    </div>
+                    <CardDescription className="text-foreground/70">{kit.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="pt-0">
+                    <div className="space-y-2 text-sm">
+
+
+
+                    </div>
+                    <div className="mt-4 pt-3 border-t border-border/50">
+                      <p className="text-xs text-foreground/60 mb-2">Includes:</p>
+                      <div className="flex flex-wrap gap-1">
+                        {kit.includes.map((item, idx) => <span key={idx} className="text-xs px-2 py-0.5 bg-secondary rounded-full text-foreground/80">
+                          {item}
+                        </span>)}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>)}
+              </div>
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-8">
-              {/* Available Kits */}
-              <div className="lg:col-span-2 space-y-8">
-                <div className="grid sm:grid-cols-2 gap-6">
-                  {stemKits.map(kit => <Card key={kit.id} className="border border-border/50 bg-card hover:border-primary/50 transition-all duration-300 group overflow-hidden">
-                      <div className="aspect-[4/3] overflow-hidden bg-secondary/30">
-                        <img src={kit.image} alt={kit.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+            {/* Request Summary */}
+            <div>
+              <div className="sticky top-24 space-y-4">
+                {/* Progress Indicator */}
+                <Card className="border border-border/50 bg-card">
+                  <CardContent className="pt-6">
+
+                    <Progress value={getProgress()} className="h-2" />
+
+                  </CardContent>
+                </Card>
+
+                <Card className="border border-border/50 bg-card">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-xl flex items-center gap-2">
+
+                      Your Request
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    {selectedKits.length === 0 ? <div className="text-center py-8">
+                      <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-3">
+                        <Package className="h-8 w-8 text-foreground/40" />
                       </div>
-                      <CardHeader className="pb-3">
-                        <div className="flex items-start justify-between mb-2">
-                          <CardTitle className="text-lg">{kit.name}</CardTitle>
-                          <Button size="sm" onClick={() => addKit(kit)} className="h-9 px-4">
-                            <Plus className="h-4 w-4 mr-1" /> Add
+                      <p className="text-foreground/60 text-sm">
+                        No kits selected yet.<br />Click "Add" on any kit to include it.
+                      </p>
+                    </div> : <div className="space-y-3 mb-6">
+                      {selectedKits.map(kit => <div key={kit.id} className="flex items-center justify-between p-3 bg-secondary/50 rounded-lg border border-border/30">
+                        <div className="flex-1 min-w-0">
+                          <p className="font-medium text-sm truncate text-foreground">{kit.name}</p>
+                        </div>
+                        <div className="flex items-center gap-2 ml-2">
+                          <Button size="icon" variant="outline" className="h-7 w-7" onClick={() => updateQuantity(kit.id, -1)}>
+                            <Minus className="h-3 w-3" />
                           </Button>
-                        </div>
-                        <CardDescription className="text-foreground/70">{kit.description}</CardDescription>
-                      </CardHeader>
-                      <CardContent className="pt-0">
-                        <div className="space-y-2 text-sm">
-                          
-                          
-                          
-                        </div>
-                        <div className="mt-4 pt-3 border-t border-border/50">
-                          <p className="text-xs text-foreground/60 mb-2">Includes:</p>
-                          <div className="flex flex-wrap gap-1">
-                            {kit.includes.map((item, idx) => <span key={idx} className="text-xs px-2 py-0.5 bg-secondary rounded-full text-foreground/80">
-                                {item}
-                              </span>)}
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>)}
-                </div>
-              </div>
-
-              {/* Request Summary */}
-              <div>
-                <div className="sticky top-24 space-y-4">
-                  {/* Progress Indicator */}
-                  <Card className="border border-border/50 bg-card">
-                    <CardContent className="pt-6">
-                      
-                      <Progress value={getProgress()} className="h-2" />
-                      
-                    </CardContent>
-                  </Card>
-
-                  <Card className="border border-border/50 bg-card">
-                    <CardHeader className="pb-3">
-                      <CardTitle className="text-xl flex items-center gap-2">
-                        
-                        Your Request
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      {selectedKits.length === 0 ? <div className="text-center py-8">
-                          <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-3">
-                            <Package className="h-8 w-8 text-foreground/40" />
-                          </div>
-                          <p className="text-foreground/60 text-sm">
-                            No kits selected yet.<br />Click "Add" on any kit to include it.
-                          </p>
-                        </div> : <div className="space-y-3 mb-6">
-                          {selectedKits.map(kit => <div key={kit.id} className="flex items-center justify-between p-3 bg-secondary/50 rounded-lg border border-border/30">
-                              <div className="flex-1 min-w-0">
-                                <p className="font-medium text-sm truncate text-foreground">{kit.name}</p>
-                              </div>
-                              <div className="flex items-center gap-2 ml-2">
-                                <Button size="icon" variant="outline" className="h-7 w-7" onClick={() => updateQuantity(kit.id, -1)}>
-                                  <Minus className="h-3 w-3" />
-                                </Button>
-                                <span className="w-8 text-center font-medium text-foreground">{kit.quantity}</span>
-                                <Button size="icon" variant="outline" className="h-7 w-7" onClick={() => updateQuantity(kit.id, 1)}>
-                                  <Plus className="h-3 w-3" />
-                                </Button>
-                                <Button size="icon" variant="ghost" className="h-7 w-7 text-destructive hover:text-destructive" onClick={() => removeKit(kit.id)}>
-                                  <Trash2 className="h-3 w-3" />
-                                </Button>
-                              </div>
-                            </div>)}
-                        </div>}
-
+                          <span className="w-8 text-center font-medium text-foreground">{kit.quantity}</span>
+                          <Button size="icon" variant="outline" className="h-7 w-7" onClick={() => updateQuantity(kit.id, 1)}>
+                            <Plus className="h-3 w-3" />
+                          </Button>
+                          <Button size="icon" variant="ghost" className="h-7 w-7 text-destructive hover:text-destructive" onClick={() => removeKit(kit.id)}>
+                            <Trash2 className="h-3 w-3" />
+                          </Button>
                       <div className="space-y-4">
                         <Input placeholder="Your name *" value={requesterName} onChange={e => setRequesterName(e.target.value)} className="bg-secondary/30 border-border/50" />
                         <div className="space-y-1">
                           <Input type="email" placeholder="Your email *" value={requesterEmail} onChange={handleEmailChange} className={`bg-secondary/30 border-border/50 ${emailError ? 'border-destructive' : ''}`} />
                           {emailError && <p className="text-xs text-destructive">{emailError}</p>}
                         </div>
-                        <Input placeholder="School / Organization" value={organization} onChange={e => setOrganization(e.target.value)} className="bg-secondary/30 border-border/50" />
-                        <Textarea placeholder="Tell us about your program and how you'll use the kits..." value={message} onChange={e => setMessage(e.target.value)} className="bg-secondary/30 border-border/50 min-h-[100px]" />
-                        <Button className="w-full" onClick={handleSubmitRequest} disabled={selectedKits.length === 0}>
-                          <Send className="h-4 w-4 mr-2" /> Submit Request
-                        </Button>
+                      </div>)}
+                    </div>}
+
+                    <div className="space-y-4">
+                      <Input placeholder="Your name *" value={requesterName} onChange={e => setRequesterName(e.target.value)} className="bg-secondary/30 border-border/50" />
+                      <div className="space-y-1">
+                        <Input
+                          type="email"
+                          placeholder="Your email *"
+                          value={requesterEmail}
+                          onChange={handleEmailChange}
+                          className={`bg-secondary/30 border-border/50 ${emailError ? 'border-destructive' : ''}`}
+                        />
+                        {emailError && (
+                          <p className="text-xs text-destructive">{emailError}</p>
+                        )}
                       </div>
+                      <Input placeholder="School / Organization" value={organization} onChange={e => setOrganization(e.target.value)} className="bg-secondary/30 border-border/50" />
+                      <Textarea placeholder="Tell us about your program and how you'll use the kits..." value={message} onChange={e => setMessage(e.target.value)} className="bg-secondary/30 border-border/50 min-h-[100px]" />
+                      <Button className="w-full" onClick={handleSubmitRequest} disabled={selectedKits.length === 0}>
+                        <Send className="h-4 w-4 mr-2" /> Submit Request
+                      </Button>
+                    </div>
 
-                      <p className="text-xs text-foreground/50 text-center mt-4">
-                        <Clock className="h-3 w-3 inline mr-1" />
-                        Typical processing: 5-7 business days
-                      </p>
-                    </CardContent>
-                  </Card>
-                </div>
+                    <p className="text-xs text-foreground/50 text-center mt-4">
+                      <Clock className="h-3 w-3 inline mr-1" />
+                      Typical processing: 5-7 business days
+                    </p>
+                  </CardContent>
+                </Card>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Confirmation Dialog */}
-        <Dialog open={showConfirmDialog} onOpenChange={setShowConfirmDialog}>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle className="flex items-center gap-2">
-                <CheckCircle className="h-5 w-5 text-primary" />
-                Confirm Your Request
-              </DialogTitle>
-              <DialogDescription>
-                Please review your STEM kit request before submitting.
-              </DialogDescription>
-            </DialogHeader>
-            <div className="space-y-4 py-4">
-              <div>
-                <p className="text-sm text-foreground/70 mb-2">Requested kits:</p>
-                <ul className="space-y-1">
-                  {selectedKits.map(kit => <li key={kit.id} className="text-sm flex items-center gap-2">
-                      <Package className="h-4 w-4 text-primary" />
-                      {kit.name} × {kit.quantity}
-                    </li>)}
-                </ul>
-              </div>
-              <div className="text-sm space-y-1">
-                <p><strong>From:</strong> {requesterName} ({requesterEmail})</p>
-                {organization && <p><strong>Organization:</strong> {organization}</p>}
-                {message && <p className="mt-2"><strong>Message:</strong> {message}</p>}
-              </div>
+      {/* Confirmation Dialog */}
+      <Dialog open={showConfirmDialog} onOpenChange={setShowConfirmDialog}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <CheckCircle className="h-5 w-5 text-primary" />
+              Confirm Your Request
+            </DialogTitle>
+            <DialogDescription>
+              Please review your STEM kit request before submitting.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4 py-4">
+            <div>
+              <p className="text-sm text-foreground/70 mb-2">Requested kits:</p>
+              <ul className="space-y-1">
+                {selectedKits.map(kit => <li key={kit.id} className="text-sm flex items-center gap-2">
+                  <Package className="h-4 w-4 text-primary" />
+                  {kit.name} × {kit.quantity}
+                </li>)}
+              </ul>
             </div>
-            <DialogFooter>
-              <Button variant="outline" onClick={() => setShowConfirmDialog(false)}>Cancel</Button>
-              <Button onClick={sendRequest} disabled={isSending}>
-                {isSending ? "Sending..." : "Confirm & Send"}
-              </Button>
-            </DialogFooter>
-          </DialogContent>
-        </Dialog>
-
-        {/* Testimonials */}
-        
-
-        {/* FAQ Section */}
-        <section className="py-20 bg-secondary/10">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">Frequently Asked Questions</h2>
-              
-            </div>
-            <div className="max-w-3xl mx-auto">
-              <Accordion type="single" collapsible className="space-y-4">
-                {faqs.map((faq, index) => <AccordionItem key={index} value={`faq-${index}`} className="border border-border/50 rounded-lg bg-card px-6">
-                    <AccordionTrigger className="text-left font-medium text-foreground hover:text-primary">
-                      {faq.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-foreground/80">
-                      {faq.answer}
-                    </AccordionContent>
-                  </AccordionItem>)}
-              </Accordion>
+            <div className="text-sm space-y-1">
+              <p><strong>From:</strong> {requesterName} ({requesterEmail})</p>
+              {organization && <p><strong>Organization:</strong> {organization}</p>}
+              {message && <p className="mt-2"><strong>Message:</strong> {message}</p>}
             </div>
           </div>
-        </section>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setShowConfirmDialog(false)}>Cancel</Button>
+            <Button onClick={sendRequest} disabled={isSending}>
+              {isSending ? "Sending..." : "Confirm & Send"}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
 
-        {/* CTA Section */}
-        
-      </main>
-      <Footer />
-    </div>;
+      {/* Testimonials */}
+
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-secondary/10">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">Frequently Asked Questions</h2>
+
+          </div>
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-4">
+              {faqs.map((faq, index) => <AccordionItem key={index} value={`faq-${index}`} className="border border-border/50 rounded-lg bg-card px-6">
+                <AccordionTrigger className="text-left font-medium text-foreground hover:text-primary">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-foreground/80">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>)}
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+
+    </main>
+    <Footer />
+  </div>;
 };
 export default Kits;

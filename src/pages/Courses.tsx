@@ -172,9 +172,7 @@ const Courses = () => {
                 <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">
                   Free STEM Kits for Educators
                 </h2>
-                <p className="text-foreground/70 mb-6 text-lg">
-                  Bring hands-on STEM learning to your classroom with our free educational kits, designed for educators worldwide.
-                </p>
+                
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-center gap-3 text-foreground/80">
                     <Sparkles className="h-5 w-5 text-primary flex-shrink-0" />

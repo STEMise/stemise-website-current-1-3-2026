@@ -166,9 +166,7 @@ const Courses = () => {
           <div className="container mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
               <div className="animate-fade-in-up stagger-2">
-                <div className="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
-                  <Package className="h-7 w-7 text-white" />
-                </div>
+                
                 <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">
                   Free STEM Kits for Educators
                 </h2>

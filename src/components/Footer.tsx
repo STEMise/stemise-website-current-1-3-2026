@@ -47,7 +47,7 @@ const socialLinks = [{
 }];
 const mailtoHref = "mailto:officialstemise@gmail.com";
 const Footer = () => {
-  return <footer className="border-t border-border py-[20px] bg-ring">
+  return <footer className="border-t py-[20px] bg-[sidebar-accent-foreground] bg-background border-transparent">
       <div className="container mx-auto px-[2px]">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-[6px]">
           {/* Brand & Social */}

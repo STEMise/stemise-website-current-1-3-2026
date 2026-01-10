@@ -40,11 +40,11 @@ const MissionSection = () => {
               STEMise is an international, youth-led organization committed to redefining STEM education by focusing on introducing hands-on learning to communities through interactive STEM kits, technology curricula, and educational workshops.
             </p>
             
-            <p className="font-serif text-lg md:text-xl leading-relaxed text-foreground/90 mt-6 text-center">
+            <p className="font-serif text-lg leading-relaxed text-foreground/90 mt-6 text-center md:text-2xl">
               Our actions are driven by the foundational belief in the effectiveness and power of interactive learning compared to passive learning, and our desire to transform abstract classroom concepts into engaging, meaningful, and real-world learning experiences for learners worldwide.
             </p>
 
-            <p className="font-serif text-lg md:text-xl leading-relaxed text-foreground/90 mt-6 text-center">
+            <p className="font-serif text-lg leading-relaxed text-foreground/90 mt-6 text-center md:text-2xl">
               Through our discipline-specific STEM kits, members—each with their expertise in different science disciplines—have the opportunity to apply their creative minds to formulate personalized kits that serve as effective tools for learning and cultivating curiosity, as well as fostering a lifelong passion in STEM.
             </p>
           </div>

@@ -62,7 +62,7 @@ const ValuesSection = () => {
                 <div className={`w-16 h-16 rounded-2xl bg-background/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                   <value.icon className={`h-8 w-8 ${value.iconColor}`} />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-4">
+                <h3 className="font-semibold text-foreground mb-4 text-2xl">
                   {value.title}
                 </h3>
                 <p className="text-foreground/70 leading-relaxed">

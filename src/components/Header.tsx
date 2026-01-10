@@ -27,9 +27,9 @@ const Header = () => {
     to: "/courses",
     label: "Programs"
   }];
-  return <header className="sticky top-0 z-50 bg-background border-b border-border">
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
+  return <header className="sticky top-0 z-50 bg-background border-b border-primary-foreground">
+      <div className="container mx-auto px-6 bg-background">
+        <div className="flex items-center justify-between h-16 border-transparent">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <img alt="STEMise" src="/lovable-uploads/8f7071d0-3b3d-46b7-92eb-7c76c236e727.png" className="h-7 w-auto" />
@@ -37,7 +37,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8" aria-label="Primary">
-            {navLinks.map(link => link.kind === "route" ? <Link key={link.to} to={link.to} className="text-foreground hover:text-primary transition-colors text-sm font-medium border-b-2 border-transparent hover:border-primary pb-1">
+            {navLinks.map(link => link.kind === "route" ? <Link key={link.to} to={link.to} className="transition-colors text-sm font-medium border-b-2 border-transparent hover:border-primary pb-1 text-white">
                   {link.label}
                 </Link> : <AppHashLink key={link.toId} toId={link.toId} className="text-foreground hover:text-primary transition-colors text-sm font-medium border-b-2 border-transparent hover:border-primary pb-1">
                   {link.label}

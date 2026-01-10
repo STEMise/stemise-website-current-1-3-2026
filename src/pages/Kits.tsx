@@ -178,12 +178,10 @@ const Kits = () => {
   const [organization, setOrganization] = useState("");
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
   const [isSending, setIsSending] = useState(false);
-
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
-
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const email = e.target.value;
     setRequesterEmail(email);
@@ -346,6 +344,26 @@ const Kits = () => {
               <p className="text-foreground/70 text-base">{item.description}</p>
               {item.step < 4}
             </div>)}
+        {/* How It Works */}
+        <section id="how-it-works" className="py-20">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-12">
+              <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4 bg-primary-foreground text-background">
+                How It Works
+              </span>
+              <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">Request Our STEM Kits</h2>
+              <p className="text-foreground/70 max-w-xl mx-auto text-lg">Getting STEM kits for your classroom is simple</p>
+            </div>
+            <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+              {howItWorks.map(item => <div key={item.step} className="relative text-center">
+                  <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-primary-foreground font-bold text-xl">
+                    {item.step}
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2 text-lg">{item.title}</h3>
+                  <p className="text-foreground/70 text-base">{item.description}</p>
+                  {item.step < 4}
+                </div>)}
+            </div>
           </div>
         </div>
       </section>
@@ -437,6 +455,11 @@ const Kits = () => {
                           <Button size="icon" variant="ghost" className="h-7 w-7 text-destructive hover:text-destructive" onClick={() => removeKit(kit.id)}>
                             <Trash2 className="h-3 w-3" />
                           </Button>
+                      <div className="space-y-4">
+                        <Input placeholder="Your name *" value={requesterName} onChange={e => setRequesterName(e.target.value)} className="bg-secondary/30 border-border/50" />
+                        <div className="space-y-1">
+                          <Input type="email" placeholder="Your email *" value={requesterEmail} onChange={handleEmailChange} className={`bg-secondary/30 border-border/50 ${emailError ? 'border-destructive' : ''}`} />
+                          {emailError && <p className="text-xs text-destructive">{emailError}</p>}
                         </div>
                       </div>)}
                     </div>}

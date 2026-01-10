@@ -28,7 +28,7 @@ const Header = () => {
     label: "Programs"
   }];
   return <header className="sticky top-0 z-50 bg-background border-b border-transparent">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 bg-background">
         <div className="flex items-center justify-between h-16 border-transparent">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">

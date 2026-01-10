@@ -162,27 +162,25 @@ const Courses = () => {
         
 
         {/* STEM Kits Section */}
-        <section className="py-20 bg-background">
+        <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent bg-background">
           <div className="container mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-              <div className="animate-fade-in-up stagger-2">
-                <div className="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
-                  <Package className="h-7 w-7 text-white" />
-                </div>
+              <div>
+                
                 <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">
                   Free STEM Kits for Educators
                 </h2>
                 
                 <ul className="space-y-3 mb-8">
-                  <li className="flex items-center gap-3 text-foreground/80">
+                  <li className="flex items-center gap-3 text-foreground/80 text-xl">
                     <Sparkles className="h-5 w-5 text-primary flex-shrink-0" />
                     <span className="text-lg">8+ different kit types available</span>
                   </li>
-                  <li className="flex items-center gap-3 text-foreground/80">
+                  <li className="flex items-center gap-3 text-foreground/80 text-xl">
                     <Users className="h-5 w-5 text-primary flex-shrink-0" />
                     <span className="text-lg">Each kit serves 15-30 students</span>
                   </li>
-                  <li className="flex items-center gap-3 text-foreground/80">
+                  <li className="flex items-center gap-3 text-foreground/80 text-xl">
                     <BookOpen className="h-5 w-5 text-primary flex-shrink-0" />
                     <span className="text-lg">Complete lesson plans & guides included</span>
                   </li>
@@ -193,11 +191,7 @@ const Courses = () => {
                   </Link>
                 </Button>
               </div>
-              <div className="relative animate-fade-in-up stagger-3">
-                <img src={stemKitsShowcase} alt="STEM kits with electronics and robotics components" className="w-full rounded-2xl shadow-2xl" />
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-xl -z-10" />
-                <div className="absolute -top-4 -left-4 w-16 h-16 bg-primary/10 rounded-xl -z-10" />
-              </div>
+              
             </div>
           </div>
         </section>
@@ -205,7 +199,7 @@ const Courses = () => {
         {/* Learning Portal Section */}
         <section id="portal" className="py-20 bg-background">
           <div className="container mx-auto px-6">
-            <div className="text-center mb-12 animate-fade-in-up">
+            <div className="text-center mb-12">
               <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4 border border-primary/30 text-sidebar bg-primary-foreground">
                 Coming Soon
               </span>
@@ -244,7 +238,7 @@ const Courses = () => {
         {/* Curriculum Section */}
         <section id="curriculum" className="py-20">
           <div className="container mx-auto px-6">
-            <div className="text-center mb-12 animate-fade-in-up">
+            <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">Upcoming Curriculum</h2>
               
             </div>
@@ -262,54 +256,7 @@ const Courses = () => {
         </section>
 
         {/* Upcoming Workshops Section */}
-        <section className="py-20 bg-secondary/10">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-12 animate-fade-in-up">
-              <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">Workshops</h2>
-              <p className="text-foreground/70 max-w-xl mx-auto text-lg">
-                Join our interactive workshops and learn from experts
-              </p>
-            </div>
-
-            {isLoadingWorkshops ? <Card className="max-w-2xl mx-auto border border-border/50 bg-card">
-                <CardContent className="py-12">
-                  <p className="text-center text-lg text-foreground/70">Loading workshops...</p>
-                </CardContent>
-              </Card> : workshops.length > 0 ? <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                {workshops.map(workshop => <Card key={workshop.id} className="border border-border/50 bg-card hover:border-primary/50 transition-all duration-300">
-                    <CardHeader>
-                      <CardTitle className="text-xl">{workshop.title}</CardTitle>
-                      <CardDescription>{workshop.description}</CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-3">
-                      <div className="flex items-center gap-2 text-sm text-foreground/70">
-                        <Calendar className="h-4 w-4 text-primary" />
-                        <span>{workshop.date}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-foreground/70">
-                        <Clock className="h-4 w-4 text-primary" />
-                        <span>{workshop.time}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-foreground/70">
-                        <MapPin className="h-4 w-4 text-primary" />
-                        <span>{workshop.location}</span>
-                      </div>
-                      {workshop.registrationLink && <Button asChild className="w-full mt-4">
-                          <a href={workshop.registrationLink} target="_blank" rel="noopener noreferrer">
-                            Register Now
-                          </a>
-                        </Button>}
-                    </CardContent>
-                  </Card>)}
-              </div> : <Card className="max-w-2xl mx-auto border border-border/50 bg-card">
-                <CardContent className="py-12">
-                  <p className="text-center text-lg text-foreground/70">
-                    No upcoming workshops at the moment. Check back soon!
-                  </p>
-                </CardContent>
-              </Card>}
-          </div>
-        </section>
+        
       </main>
       <Footer />
     </div>;

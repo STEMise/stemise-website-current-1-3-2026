@@ -27,9 +27,9 @@ const Header = () => {
     to: "/courses",
     label: "Programs"
   }];
-  return <header className="sticky top-0 z-50 bg-background border-b border-border">
+  return <header className="sticky top-0 z-50 bg-background border-b border-transparent">
       <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-16 border-transparent">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <img alt="STEMise" src="/lovable-uploads/8f7071d0-3b3d-46b7-92eb-7c76c236e727.png" className="h-7 w-auto" />

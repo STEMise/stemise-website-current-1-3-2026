@@ -171,7 +171,7 @@ const Courses = () => {
       {/* Program Highlights */}
 
       {/* Spacer Section */}
-      <section className="py-20 bg-background" />
+      <section className="py-10 bg-background" />
 
       {/* Learning Portal Section */}
       <section id="portal" className="py-20 bg-background">

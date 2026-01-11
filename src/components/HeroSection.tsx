@@ -5,7 +5,7 @@ import AppHashLink from "@/components/AppHashLink";
 import heroImage from "@/assets/hero-stem.jpg";
 import heroBanner from "@/assets/hero-banner.png";
 const HeroSection = () => {
-  return <section className="relative bg-card min-h-[80vh] flex items-center overflow-hidden">
+  return <section className="relative bg-card min-h-[80vh] flex items-start pt-36 overflow-hidden">
       {/* Background Image with subtle zoom animation */}
       <div className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-[zoomIn_20s_ease-in-out_infinite_alternate]" style={{
       backgroundImage: `url(${heroImage})`,

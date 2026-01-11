@@ -28,76 +28,41 @@ interface KitItem {
 }
 const stemKits = [{
   id: "robotics-basic",
-  name: "Robotics Starter Kit",
-  description: "Arduino-based robotics kit with sensors, motors, and project guides",
-  students: "15-20",
-  grades: "6-12",
-  includes: ["Arduino Uno", "Motors & Wheels", "Sensors Pack", "Project Guide"],
-  deliveryTime: "2-3 weeks",
+  name: "Color Change Chemistry Kit",
+  description: "Through samples of red cabbage, vitamin C pill, and baking soda, the color change chemistry kit teaches the fundamental concepts of titration and acid-base concentrations.",
+  students: "Individual or groups of 2-5",
+  grades: "K-8",
   image: kitRobotics
 }, {
   id: "electronics-lab",
-  name: "Electronics Lab Kit",
-  description: "Complete electronics exploration with breadboards and components",
-  students: "20-25",
-  grades: "5-10",
-  includes: ["Breadboards", "LED Pack", "Resistors Set", "Multimeter"],
-  deliveryTime: "2-3 weeks",
+  name: "Physics Catapult Kit (Beginner Edition):",
+  description: "Tailored for kindergarteners and low-grade primary students. The popsicle stick catapult which consists of 10 popsicle sticks, a bottle cap, and three rubberbands, serves as a great starting point to learn about projectile motion and gravity.",
+  students: "Individual or groups of 2-6",
+  grades: "K-5",
   image: kitElectronics
-}, {
-  id: "chemistry-set",
-  name: "Chemistry Experiment Set",
-  description: "Safe chemistry experiments with all materials and safety equipment",
-  students: "25-30",
-  grades: "4-8",
-  includes: ["Test Tubes", "Safe Chemicals", "Safety Goggles", "Lab Manual"],
-  deliveryTime: "3-4 weeks",
-  image: kitChemistry
-}, {
-  id: "physics-toolkit",
-  name: "Physics Toolkit",
-  description: "Hands-on mechanics, optics, and electricity demonstrations",
-  students: "20-25",
-  grades: "6-12",
-  includes: ["Optics Kit", "Mechanics Set", "Electricity Lab", "Experiment Cards"],
-  deliveryTime: "2-3 weeks",
-  image: kitPhysics
+
 }, {
   id: "coding-bundle",
-  name: "Coding Education Bundle",
-  description: "Micro:bit and Raspberry Pi materials for coding education",
-  students: "15-20",
-  grades: "5-12",
-  includes: ["Micro:bits x5", "Raspberry Pi", "Sensors", "Curriculum Guide"],
-  deliveryTime: "2-3 weeks",
+  name: "Rock Candy Crystallization Kit",
+  description: "Coming soon. Add to cart for reservation purposes",
+  students: "Individual",
+  grades: "K-8",
   image: kitCoding
 }, {
   id: "biology-microscope",
-  name: "Biology Microscope Kit",
-  description: "High-quality microscopes with prepared and blank slides",
-  students: "20-25",
-  grades: "4-10",
-  includes: ["Microscopes x3", "Prepared Slides", "Blank Slides", "Field Guide"],
-  deliveryTime: "3-4 weeks",
+  name: "Balloon-powered Car Kit",
+  description: "Coming soon. Add to cart for reservation purposes",
+  students: "Groups of 3-9",
+  grades: "K-5",
   image: kitBiology
 }, {
   id: "math-manipulatives",
-  name: "Math Manipulatives Set",
-  description: "Tactile geometry and algebra tools for visual learning",
-  students: "25-30",
+  name: "Chemistry Ice Cream Kit",
+  description: "Coming soon. Add to cart for reservation purposes",
+  students: "Individual or groups of 2-4",
   grades: "K-8",
-  includes: ["Geometric Shapes", "Fraction Tiles", "Algebra Tiles", "Activity Book"],
-  deliveryTime: "2-3 weeks",
   image: kitMath
-}, {
-  id: "renewable-energy",
-  name: "Renewable Energy Kit",
-  description: "Solar, wind, and hydro experiments for sustainability education",
-  students: "15-20",
-  grades: "6-12",
-  includes: ["Solar Panels", "Wind Turbine", "Hydro Generator", "Project Guide"],
-  deliveryTime: "3-4 weeks",
-  image: kitRenewable
+
 }];
 const testimonials = [{
   quote: "The robotics kits transformed our after-school program. Students who were disengaged are now leading projects!",
@@ -120,19 +85,19 @@ const faqs = [{
   answer: "Any educator, school, community center, library, or non-profit organization focused on education can request kits. We prioritize underserved communities and Title I schools."
 }, {
   question: "Is there a cost for the kits?",
-  answer: "STEM kits are provided free of charge to qualifying organizations. We cover the cost of materials and shipping through generous donor support."
+  answer: "STEM kits are provided free of charge to qualifying organizations. Big kits may require additional fees for shipping.",
 }, {
   question: "How long does processing take?",
-  answer: "Requests are typically reviewed within 5-7 business days. Once approved, kits ship within 2-4 weeks depending on your location and kit availability."
+  answer: "Requests are typically reviewed within 3-5 business days. Once approved, kits ship within 1-4 weeks depending on your location and kit availability."
 }, {
   question: "Can I request multiple types of kits?",
   answer: "Yes! You can request multiple different kits and multiple quantities of each kit. We'll review based on your student population and needs."
 }, {
   question: "What countries do you ship to?",
-  answer: "We currently ship to the United States, Canada, Mexico, and select countries in Africa, Asia, and South America. Contact us for specific availability."
+  answer: "We currently ship worldwide, subject to standard legal restrictions. Please note that kits containing organic matter cannot be shipped internationally. Contact us for specific inquiries."
 }, {
   question: "Do kits come with curriculum materials?",
-  answer: "Yes, every kit includes activity guides, lesson plans aligned to standards, and access to our online educator resources."
+  answer: "Yes, every kit includes activity guides and lesson plans / guides aligned to standards."
 }];
 const impactStats = [{
   value: "5,000+",
@@ -370,17 +335,14 @@ const Kits = () => {
                     <CardDescription className="text-foreground/70">{kit.description}</CardDescription>
                   </CardHeader>
                   <CardContent className="pt-0">
-                    <div className="space-y-2 text-sm">
-
-
-
-                    </div>
-                    <div className="mt-4 pt-3 border-t border-border/50">
-                      <p className="text-xs text-foreground/60 mb-2">Includes:</p>
-                      <div className="flex flex-wrap gap-1">
-                        {kit.includes.map((item, idx) => <span key={idx} className="text-xs px-2 py-0.5 bg-secondary rounded-full text-foreground/80">
-                          {item}
-                        </span>)}
+                    <div className="grid gap-2 text-sm text-foreground/70">
+                      <div className="flex items-center justify-between">
+                        <span className="text-foreground/60">Grades</span>
+                        <span className="text-foreground/80">{kit.grades}</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-foreground/60">Students</span>
+                        <span className="text-foreground/80">{kit.students}</span>
                       </div>
                     </div>
                   </CardContent>

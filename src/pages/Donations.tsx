@@ -11,8 +11,8 @@ const Donations = () => {
     iconBg: "#1A2E52"
   }, {
     icon: TrendingUp,
-    title: "Scholarships",
-    description: "Funding education for promising STEM students",
+    title: "Operations",
+    description: "Keeping our programs and workshops running",
     cardBg: "#2D214E",
     iconBg: "#22183B"
   }, {
@@ -24,7 +24,7 @@ const Donations = () => {
   }, {
     icon: Sparkles,
     title: "Community",
-    description: "Building awareness for STEM education",
+    description: "Building global awareness for STEM and education",
     cardBg: "#3B2E1F",
     iconBg: "#2C2216"
   }];

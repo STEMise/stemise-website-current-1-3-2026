@@ -28,25 +28,25 @@ const Partners = () => {
     title: "Global Reach",
     description: "Amplify your impact through our worldwide STEM network and initiatives.",
     gradient: "from-sky-500/20 to-blue-500/20",
-    iconBg: "bg-sky-500/20"
+    iconBg: "bg-background"
   }, {
     icon: Users,
     title: "Direct Access",
     description: "Connect with thousands of students, educators, and STEM professionals.",
     gradient: "from-purple-500/20 to-pink-500/20",
-    iconBg: "bg-purple-500/20"
+    iconBg: "bg-background"
   }, {
     icon: Handshake,
     title: "Strategic Impact",
     description: "Collaborate on projects that bridge the gap in STEM education accessibility.",
     gradient: "from-emerald-500/20 to-teal-500/20",
-    iconBg: "bg-emerald-500/20"
+    iconBg: "bg-background"
   }, {
     icon: Trophy,
     title: "Shared Values",
     description: "Join a community dedicated to excellence, innovation, and educational equity.",
     gradient: "from-amber-500/20 to-orange-500/20",
-    iconBg: "bg-amber-500/20"
+    iconBg: "bg-background"
   }];
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -112,7 +112,7 @@ const Partners = () => {
                 const Icon = benefit.icon;
                 return <div key={index} className={`group p-6 bg-gradient-to-br ${benefit.gradient} rounded-2xl border border-border/50 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/10 transition-all duration-300`}>
                   <div className={`w-12 h-12 ${benefit.iconBg} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className="h-6 w-6 text-foreground" />
+                    <Icon className="h-6 w-6 text-primary-foreground" />
                   </div>
                   <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
                   <p className="text-foreground/70 text-sm leading-relaxed">{benefit.description}</p>

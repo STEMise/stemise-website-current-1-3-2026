@@ -46,9 +46,11 @@ const JoinSection = () => {
           <div className={`mt-10 flex flex-col sm:flex-row gap-4 justify-center ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{
           animationDelay: '0.3s'
         }}>
-            <Button size="lg" className="gap-2 hover-lift text-lg">
-              Get involved
-              <ArrowRight className="h-4 w-4" />
+            <Button size="lg" asChild className="gap-2 hover-lift text-lg">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLScjG7wtCcd52K3lIIEtxgEkn2YdP7JDwNwRBa3y5KeSkADOwA/viewform?usp=header" target="_blank" rel="noopener noreferrer">
+                Get involved
+                <ArrowRight className="h-4 w-4" />
+              </a>
             </Button>
             <Button variant="outline" size="lg" asChild className="hover-lift bg-foreground text-background border-foreground hover:bg-foreground/90 hover:text-background text-lg">
               <Link to="/contact">Contact us</Link>

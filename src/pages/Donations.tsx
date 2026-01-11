@@ -66,7 +66,7 @@ const Donations = () => {
 
           {/* Impact Section */}
           <div className="text-center mb-12 animate-fade-in-up stagger-3">
-            <h2 className="text-2xl font-semibold text-foreground mb-4 md:text-4xl">Where Your Money Goes</h2>
+            <h2 className="text-2xl font-semibold text-foreground mb-4 md:text-5xl">Where Your Money Goes</h2>
             <p className="text-foreground/70 max-w-xl mx-auto text-lg">
               Every dollar you donate directly supports our programs and initiatives.
             </p>
@@ -76,13 +76,13 @@ const Donations = () => {
             {impactItems.map((item, index) => {
             const Icon = item.icon;
             return <div key={index} className="group p-6 rounded-2xl border border-border/50 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 text-center animate-fade-in-up" style={{
-            backgroundColor: item.cardBg,
-            animationDelay: `${0.4 + index * 0.1}s`
-          }}>
+              backgroundColor: item.cardBg,
+              animationDelay: `${0.4 + index * 0.1}s`
+            }}>
                   <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-105 transition-transform duration-300">
                     <Icon className="h-8 w-8 text-primary-foreground" />
                   </div>
-                  <h3 className="text-lg font-semibold mb-2 text-foreground">{item.title}</h3>
+                  <h3 className="font-semibold mb-2 text-foreground text-xl">{item.title}</h3>
                   <p className="text-foreground/60 text-sm leading-relaxed">{item.description}</p>
                 </div>;
           })}

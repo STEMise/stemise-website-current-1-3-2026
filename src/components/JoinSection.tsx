@@ -35,9 +35,7 @@ const JoinSection = () => {
           
           <h2 className={`text-3xl md:text-5xl font-semibold text-foreground ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{
           animationDelay: '0.1s'
-        }}>
-            Join STEMise Today
-          </h2>
+        }}>Join STEMise Today</h2>
 
           <p className={`mt-6 text-foreground/100 text-lg leading-relaxed ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{
           animationDelay: '0.2s'

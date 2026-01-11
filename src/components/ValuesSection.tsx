@@ -4,19 +4,22 @@ const values = [{
   icon: Shield,
   title: "Safety First",
   description: "All kits and workshops include appropriate safety guidance and age-appropriate materials. Events follow host institution safeguarding rules.",
-  color: "from-amber-500/20 to-orange-500/20",
+  cardBg: "#223C6B",
+  iconBg: "#1A2E52",
   iconColor: "text-white-300"
 }, {
   icon: Heart,
   title: "Non-Discrimination",
   description: "STEMise does not discriminate based on race, nationality, ethnicity, religion, disability, sex, gender identity, sexual orientation, or socioeconomic status.",
-  color: "from-rose-500/20 to-pink-500/20",
+  cardBg: "#2D214E",
+  iconBg: "#22183B",
   iconColor: "text-white-300"
 }, {
   icon: Globe,
   title: "Global Reach",
   description: "With members from across the world, we deliver hands-on learning experiences through both in-person and online workshops to reach diverse audiences.",
-  color: "from-sky-500/20 to-blue-500/20",
+  cardBg: "#1C4B4F",
+  iconBg: "#15393C",
   iconColor: "text-white-300"
 }];
 const ValuesSection = () => {
@@ -52,15 +55,16 @@ const ValuesSection = () => {
         </div>
 
         <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {values.map((value, index) => <div key={value.title} className={`group relative p-8 rounded-3xl bg-gradient-to-br ${value.color} backdrop-blur-sm border border-border/50 transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl hover:shadow-primary/10 ${cardsVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{
+          {values.map((value, index) => <div key={value.title} className={`group relative p-8 rounded-3xl backdrop-blur-sm border border-border/50 text-center transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl hover:shadow-primary/10 ${cardsVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{
+          backgroundColor: value.cardBg,
           animationDelay: `${index * 0.15}s`
         }}>
               {/* Hover glow effect */}
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:to-transparent transition-all duration-500" />
               
               <div className="relative">
-                <div className={`w-16 h-16 rounded-2xl bg-background/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <value.icon className={`h-8 w-8 ${value.iconColor}`} />
+                <div className="flex items-center justify-center mb-7 group-hover:scale-110 transition-transform duration-300">
+                  <value.icon className={`h-9 w-9 ${value.iconColor}`} />
                 </div>
                 <h3 className="font-semibold text-foreground mb-4 text-2xl">
                   {value.title}

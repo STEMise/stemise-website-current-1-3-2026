@@ -26,20 +26,20 @@ const JoinSection = () => {
       transformOrigin: 'center center'
     }} />
       {/* Darken background image for stronger contrast */}
-      <div className="absolute inset-0 bg-black/40" />
-      {/* Dark Overlay with gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/70 to-background/85" />
+      <div className="absolute inset-0 bg-[hsl(var(--background)/0.8)]" />
+      {/* Top gradient for seamless transition */}
+      <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-t from-transparent to-background/85" />
       
       <div ref={sectionRef} className="container mx-auto px-6 relative z-10">
         <div className="max-w-2xl mx-auto text-center">
           
-          <h2 className={`text-3xl md:text-5xl font-semibold text-foreground ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{
+          <h2 className={`text-6xl font-semibold text-foreground ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{
           animationDelay: '0.1s'
         }}>
             Join STEMise Today
           </h2>
 
-          <p className={`mt-6 text-foreground/100 text-lg leading-relaxed ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{
+          <p className={`mt-6 text-foreground/100 text-2xl leading-relaxed ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{
           animationDelay: '0.2s'
         }}>
             Be part of an international community of young leaders dedicated to transforming STEM education. Whether you're a student, educator, or volunteer, there's a place for you at STEMise.
@@ -48,11 +48,11 @@ const JoinSection = () => {
           <div className={`mt-10 flex flex-col sm:flex-row gap-4 justify-center ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{
           animationDelay: '0.3s'
         }}>
-            <Button size="lg" className="gap-2 hover-lift">
+            <Button size="lg" className="gap-2 hover-lift text-lg">
               Get involved
               <ArrowRight className="h-4 w-4" />
             </Button>
-            <Button variant="outline" size="lg" asChild className="hover-lift bg-foreground text-background border-foreground hover:bg-foreground/90 hover:text-background">
+            <Button variant="outline" size="lg" asChild className="hover-lift bg-foreground text-background border-foreground hover:bg-foreground/90 hover:text-background text-lg">
               <Link to="/contact">Contact us</Link>
             </Button>
           </div>

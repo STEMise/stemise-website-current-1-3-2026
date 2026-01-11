@@ -43,7 +43,6 @@ const HeroSection = () => {
 
       {/* Decorative animated elements */}
       <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-background via-background/80 to-transparent" />
-      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-background/60 to-transparent" />
     </section>;
 };
 export default HeroSection;

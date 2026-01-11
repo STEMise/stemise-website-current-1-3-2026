@@ -178,6 +178,6 @@ const MembershipSection = () => {
           {contributorCategories.map((category, index) => <FlipCard key={category.title} category={category} index={index} onHover={handleHover} />)}
         </div>
       </div>
-    </section>;
+    </section>;   
 };
 export default MembershipSection;

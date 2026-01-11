@@ -7,6 +7,7 @@ import harryHonigPhoto from "@/assets/team-harry-honig.jpeg";
 import luciaAdamsPhoto from "@/assets/team-lucia-adams.jpg";
 import marisaMartignonPhoto from "@/assets/team-marisa-martignon.jpg";
 import devanshBhallaPhoto from "@/assets/team-devansh-bhalla.jpg";
+import mukilSivaPhoto from "@/assets/team-mukil-siva.png";
 const LinkedInIcon = ({
   className
 }: {
@@ -65,8 +66,9 @@ const teamMembers: {
 }, {
   title: "Head of Outreach",
   name: "Mukil Siva",
-  bio: "Bio coming soon...",
-  linkedin: "https://linkedin.com/in/"
+  bio: "Hey! I'm Mukil, the Head of Outreach at STEMise. I'm passionate about making STEM education engaging and accessible for students worldwide, with a strong interest in biotechnology and emerging technologies like AI. Through outreach, I work to connect communities, expand STEMise's impact, and inspire curiosity, innovation, and lifelong learning in STEM.",
+  linkedin: "https://linkedin.com/in/",
+  photo: mukilSivaPhoto
 }, {
   title: "Head of Finances",
   name: "Rishi Shah",

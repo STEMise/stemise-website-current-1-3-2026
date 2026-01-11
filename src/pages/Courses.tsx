@@ -149,6 +149,7 @@ const Courses = () => {
         <div className="absolute inset-0">
           <img src={stemKitsHero} alt="Students building with STEM kits" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-background/85 opacity-100" />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
         </div>
         <div className="container mx-auto px-6 relative">
           <div className={`max-w-4xl mx-auto text-center transition-all duration-700 ${isHeroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
@@ -169,45 +170,8 @@ const Courses = () => {
 
       {/* Program Highlights */}
 
-
-      {/* STEM Kits Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            <div className="animate-fade-in-up stagger-2">
-
-              <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">
-                Free STEM Kits for Educators
-              </h2>
-
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center gap-3 text-foreground/80">
-                  <Sparkles className="h-5 w-5 text-primary flex-shrink-0" />
-                  <span className="text-lg">8+ different kit types available</span>
-                </li>
-                <li className="flex items-center gap-3 text-foreground/80">
-                  <Users className="h-5 w-5 text-primary flex-shrink-0" />
-                  <span className="text-lg">Each kit serves 15-30 students</span>
-                </li>
-                <li className="flex items-center gap-3 text-foreground/80">
-                  <BookOpen className="h-5 w-5 text-primary flex-shrink-0" />
-                  <span className="text-lg">Complete lesson plans & guides included</span>
-                </li>
-              </ul>
-              <Button size="lg" asChild>
-                <Link to="/kits">
-                  Request Free Kits <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-            </div>
-            <div className="relative animate-fade-in-up stagger-3">
-              <img src={stemKitsShowcase} alt="STEM kits with electronics and robotics components" className="w-full rounded-2xl shadow-2xl" />
-
-
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Spacer Section */}
+      <section className="py-20 bg-background" />
 
       {/* Learning Portal Section */}
       <section id="portal" className="py-20 bg-background">
@@ -268,8 +232,49 @@ const Courses = () => {
         </div>
       </section>
 
+      {/* STEM Kits Section */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={stemKitsShowcase}
+            alt="STEM kits with electronics and robotics components"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-background/85 opacity-100" />
+          <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
+        </div>
+        <div className="container mx-auto px-6 relative">
+          <div className="max-w-3xl mx-auto text-center animate-fade-in-up stagger-2">
+            <h2 className="text-3xl font-bold text-foreground mb-6 md:text-5xl">
+              Free STEM Kits for Educators
+            </h2>
+
+            <ul className="space-y-4 mb-10">
+              <li className="flex items-center justify-center gap-3 text-foreground/80">
+                <Sparkles className="h-5 w-5 text-primary flex-shrink-0" />
+                <span className="text-lg">8+ different kit types available</span>
+              </li>
+              <li className="flex items-center justify-center gap-3 text-foreground/80">
+                <Users className="h-5 w-5 text-primary flex-shrink-0" />
+                <span className="text-lg">Each kit serves 15-30 students</span>
+              </li>
+              <li className="flex items-center justify-center gap-3 text-foreground/80">
+                <BookOpen className="h-5 w-5 text-primary flex-shrink-0" />
+                <span className="text-lg">Complete lesson plans & guides included</span>
+              </li>
+            </ul>
+            <Button size="lg" asChild>
+              <Link to="/kits">
+                Request Free Kits <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Upcoming Workshops Section */}
-      <section className="py-20 bg-secondary/10">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12 animate-fade-in-up">
             <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">Workshops</h2>

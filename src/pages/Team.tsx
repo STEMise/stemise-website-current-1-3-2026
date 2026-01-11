@@ -49,7 +49,7 @@ const teamMembers: {
 }, {
   title: "Head of Technology",
   name: "Lucia Adams",
-  bio: "Hello! I’m Lucia Adams. I’m the Head of Technology at STEMise, where I design, build, and manage our website and database systems. My work focuses on keeping our platforms reliable, accessible, and centered on the students who rely on them to learn, collaborate, and grow through our STEM programs.",
+  bio: "Hello! I’m Lucia Adams. I’m the Head of Technology at STEMise, where I design, build, and manage our website and database systems. My work focuses on keeping our platforms reliable, accessible, and centered on the students who rely on them to learn, collaborate, and grow through our STEM programs & kits.",
   linkedin: "https://www.linkedin.com/in/lucia-m-adams/",
   photo: luciaAdamsPhoto
 }, {
@@ -61,7 +61,7 @@ const teamMembers: {
 }, {
   title: "Head of Education",
   name: "Marisa Martignon",
-  bio: "I'm Marisa \"Risa\" Martignon, a junior from Italy. At STEMise, I help design and approve the curriculum, using expertise from robotics coaching and tutoring. I've fenced since I was 7, I'm an energy drink connoisseur, and I'm passionate about cognitive science and maths.",
+  bio: "I'm Marisa \"Risa\" Martignon, a junior from Italy. At STEMise, I help design and approve the curriculum, drawing on experience from robotics coaching and tutoring. I enjoy building lessons that feel approachable yet challenging, encouraging curiosity and problem-solving. I've fenced since I was 7, I'm an energy drink connoisseur, and I'm passionate about cognitive science, maths, and education.",
   linkedin: "",
   photo: marisaMartignonPhoto
 }, {
@@ -73,7 +73,7 @@ const teamMembers: {
 }, {
   title: "Head of Finances",
   name: "Rishi Shah",
-  bio: "Bio coming soon...",
+  bio: "Rishi is a junior at Wakeland High School with a strong background in finance and strategic management. He placed 2nd nationally out of 201 competitors in BPA's Financial Portfolio Management and ranked #1 in the Southern Region for DECA, qualifying for ICDC 2026. He built an algorithmic trading system with a 225% CAGR and serves as STEMise Finance Officer today.",
   linkedin: "https://www.linkedin.com/in/rishi-shah-6338512a5",
   photo: rishiShahPhoto
 }];

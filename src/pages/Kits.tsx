@@ -119,19 +119,23 @@ const impactStats = [{
 const howItWorks = [{
   step: 1,
   title: "Select Kits",
-  description: "Browse our catalog and add the kits you need to your request"
+  description: "Browse our catalog and add the kits you need to your request",
+  color: "#223C6B"
 }, {
   step: 2,
   title: "Fill Details",
-  description: "Tell us about your organization and intended use"
+  description: "Tell us about your organization and intended use",
+  color: "#2D214E"
 }, {
   step: 3,
   title: "Submit Request",
-  description: "Review and submit your request for approval"
+  description: "Review and submit your request for approval",
+  color: "#1C4B4F"
 }, {
   step: 4,
   title: "Receive & Teach",
-  description: "Get your kits and start inspiring students!"
+  description: "Get your kits and start inspiring students!",
+  color: "#3B2E1F"
 }];
 const Kits = () => {
   const [selectedKits, setSelectedKits] = useState<KitItem[]>([]);
@@ -298,7 +302,9 @@ const Kits = () => {
           </div>
           <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto animate-fade-in-up stagger-2">
             {howItWorks.map(item => <div key={item.step} className="relative text-center">
-              <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-primary-foreground font-bold text-xl">
+              <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4 text-primary-foreground font-bold text-xl" style={{
+              backgroundColor: item.color
+            }}>
                 {item.step}
               </div>
               <h3 className="font-semibold text-foreground mb-2 text-lg">{item.title}</h3>
@@ -455,7 +461,7 @@ const Kits = () => {
 
 
       {/* FAQ Section */}
-      <section className="py-20 bg-secondary/10">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-foreground mb-4 md:text-5xl">Frequently Asked Questions</h2>

@@ -7,7 +7,7 @@ const contributorCategories = [{
   benefits: ["Participate in all activities", "Propose new initiatives", "Vote in General Meetings", "Access to STEM resources"],
   gradient: "from-blue-600/40 via-blue-500/20 to-transparent",
   cardBack: "bg-blue-950/90 border-blue-800/50",
-  iconBg: "bg-blue-500/20"
+  iconBg: "bg-background"
 }, {
   icon: Award,
   title: "Executive Board",
@@ -15,7 +15,7 @@ const contributorCategories = [{
   benefits: ["All General Contributor benefits", "Governance participation", "Leadership opportunities", "Strategic decision-making"],
   gradient: "from-purple-600/40 via-purple-500/20 to-transparent",
   cardBack: "bg-purple-950/90 border-purple-800/50",
-  iconBg: "bg-purple-500/20"
+  iconBg: "bg-background"
 }, {
   icon: Heart,
   title: "Volunteers",
@@ -23,7 +23,7 @@ const contributorCategories = [{
   benefits: ["Support specific events", "Flexible commitment", "Community involvement", "Skill development"],
   gradient: "from-rose-600/40 via-rose-500/20 to-transparent",
   cardBack: "bg-rose-950/90 border-rose-800/50",
-  iconBg: "bg-rose-500/20"
+  iconBg: "bg-background"
 }, {
   icon: Handshake,
   title: "Partners",
@@ -31,7 +31,7 @@ const contributorCategories = [{
   benefits: ["Joint program development", "Co-branded events", "Resource sharing", "Network access"],
   gradient: "from-emerald-600/40 via-emerald-500/20 to-transparent",
   cardBack: "bg-emerald-950/90 border-emerald-800/50",
-  iconBg: "bg-emerald-500/20"
+  iconBg: "bg-background"
 }, {
   icon: Gift,
   title: "Donors",
@@ -39,7 +39,7 @@ const contributorCategories = [{
   benefits: ["Impact reports", "Recognition opportunities", "Event invitations", "Tax-deductible giving"],
   gradient: "from-amber-600/40 via-amber-500/20 to-transparent",
   cardBack: "bg-amber-950/90 border-amber-800/50",
-  iconBg: "bg-amber-500/20"
+  iconBg: "bg-background"
 }];
 const FlipCard = ({
   category,
@@ -78,7 +78,7 @@ const FlipCard = ({
           {/* Front of card */}
           <div className="flip-card-front absolute inset-0 bg-card border border-border/50 rounded-2xl flex flex-col items-center justify-center p-6">
             <div className={`w-16 h-16 ${category.iconBg} rounded-2xl flex items-center justify-center mb-4`}>
-              <Icon className="h-8 w-8 text-foreground" />
+              <Icon className="h-8 w-8 text-primary-foreground" />
             </div>
             <h3 className="text-xl font-semibold text-foreground text-center">
               {category.title}

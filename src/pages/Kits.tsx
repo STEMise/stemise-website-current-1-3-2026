@@ -333,7 +333,7 @@ const Kits = () => {
           </div>
           <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto animate-fade-in-up stagger-2">
             {howItWorks.map(item => <div key={item.step} className="relative text-center">
-              <div className="w-14 h-14 bg-background rounded-full flex items-center justify-center mx-auto mb-4 text-primary-foreground font-bold text-xl">
+              <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-primary-foreground font-bold text-xl">
                 {item.step}
               </div>
               <h3 className="font-semibold text-foreground mb-2 text-lg">{item.title}</h3>
@@ -401,8 +401,8 @@ const Kits = () => {
                   </CardHeader>
                   <CardContent>
                     {selectedKits.length === 0 ? <div className="text-center py-8">
-                        <div className="w-16 h-16 bg-background rounded-full flex items-center justify-center mx-auto mb-3">
-                          <Package className="h-8 w-8 text-primary-foreground" />
+                        <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-3">
+                          <Package className="h-8 w-8 text-foreground/40" />
                         </div>
                         <p className="text-foreground/60 text-sm">
                           No kits selected yet.<br />Click "Add" on any kit to include it.

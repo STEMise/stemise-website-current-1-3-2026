@@ -4,17 +4,20 @@ const values = [{
   icon: Shield,
   title: "Safety First",
   description: "All kits and workshops include appropriate safety guidance and age-appropriate materials. Events follow host institution safeguarding rules.",
-  color: "from-amber-500/20 to-orange-500/20"
+  color: "from-amber-500/20 to-orange-500/20",
+  iconColor: "text-white-300"
 }, {
   icon: Heart,
   title: "Non-Discrimination",
   description: "STEMise does not discriminate based on race, nationality, ethnicity, religion, disability, sex, gender identity, sexual orientation, or socioeconomic status.",
-  color: "from-rose-500/20 to-pink-500/20"
+  color: "from-rose-500/20 to-pink-500/20",
+  iconColor: "text-white-300"
 }, {
   icon: Globe,
   title: "Global Reach",
   description: "With members from across the world, we deliver hands-on learning experiences through both in-person and online workshops to reach diverse audiences.",
-  color: "from-sky-500/20 to-blue-500/20"
+  color: "from-sky-500/20 to-blue-500/20",
+  iconColor: "text-white-300"
 }];
 const ValuesSection = () => {
   const [headerVisible, setHeaderVisible] = useState(false);
@@ -56,8 +59,8 @@ const ValuesSection = () => {
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:to-transparent transition-all duration-500" />
               
               <div className="relative">
-                <div className="w-16 h-16 rounded-2xl bg-background flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <value.icon className="h-8 w-8 text-primary-foreground" />
+                <div className={`w-16 h-16 rounded-2xl bg-background/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <value.icon className={`h-8 w-8 ${value.iconColor}`} />
                 </div>
                 <h3 className="font-semibold text-foreground mb-4 text-2xl">
                   {value.title}

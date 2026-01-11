@@ -225,8 +225,8 @@ const Courses = () => {
           </div>
           <Card className="max-w-md mx-auto border border-border/50 bg-card">
             <CardHeader className="text-center">
-              <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4 bg-background">
-                <Mail className="text-primary-foreground w-7 h-7" />
+              <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4 bg-transparent">
+                <Mail className="text-white w-[70px] h-[70px]" />
               </div>
               <CardTitle className="text-xl font-semibold">Join the Waitlist</CardTitle>
               <CardDescription className="text-foreground/70">

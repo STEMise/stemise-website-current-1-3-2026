@@ -56,7 +56,7 @@ const Footer = () => {
           {/* Links - Horizontal layout */}
           <div className="flex-wrap gap-x-12 gap-y-4 lg:pt-2 flex-row flex items-center justify-center gap-[108px] w-full">
             <Link to="/" className="transition-colors text-lg text-white">
-              Home
+              About
             </Link>
             <Link to="/courses" className="transition-colors text-lg text-white">
               Programs

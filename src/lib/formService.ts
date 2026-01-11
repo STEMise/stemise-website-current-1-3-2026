@@ -6,6 +6,55 @@ const supabaseNotConfiguredError = {
 };
 
 export type FormType = 'waitlist' | 'partnership' | 'contact';
+type RateLimitFormType = FormType | 'kit_request';
+
+const RATE_LIMITS: Record<RateLimitFormType, { windowMs: number; max: number }> = {
+    waitlist: { windowMs: 10 * 60 * 1000, max: 3 },
+    partnership: { windowMs: 10 * 60 * 1000, max: 3 },
+    contact: { windowMs: 10 * 60 * 1000, max: 3 },
+    kit_request: { windowMs: 10 * 60 * 1000, max: 2 },
+};
+
+const getRateLimitError = (retryAfterMs: number) => {
+    const seconds = Math.max(1, Math.ceil(retryAfterMs / 1000));
+    return `Please wait ${seconds}s before submitting again.`;
+};
+
+const checkRateLimit = (formType: RateLimitFormType): { allowed: boolean; error?: string } => {
+    if (typeof window === 'undefined') {
+        return { allowed: true };
+    }
+
+    const config = RATE_LIMITS[formType];
+    const storageKey = `stemise:rate_limit:${formType}`;
+    const now = Date.now();
+    let entries: number[] = [];
+
+    try {
+        const raw = window.localStorage.getItem(storageKey);
+        if (raw) {
+            entries = JSON.parse(raw);
+        }
+    } catch {
+        entries = [];
+    }
+
+    const recentEntries = entries.filter((timestamp) => now - timestamp < config.windowMs);
+
+    if (recentEntries.length >= config.max) {
+        const retryAfterMs = config.windowMs - (now - recentEntries[0]);
+        return { allowed: false, error: getRateLimitError(retryAfterMs) };
+    }
+
+    const nextEntries = [...recentEntries, now];
+    try {
+        window.localStorage.setItem(storageKey, JSON.stringify(nextEntries));
+    } catch {
+        // Ignore storage failures and allow submission.
+    }
+
+    return { allowed: true };
+};
 
 interface WaitlistData {
     email: string;
@@ -32,6 +81,10 @@ export async function submitWaitlist(data: WaitlistData): Promise<{ success: boo
     if (!supabase) {
         return supabaseNotConfiguredError;
     }
+    const rateLimit = checkRateLimit('waitlist');
+    if (!rateLimit.allowed) {
+        return { success: false, error: rateLimit.error };
+    }
     const { error } = await supabase
         .from('form_submissions')
         .insert({
@@ -53,6 +106,10 @@ export async function submitWaitlist(data: WaitlistData): Promise<{ success: boo
 export async function submitPartnershipInquiry(data: PartnershipData): Promise<{ success: boolean; error?: string }> {
     if (!supabase) {
         return supabaseNotConfiguredError;
+    }
+    const rateLimit = checkRateLimit('partnership');
+    if (!rateLimit.allowed) {
+        return { success: false, error: rateLimit.error };
     }
     const { error } = await supabase
         .from('form_submissions')
@@ -79,6 +136,10 @@ export async function submitPartnershipInquiry(data: PartnershipData): Promise<{
 export async function submitContactMessage(data: ContactData): Promise<{ success: boolean; error?: string }> {
     if (!supabase) {
         return supabaseNotConfiguredError;
+    }
+    const rateLimit = checkRateLimit('contact');
+    if (!rateLimit.allowed) {
+        return { success: false, error: rateLimit.error };
     }
     const { error } = await supabase
         .from('form_submissions')
@@ -111,6 +172,10 @@ interface KitRequestData {
 export async function submitKitRequest(data: KitRequestData): Promise<{ success: boolean; error?: string }> {
     if (!supabase) {
         return supabaseNotConfiguredError;
+    }
+    const rateLimit = checkRateLimit('kit_request');
+    if (!rateLimit.allowed) {
+        return { success: false, error: rateLimit.error };
     }
     const kitsDescription = data.kits.map(k => `${k.name} x${k.quantity}`).join(', ');
 

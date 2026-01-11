@@ -41,7 +41,7 @@ const fetchWorkshops = async (): Promise<Workshop[]> => {
     // Google Apps Script web apps require following redirects
     const response = await fetch(WORKSHOPS_API_URL, {
       method: 'GET',
-      redirect: 'follow',
+      redirect: 'follow'
     });
     console.log("Response status:", response.status);
     const data = await response.json();
@@ -235,11 +235,7 @@ const Courses = () => {
       {/* STEM Kits Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src={stemKitsShowcase}
-            alt="STEM kits with electronics and robotics components"
-            className="w-full h-full object-cover"
-          />
+          <img src={stemKitsShowcase} alt="STEM kits with electronics and robotics components" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-background/85 opacity-100" />
           <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background to-transparent" />
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
@@ -252,16 +248,13 @@ const Courses = () => {
 
             <ul className="space-y-4 mb-10">
               <li className="flex items-center justify-center gap-3 text-foreground/80">
-                <Sparkles className="h-5 w-5 text-primary flex-shrink-0" />
-                <span className="text-lg">8+ different kit types available</span>
+                <Sparkles className="h-5 w-5 flex-shrink-0 text-white" />
+                <span className="text-lg text-primary-foreground">6+ different kit types available</span>
               </li>
+              
               <li className="flex items-center justify-center gap-3 text-foreground/80">
-                <Users className="h-5 w-5 text-primary flex-shrink-0" />
-                <span className="text-lg">Each kit serves 15-30 students</span>
-              </li>
-              <li className="flex items-center justify-center gap-3 text-foreground/80">
-                <BookOpen className="h-5 w-5 text-primary flex-shrink-0" />
-                <span className="text-lg">Complete lesson plans & guides included</span>
+                <BookOpen className="h-5 w-5 flex-shrink-0 text-white" />
+                <span className="text-lg text-primary-foreground">Complete lesson plans & guides included</span>
               </li>
             </ul>
             <Button size="lg" asChild>

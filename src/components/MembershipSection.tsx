@@ -169,9 +169,7 @@ const MembershipSection = () => {
           <h2 className="text-3xl md:text-5xl font-semibold text-foreground">
             Get Involved
           </h2>
-          <p className="mt-6 text-foreground/70 max-w-2xl mx-auto text-lg leading-relaxed">
-            Join our growing community of contributors, partners, and supporters making STEM education accessible worldwide.
-          </p>
+          <p className="mt-6 text-foreground/70 max-w-2xl mx-auto text-lg leading-relaxed">Join our growing community of contributors, partners, and supporters making STEM education accessible worldwide!</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">

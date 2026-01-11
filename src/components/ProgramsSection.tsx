@@ -51,9 +51,7 @@ const ProgramsSection = () => {
           <h2 className="text-3xl md:text-5xl font-semibold text-foreground">
             Our Programs
           </h2>
-          <p className="mt-6 text-foreground/70 max-w-2xl mx-auto text-lg leading-relaxed">
-            STEMise's mission is practiced through two core activities: STEM Kit distributions and STEMise's Tech for Everybody (S.T.F.E.)
-          </p>
+          <p className="mt-6 text-foreground/70 max-w-2xl mx-auto text-lg leading-relaxed">STEMise's mission is practiced through three core activities: STEM Kit distributions STEMise's Tech for Everybody (S.T.F.E.), and Interactive Workshops</p>
         </div>
 
         <div ref={cardsRef} className="grid grid-cols-1 lg:grid-cols-3 gap-8">

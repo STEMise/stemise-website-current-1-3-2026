@@ -32,7 +32,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8" aria-label="Primary">
-            {navLinks.map(link => <Link key={link.to} to={link.to} className="transition-colors text-sm font-medium border-b-2 border-transparent hover:border-primary pb-1 text-white">
+            {navLinks.map(link => <Link key={link.to} to={link.to} className="inline-flex h-9 items-center transition-colors text-sm font-medium border-b-2 border-transparent hover:border-primary text-[#fff]">
                   {link.label}
                 </Link>)}
             <Button size="sm" asChild>
@@ -50,7 +50,7 @@ const Header = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && <nav className="md:hidden py-4 border-t border-border" aria-label="Mobile">
             <div className="flex flex-col gap-4">
-              {navLinks.map(link => <Link key={link.to} to={link.to} className="text-foreground hover:text-primary transition-colors text-sm font-medium py-2" onClick={() => setIsMenuOpen(false)}>
+              {navLinks.map(link => <Link key={link.to} to={link.to} className="text-[#fff] hover:text-primary transition-colors text-sm font-medium py-2" onClick={() => setIsMenuOpen(false)}>
                     {link.label}
                   </Link>)}
               <Button size="sm" asChild className="w-fit">

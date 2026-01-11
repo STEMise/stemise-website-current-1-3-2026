@@ -18,7 +18,7 @@ interface FormSubmission {
 serve(async (req) => {
   try {
     const { record } = await req.json() as { record: FormSubmission };
-    
+
     if (!RESEND_API_KEY) {
       console.error("RESEND_API_KEY not configured");
       return new Response(
@@ -35,7 +35,7 @@ serve(async (req) => {
     };
 
     const subject = subjectMap[record.form_type] || "New Form Submission - STEMise";
-    
+
     const htmlContent = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <h2 style="color: #3b82f6;">${subject}</h2>
@@ -85,7 +85,7 @@ serve(async (req) => {
     });
 
     const data = await res.json();
-    
+
     if (!res.ok) {
       console.error("Resend API error:", data);
       return new Response(

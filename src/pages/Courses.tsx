@@ -9,7 +9,7 @@ import { toast } from "@/hooks/use-toast";
 import { Link } from "react-router-dom";
 import { submitWaitlist } from "@/lib/formService";
 import curriculaAi from "@/assets/curricula-ai.png";
-import curriculaCybersecurity from "@/assets/curricula-cybersecurity.png";
+import curriculaRobotics from "@/assets/curricula-robotics.png";
 import curriculaWebdev from "@/assets/curricula-webdev.png";
 import curriculaPython from "@/assets/curricula-python.png";
 import curriculaR from "@/assets/curricula-r.png";
@@ -58,7 +58,7 @@ const curricula = [{
   description: "Machine learning and artificial intelligence fundamentals"
 }, {
   name: "Robotics", //Changed from Cybersecurity as requested
-  image: curriculaCybersecurity,
+  image: curriculaRobotics,
   description: "Hands-on robotics design and programming"
 }, {
   name: "Web Development",

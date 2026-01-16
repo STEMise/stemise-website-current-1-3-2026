@@ -57,9 +57,9 @@ const curricula = [{
   image: curriculaAi,
   description: "Machine learning and artificial intelligence fundamentals"
 }, {
-  name: "Cybersecurity",
+  name: "Robotics", //Changed from Cybersecurity as requested
   image: curriculaCybersecurity,
-  description: "Digital security and ethical hacking basics"
+  description: "Hands-on robotics design and programming"
 }, {
   name: "Web Development",
   image: curriculaWebdev,

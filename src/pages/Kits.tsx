@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Package, Plus, Minus, Trash2, Send, CheckCircle, Users, GraduationCap, Truck, Clock, Globe, Award, ArrowRight } from "lucide-react";
+import Seo from "@/components/Seo";
 import { useState, useRef, useEffect } from "react";
 import { toast } from "@/hooks/use-toast";
 import { submitKitRequest } from "@/lib/formService";
@@ -282,6 +283,11 @@ const Kits = () => {
     }
   };
   return <div className="min-h-screen bg-background">
+    <Seo
+      title="STEM Kits"
+      description="Request free STEM kits with hands-on activities, lesson plans, and materials for classrooms and community programs."
+      pathname="/kits"
+    />
     <Header />
     <main>
       {/* Hero Section */}

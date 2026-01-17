@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import Seo from "@/components/Seo";
 import { Handshake, Globe, Users, Trophy } from "lucide-react";
 import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
@@ -87,6 +88,11 @@ const Partners = () => {
     }
   };
   return <div className="min-h-screen bg-background">
+    <Seo
+      title="Partnerships"
+      description="Partner with STEMise to expand hands-on STEM education, sponsor kits, and build global programs."
+      pathname="/partners"
+    />
     <Header />
     <main className="py-24">
       <div className="container mx-auto px-6">

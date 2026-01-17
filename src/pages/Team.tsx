@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Seo from "@/components/Seo";
 import ryanAhnPhoto from "@/assets/team-ryan-ahn.png";
 import hyunjunYiPhoto from "@/assets/team-hyunjun-yi.jpg";
 import landonMahlerPhoto from "@/assets/team-landon-mahler.jpg";
@@ -79,6 +80,11 @@ const teamMembers: {
 }];
 const Team = () => {
   return <div className="min-h-screen bg-background">
+      <Seo
+        title="Our Team"
+        description="Meet the youth-led leadership and global team behind STEMise, the nonprofit redefining STEM education worldwide."
+        pathname="/team"
+      />
       <Header />
       <main className="py-24">
         <div className="container mx-auto px-6">

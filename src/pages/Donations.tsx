@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Seo from "@/components/Seo";
 import { Heart, Target, TrendingUp, ShieldCheck, Sparkles } from "lucide-react";
 import hackclubLogo from "@/assets/hackclub-logo.png";
 const Donations = () => {
@@ -29,6 +30,11 @@ const Donations = () => {
     iconBg: "#2C2216"
   }];
   return <div className="min-h-screen bg-background">
+      <Seo
+        title="Donate"
+        description="Support STEMise's mission with a tax-deductible donation that funds STEM kits, programs, and global access."
+        pathname="/donations"
+      />
       <Header />
       <main className="py-24">
         <div className="container mx-auto px-6">

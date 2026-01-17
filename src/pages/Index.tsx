@@ -6,11 +6,13 @@ import ValuesSection from "@/components/ValuesSection";
 import MembershipSection from "@/components/MembershipSection";
 import JoinSection from "@/components/JoinSection";
 import Footer from "@/components/Footer";
+import Seo from "@/components/Seo";
 
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <Seo pathname="/" />
       <Header />
       <main>
         <HeroSection />

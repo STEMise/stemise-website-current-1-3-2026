@@ -3,12 +3,13 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import Seo from "@/components/Seo";
 import { Mail, Calendar, MapPin, Clock, Package, ArrowRight, Sparkles, BookOpen, Users } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { toast } from "@/hooks/use-toast";
 import { Link } from "react-router-dom";
 import { submitWaitlist } from "@/lib/formService";
-import curriculaAi from "@/assets/curricula-ai.png";
+import curriculaAi from "@/assets/curricula-ai.webp";
 import curriculaRobotics from "@/assets/curricula-robotics.png";
 import curriculaWebdev from "@/assets/curricula-webdev.png";
 import curriculaPython from "@/assets/curricula-python.png";
@@ -142,6 +143,11 @@ const Courses = () => {
     }
   };
   return <div className="min-h-screen bg-background">
+    <Seo
+      title="Courses & Workshops"
+      description="Explore STEMise courses, curriculum, workshops, and the learning portal for hands-on STEM education."
+      pathname="/courses"
+    />
     <Header />
     <main>
       {/* Hero Section */}

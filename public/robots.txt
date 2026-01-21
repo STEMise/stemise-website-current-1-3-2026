@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://stemise.org/sitemap.xml
+Sitemap: https://www.stemise.org/sitemap.xml

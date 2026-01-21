@@ -47,6 +47,69 @@ const Seo = ({
     }
   };
 
+  const breadcrumbLabelMap: Record<string, string> = {
+    "/": "Home",
+    "/partners": "Partners",
+    "/donations": "Donations",
+    "/team": "Team",
+    "/courses": "Courses",
+    "/kits": "Kits",
+    "/contact": "Contact"
+  };
+
+  const getBreadcrumbLabel = () => {
+    if (!pathname) {
+      return "Home";
+    }
+
+    if (breadcrumbLabelMap[pathname]) {
+      return breadcrumbLabelMap[pathname];
+    }
+
+    if (title) {
+      return title;
+    }
+
+    return pathname
+      .replace(/^\//, "")
+      .split("/")
+      .filter(Boolean)
+      .join(" ")
+      .replace(/-/g, " ")
+      .replace(/\b\w/g, (char) => char.toUpperCase());
+  };
+
+  const breadcrumbLabel = getBreadcrumbLabel();
+  const breadcrumbList = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${SITE_URL}/`
+      },
+      ...(pathname && pathname !== "/"
+        ? [
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: breadcrumbLabel,
+              item: canonicalUrl
+            }
+          ]
+        : [])
+    ]
+  };
+
+  const webSiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE_NAME,
+    url: SITE_URL
+  };
+
   return (
     <Helmet>
       <title>{pageTitle}</title>
@@ -73,7 +136,11 @@ const Seo = ({
       <meta name="twitter:image:alt" content={`${SITE_NAME} logo`} />
 
       {!noIndex && (
-        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        <>
+          <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+          <script type="application/ld+json">{JSON.stringify(webSiteSchema)}</script>
+          <script type="application/ld+json">{JSON.stringify(breadcrumbList)}</script>
+        </>
       )}
     </Helmet>
   );

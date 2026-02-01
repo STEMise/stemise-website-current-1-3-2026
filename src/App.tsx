@@ -11,6 +11,7 @@ const Donations = lazy(() => import("./pages/Donations"));
 const Courses = lazy(() => import("./pages/Courses"));
 const Kits = lazy(() => import("./pages/Kits"));
 const Contact = lazy(() => import("./pages/Contact"));
+const Timeline = lazy(() => import("./pages/Timeline"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 import ScrollToHash from "@/components/ScrollToHash";
 import PageLoader from "@/components/PageLoader";
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/courses" element={<Courses />} />
             <Route path="/kits" element={<Kits />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/timeline" element={<Timeline />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

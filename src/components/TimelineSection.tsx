@@ -13,58 +13,6 @@ interface Milestone {
     display_order: number;
 }
 
-// Fallback data if Supabase is not configured or fetch fails
-const fallbackMilestones: Milestone[] = [
-    {
-        id: "1",
-        year: "2024",
-        date: "Jan 15",
-        title: "STEMise Founded",
-        description: "The beginning of our journey to make STEM education accessible to everyone.",
-        display_order: 1
-    },
-    {
-        id: "2",
-        year: "2024",
-        date: "Mar 20",
-        title: "First Workshop",
-        description: "Launched our first STEM workshop with 50 students participating.",
-        display_order: 2
-    },
-    {
-        id: "3",
-        year: "2024",
-        date: "Jun 10",
-        title: "Partnership Milestone",
-        description: "Partnered with local schools to expand our reach in the community.",
-        display_order: 3
-    },
-    {
-        id: "4",
-        year: "2024",
-        date: "Sep 05",
-        title: "100 Students Reached",
-        description: "Celebrated reaching 100 students through our programs.",
-        display_order: 4
-    },
-    {
-        id: "5",
-        year: "2025",
-        date: "Jan 01",
-        title: "New Year, New Goals",
-        description: "Expanded our curriculum to include robotics and AI fundamentals.",
-        display_order: 5
-    },
-    {
-        id: "6",
-        year: "2025",
-        date: "Feb 01",
-        title: "Website Launch",
-        description: "Launched our new website to better connect with students and partners.",
-        display_order: 6
-    }
-];
-
 interface TimelineCardProps {
     item: Milestone;
     isRight: boolean;
@@ -106,13 +54,13 @@ const TimelineCard = ({ item, isRight }: TimelineCardProps) => (
 );
 
 const TimelineSection = () => {
-    const [milestones, setMilestones] = useState<Milestone[]>(fallbackMilestones);
+    const [milestones, setMilestones] = useState<Milestone[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchMilestones = async () => {
             if (!isSupabaseConfigured || !supabase) {
-                console.log("Supabase not configured, using fallback data");
+                console.log("Supabase not configured, timeline data unavailable");
                 setLoading(false);
                 return;
             }
@@ -126,7 +74,6 @@ const TimelineSection = () => {
 
                 if (error) {
                     console.error("Error fetching milestones:", error);
-                    // Keep fallback data
                 } else if (data && data.length > 0) {
                     setMilestones(data);
                 }

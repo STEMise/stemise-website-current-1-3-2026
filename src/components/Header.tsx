@@ -19,9 +19,6 @@ const Header = () => {
     to: "/team",
     label: "Team"
   }, {
-    to: "/timeline",
-    label: "Timeline"
-  }, {
     to: "/courses",
     label: "Programs"
   }];

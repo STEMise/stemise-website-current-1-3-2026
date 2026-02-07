@@ -55,12 +55,12 @@ const Donations = () => {
           {/* Main Donation Card - Centered */}
           <div className="flex justify-center mb-20 animate-fade-in-up stagger-2">
             <div className="bg-[#ec3750] rounded-3xl p-10 md:p-14 text-center max-w-lg w-full shadow-2xl shadow-[#ec3750]/20 items-center justify-start px-[40px] py-[30px] mx-0 my-0 flex flex-col gap-0">
-              <img src={hackclubLogo} alt="Hack Club" className="h-14 w-auto mb-6" />
+              <img src={hackclubLogo} alt="Hack Club" className="h-14 w-auto mb-7" />
               <h2 className="text-white text-2xl font-semibold mb-4 md:text-5xl">
                 Donate to STEMise
               </h2>
               <p className="text-white/85 text-base md:text-lg mb-8 leading-relaxed">
-                Support us through Hack Club's fiscal sponsorship. Your donation is 100% tax-deductible.
+                STEMise is fiscally sponsored by The Hack Foundation (d.b.a. Hack Club), a 501(c)(3) nonprofit (EIN: 81-2908499).
               </p>
               <a href="https://hcb.hackclub.com/donations/start/stemise" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 w-full h-14 bg-white hover:bg-white/95 text-[#ec3750] font-semibold rounded-xl transition-all duration-300 text-lg hover:scale-[1.02] hover:shadow-lg">
                 <Heart className="h-5 w-5" />
